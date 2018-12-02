@@ -44,6 +44,7 @@ Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allp
 Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
 Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeController@allproductcode'));
 Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
+Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
 Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
 
 
@@ -51,4 +52,34 @@ Route::post('login',['as'=>'login','uses'=>'loginController@login']);
 Route::post('logout',['as'=>'logout','uses'=>'loginController@logout']);
 
 
+Route::post('savegrntype',['as'=>'savegrntype','uses'=>'grntypeController@save']);
+Route::post('updategrntype',['as'=>'updategrntype','uses'=>'grntypeController@update']);
+Route::post('deletegrntype',['as'=>'deletegrntype','uses'=>'grntypeController@delete']);
 
+Route::post('saveproductcode',['as'=>'saveproductcode','uses'=>'productcodeController@save']);
+Route::post('updateproductcode',['as'=>'updateproductcode','uses'=>'productcodeController@update']);
+Route::post('deleteproductcode',['as'=>'deleteproductcode','uses'=>'productcodeController@delete']);
+
+Route::post('saveproductcategory',['as'=>'saveproductcategory','uses'=>'productcategoryController@save']);
+Route::post('updateproductcategory',['as'=>'updateproductcategory','uses'=>'productcategoryController@update']);
+Route::post('deleteproductcategory',['as'=>'deleteproductcategory','uses'=>'productcategoryController@delete']);
+
+Route::post('savecustomercategory',['as'=>'savecustomercategory','uses'=>'customercategoryController@save']);
+Route::post('updatecustomercategory',['as'=>'updatecustomercategory','uses'=>'customercategoryController@update']);
+Route::post('deletecustomercategory',['as'=>'deletecustomercategory','uses'=>'customercategoryController@delete']);
+
+Route::post('savecustomer',['as'=>'savecustomer','uses'=>'customerController@save']);
+Route::post('updatecustomer',['as'=>'updatecustomer','uses'=>'customerController@update']);
+Route::post('deletecustomer',['as'=>'deletecustomer','uses'=>'customerController@delete']);
+
+Route::post('savesupplier',['as'=>'savesupplier','uses'=>'supplierController@save']);
+Route::post('updatesupplier',['as'=>'updatesupplier','uses'=>'supplierController@update']);
+Route::post('deletesupplier',['as'=>'deletesupplier','uses'=>'supplierController@delete']);
+
+Route::post('savewarehouse',['as'=>'savewarehouse','uses'=>'warehouseController@save']);
+Route::post('updatewarehouse',['as'=>'updatewarehouse','uses'=>'warehouseController@update']);
+Route::post('deletewarehouse',['as'=>'deletewarehouse','uses'=>'warehouseController@delete']);
+
+Route::post('saveproduct',['as'=>'saveproduct','uses'=>'productController@save']);
+Route::post('updateproduct',['as'=>'updateproduct','uses'=>'productController@update']);
+Route::post('deleteproduct',['as'=>'deleteproduct','uses'=>'productController@delete']);

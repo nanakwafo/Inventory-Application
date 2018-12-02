@@ -37,4 +37,10 @@ class productcodeController extends Controller
         return $datatables->make(true);
 
     }
+    
+    public function save(Request $request){
+        Productcode::create($request->all());
+        Session::flash('success','Productcode record Added successfully');
+        return redirect('productcode');
+    }
 }

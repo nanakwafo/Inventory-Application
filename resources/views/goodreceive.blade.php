@@ -206,11 +206,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">GRN Number</label>
-                                        <input type="text" placeholder="Fruits" required="" id="grnnumber">
+                                        <input type="text" placeholder="12345" required="" id="grnnumber">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Date</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="date"  required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
@@ -220,8 +220,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <select id="grntype">
                                         <option value="">Select</option>
                                         @foreach(App\Grntype::all() as $s)
-                                        <option value="{{$s->id}}">{{$s->name}}</option>
-                                            @endforeach
+                                            <option value="{{$s->id}}">{{$s->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
@@ -229,13 +229,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <select id="warehouse_id">
                                         <option value="">Select</option>
                                         @foreach(App\Warehouse::where('purpose','warehouse')->get() as $s)
-                                        <option value="{{$s->id}}">{{$s->name}}</option>
-                                            @endforeach
+                                            <option value="{{$s->id}}">{{$s->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                                 <div class="col-md-12 form-group1 ">
-                                    <label class="control-label">Description</label>
+                                    <label class="control-label">Remark</label>
                                     <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
                                 </div>
                                 <div class="clearfix"> </div>
@@ -255,41 +255,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!---->
 
 
-                                <div class="vali-form">
-                                    <div class="col-md-12 form-group2 group-mail">
-                                        <label class="control-label">Supplier</label>
-                                        <select id="supplier_id">
-                                            <option value="">Select Supplier</option>
-                                            @foreach(App\Supplier::all() as $s)
+                            <div class="vali-form">
+                                <div class="col-md-12 form-group2 group-mail">
+                                    <label class="control-label">Supplier</label>
+                                    <select id="supplier_id">
+                                        <option value="">Select Supplier</option>
+                                        @foreach(App\Supplier::all() as $s)
                                             <option value="{{$s->id}}">{{$s->name}}</option>
-                                                @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <span id="attention"></span>
-
-                                        <table class="table table-hover table-inverse">
-                                            <thead>
-                                            <tr>
-                                                <th>Product</th>
-                                                <th >quantity</th>
-                                                <th>Desciption</th>
-                                                <th>Unit</th>
-                                                <th> <button type="button" class="btn btn-default " id="addnew" ><i class="fa fa-plus-circle" aria-hidden="true"></i></button></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="data"></tbody>
-
-                                        </table>
-                                        <div class="col-md-12 form-group">
-                                            <button type="submit" class="btn btn-default">Submit</button>
-                                            <button type="reset" class="btn btn-default">Reset</button>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
+                                        @endforeach
+                                    </select>
                                 </div>
-                               <div class="clearfix"> </div>
+
+                                <div class="col-md-12">
+                                    <span id="attention"></span>
+
+                                    <table class="table table-hover table-inverse">
+                                        <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th >quantity</th>
+                                            <th>Desciption</th>
+                                            <th>Unit</th>
+                                            <th> <button type="button" class="btn btn-default " id="addnew" ><i class="fa fa-plus-circle" aria-hidden="true"></i></button></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="data"></tbody>
+
+                                    </table>
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
 
 
                             <!---->
@@ -305,6 +305,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 </div>
                 <div class="clearfix"> </div>
+
+
+                <div class="col-md-12 ">
+                       <table class="table table-bordered " id="warehousestat-table">
+                           <thead>
+                           <tr>
+                               <th style="background-color: white;color: black">Warehouse </th>
+                               <th style="background-color: white;color: black">Product Name</th>
+                               <th style="background-color: white;color: black">Quantity Left</th>
+
+                           </tr>
+                           </thead>
+                       </table>
+
+
+
+                   </div>
+                   <div class="clearfix"> </div>
+
 
             </div>
             <!---->
@@ -389,6 +408,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     }
 
+</script>
+<script>
+    $(function() {
+        $('#warehousestat-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('allwarehouseproductstats') !!}',
+            columns: [
+                { data: 'warehousename', name: 'warehousename'},
+                { data: 'productname', name: 'productname' },
+                { data: 'quantityleft', name: 'quantityleft' },
+
+            ]
+        });
+    });
 </script>
 </body>
 </html>

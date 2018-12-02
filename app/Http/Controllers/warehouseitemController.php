@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AppHelper;
 use App\Product;
 use App\Productcategory;
 use App\Productcode;
@@ -33,6 +34,22 @@ class warehouseitemController extends Controller
             $obj->productcategory = Productcategory::find($w->productcategory_id)->name;
             $obj->description = $w->description;
             $obj->quantity = $w->quantity;
+            $data[] = $obj;
+        }
+        $warehouseitems_sorted = new Collection($data);
+
+        return Datatables::of($warehouseitems_sorted)->make(true);
+    }
+
+    public function getwarehouseproductstats(){
+        $warehouseitems = Warehouseitem::select('warehouse_id','productcode')->groupBy('warehouse_id','productcode')->get();
+
+        $data  = [];
+        foreach ($warehouseitems as $w) {
+            $obj = new \stdClass;
+            $obj->warehousename = Warehouse::find($w->warehouse_id)->name;
+            $obj->productname = Productcode::find($w->productcode)->name;
+            $obj->quantityleft = AppHelper::get_remaining_product_from_warehouse($w->warehouse_id,$w->productcode);
             $data[] = $obj;
         }
         $warehouseitems_sorted = new Collection($data);
