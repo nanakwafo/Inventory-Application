@@ -6,6 +6,7 @@ use App\Productcode;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class productcodeController extends Controller
 {
     //

@@ -195,16 +195,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
                             <!---->
 
-                            <form>
+                            <form method="post" action="savecustomercategory">
+                                {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Customer Category Name</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="name" required="">
                                     </div>
 
                                     <div class="clearfix"> </div>
@@ -214,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="col-md-12 form-group1 ">
                                     <label class="control-label">Description</label>
-                                    <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
+                                    <textarea name="description"  required=""></textarea>
                                 </div>
                                 <div class="clearfix"> </div>
 

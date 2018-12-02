@@ -6,6 +6,7 @@ use App\Customer;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class customerController extends Controller
 {
     //
@@ -41,5 +42,10 @@ class customerController extends Controller
        
         return $datatables->make(true);
 
+    }
+    public function save(Request $request){
+        Customer::create($request->all());
+        Session::flash('success','Customer  record Added successfully');
+        return redirect('customer');
     }
 }

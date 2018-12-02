@@ -197,6 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">

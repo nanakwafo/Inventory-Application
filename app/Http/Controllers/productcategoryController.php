@@ -6,6 +6,7 @@ use App\Productcategory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class productcategoryController extends Controller
 {
     //
@@ -43,5 +44,11 @@ class productcategoryController extends Controller
           
         return $datatables->make(true);
 
+    }
+
+    public function save(Request $request){
+        Productcategory::create($request->all());
+        Session::flash('success','Product category record Added successfully');
+        return redirect('productcategory');
     }
 }

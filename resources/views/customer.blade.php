@@ -197,31 +197,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
                             <!---->
 
-                            <form>
+                            <form action="savecustomer" method="post">
+                                {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Customer Name</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="name" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Phone number</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="phonenumber" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Address</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="address" required="">
                                     </div>
 
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Customer Category</label>
-                                    <select>
+                                    <select name="customercategory_id">
                                         <option value="">Select</option>
                                         @foreach(\App\Customercategory::all() as $s)
                                         <option value="{{$s->id}}">{{$s->name}}</option>
@@ -231,7 +233,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="col-md-12 form-group">
                                     <button type="submit" class="btn btn-default">Submit</button>
-                                    <button type="reset" class="btn btn-default">Reset</button>
+
                                 </div>
                                 <div class="clearfix"> </div>
                             </form>

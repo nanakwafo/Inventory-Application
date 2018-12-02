@@ -198,20 +198,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
                             <!---->
 
-                            <form>
+                            <form method="post" action="saveproduct">
+                                {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Receive date</label>
-                                        <input type="date" placeholder="Fruits" required="">
+                                        <input type="date" name="datereceived" required="">
                                     </div>
                                     <div class="col-md-12 form-group2 group-mail">
                                         <label class="control-label">Product Category</label>
-                                        <select>
+                                        <select name="productcategory_id">
                                             <option value="">Select</option>
                                             @foreach(\App\Productcategory::all() as $s)
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -220,7 +222,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-12 form-group2 group-mail">
                                         <label class="control-label">Product Code</label>
-                                        <select>
+                                        <select name="productcode">
                                             <option value="">Select</option>
                                             @foreach(\App\Productcode::all() as $s)
                                                 <option value="{{$s->productcode}}">{{$s->name .'-'. $s->productcode}}</option>
@@ -230,22 +232,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Unit Price</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="unit" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Quantity</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="quantity" required="">
                                     </div>
 
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Pay amount</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="payamount" required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Supplier</label>
-                                    <select>
+                                    <select name="supplier_id">
                                         <option value="">Select</option>
                                         @foreach(\App\Supplier::all() as $s)
                                         <option value="{{$s->id}}">{{$s->name}}</option>
@@ -254,13 +256,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="col-md-12 form-group1 ">
                                     <label class="control-label">Remark</label>
-                                    <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
+                                    <textarea  name="remark" required=""></textarea>
                                 </div>
                                 <div class="clearfix"> </div>
 
                                 <div class="col-md-12 form-group">
                                     <button type="submit" class="btn btn-default">Submit</button>
-                                    <button type="reset" class="btn btn-default">Reset</button>
+
                                 </div>
                                 <div class="clearfix"> </div>
                             </form>

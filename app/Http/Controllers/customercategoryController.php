@@ -6,6 +6,7 @@ use App\Customercategory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class customercategoryController extends Controller
 {
     //
@@ -46,5 +47,10 @@ class customercategoryController extends Controller
         
         return $datatables->make(true);
 
+    }
+    public function save(Request $request){
+        Customercategory::create($request->all());
+        Session::flash('success','Customer category record Added successfully');
+        return redirect('customercategory');
     }
 }

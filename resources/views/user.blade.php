@@ -208,22 +208,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">First Nane</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text"  required="">
                                     </div>
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Last Nane</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text"  required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="vali-form">
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Email</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text"  required="">
                                     </div>
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Phone Number</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text"  required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
@@ -231,11 +231,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Username</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" required="">
                                     </div>
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Password</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text"  required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>

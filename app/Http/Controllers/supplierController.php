@@ -6,6 +6,7 @@ use App\Supplier;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class supplierController extends Controller
 {
     //
@@ -37,5 +38,10 @@ class supplierController extends Controller
        
         return $datatables->make(true);
 
+    }
+    public function save(Request $request){
+        Supplier::create($request->all());
+        Session::flash('success','Suppplier record Added successfully');
+        return redirect('supplier');
     }
 }

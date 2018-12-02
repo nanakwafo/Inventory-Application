@@ -6,6 +6,7 @@ use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class userController extends Controller
 {
     //

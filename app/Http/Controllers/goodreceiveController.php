@@ -6,7 +6,7 @@ use App\Product;
 use App\Productcode;
 use App\Warehouseitem;
 use Illuminate\Http\Request;
-
+use Session;
 class goodreceiveController extends Controller
 {
     //

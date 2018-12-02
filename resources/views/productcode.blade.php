@@ -197,22 +197,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
                             <!---->
 
-                            <form>
+                            <form action="saveproductcode" method="post">
+                                {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Product  Name</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="name" required="">
                                     </div>
 
                                     <div class="clearfix"> </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Productcode</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="productcode" required="">
                                     </div>
 
                                     <div class="clearfix"> </div>
@@ -221,7 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="col-md-12 form-group">
                                     <button type="submit" class="btn btn-default">Submit</button>
-                                    <button type="reset" class="btn btn-default">Reset</button>
+
                                 </div>
                                 <div class="clearfix"> </div>
                             </form>

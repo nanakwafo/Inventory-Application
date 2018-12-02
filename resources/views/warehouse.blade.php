@@ -198,27 +198,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
                             <!---->
 
-                            <form>
+                            <form method="post" action="savewarehouse">
+                                {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Warehouse Name</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="name" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Location</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="location" required="">
                                     </div>
 
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Purpose</label>
-                                    <select>
+                                    <select name="purpose">
+                                        <option value="">Select</option>
                                         <option value="store">Store</option>
                                         <option value="warehouse">Warehouse</option>
                                     </select>
@@ -228,13 +231,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="col-md-12 form-group1 ">
                                     <label class="control-label">Description</label>
-                                    <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
+                                    <textarea  name="description" required=""></textarea>
                                 </div>
                                 <div class="clearfix"> </div>
 
                                 <div class="col-md-12 form-group">
                                     <button type="submit" class="btn btn-default">Submit</button>
-                                    <button type="reset" class="btn btn-default">Reset</button>
+
                                 </div>
                                 <div class="clearfix"> </div>
                             </form>

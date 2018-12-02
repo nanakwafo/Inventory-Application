@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class warehouseitemController extends Controller
 {
     //

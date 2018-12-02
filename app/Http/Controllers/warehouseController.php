@@ -6,6 +6,7 @@ use App\Warehouse;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use DB;
+use Session;
 class warehouseController extends Controller
 {
     //
@@ -36,5 +37,10 @@ class warehouseController extends Controller
 
         return $datatables->make(true);
 
+    }
+    public function save(Request $request){
+        Warehouse::create($request->all());
+        Session::flash('success','Warehouse record Added successfully');
+        return redirect('warehouse');
     }
 }

@@ -7,7 +7,7 @@ use App\Storeitem;
 use App\Warehouse;
 use App\Warehouseitem;
 use Illuminate\Http\Request;
-
+use Session;
 class goodissueController extends Controller
 {
     //
