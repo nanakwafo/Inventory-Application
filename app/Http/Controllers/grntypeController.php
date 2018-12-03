@@ -48,4 +48,10 @@ class grntypeController extends Controller
         Session::flash('success','Grntype record updated successfully');
         return redirect('grntype');
     }
+    public function delete(Request $request){
+        Grntype::find($request->idDelete)->delete();
+        Session::flash('success','Grntype deleted successfully');
+        return redirect('grntype');
+    }
+
 }

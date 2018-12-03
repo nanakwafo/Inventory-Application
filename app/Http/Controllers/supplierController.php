@@ -53,6 +53,11 @@ class supplierController extends Controller
         $address->description = $request->descriptionEdit;
         $address->save();
         Session::flash('success','Supplier record updated successfully');
-        return redirect('product');
+        return redirect('supplier');
+    }
+    public function delete(Request $request){
+        Supplier::find($request->idDelete)->delete();
+        Session::flash('success','Supplier deleted successfully');
+        return redirect('supplier');
     }
 }

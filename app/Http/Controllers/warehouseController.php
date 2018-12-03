@@ -49,10 +49,13 @@ class warehouseController extends Controller
         $warehouse->location = $request->locationEdit;
         $warehouse->purpose = $request->purposeEdit;
         $warehouse->description = $request->descriptionEdit;
-      
         $warehouse->save();
-        Session::flash('success','Warehouse  record updated successfully');
-        return redirect('product');
+        Session::flash('success','Warehouse record updated successfully');
+        return redirect('warehouse');
     }
-    
+    public function delete(Request $request){
+        Warehouse::find($request->idDelete)->delete();
+        Session::flash('success','Warehouse deleted successfully');
+        return redirect('warehouse');
+    }
 }

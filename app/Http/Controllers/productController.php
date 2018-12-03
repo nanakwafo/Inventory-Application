@@ -60,4 +60,9 @@ class productController extends Controller
         Session::flash('success','Product  record updated successfully');
         return redirect('product');
     }
+    public function delete(Request $request){
+        Product::find($request->idDelete)->delete();
+        Session::flash('success','Product deleted successfully');
+        return redirect('product');
+    }
 }

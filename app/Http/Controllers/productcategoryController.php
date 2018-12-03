@@ -59,4 +59,10 @@ class productcategoryController extends Controller
         Session::flash('success','Customer category record updated successfully');
         return redirect('productcategory');
     }
+    public function delete(Request $request){
+        Productcategory::find($request->idDelete)->delete();
+        Session::flash('success','Product Category deleted successfully');
+        return redirect('productcategory');
+    }
+
 }

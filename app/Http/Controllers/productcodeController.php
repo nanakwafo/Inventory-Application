@@ -50,6 +50,12 @@ class productcodeController extends Controller
         $productcode->productcode = $request->productcodeEdit;
         $productcode->save();
         Session::flash('success','Productcode record updated successfully');
-        return redirect('productcategory');
+        return redirect('productcode');
     }
+    public function delete(Request $request){
+        Productcode::find($request->idDelete)->delete();
+        Session::flash('success','Productcode deleted successfully');
+        return redirect('productcode');
+    }
+
 }
