@@ -36,8 +36,8 @@ class productcategoryController extends Controller
             })
             ->addColumn('action', function ($productcategory) {
                 return '
-                  <a href="#edit-'.$productcategory->id.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#edit-'.$productcategory->id.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" data-id="'.$productcategory->id.'" data-name="'.$productcategory->name.'" data-description="'.$productcategory->description.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" data-id="'.$productcategory->id.'" data-name="'.$productcategory->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             });
 
@@ -49,6 +49,14 @@ class productcategoryController extends Controller
     public function save(Request $request){
         Productcategory::create($request->all());
         Session::flash('success','Product category record Added successfully');
+        return redirect('productcategory');
+    }
+    public function update(Request $request){
+        $productcategory =Productcategory::find($request->idEdit);
+        $productcategory->name = $request->nameEdit;
+        $productcategory->description = $request->descriptionEdit;
+        $productcategory->save();
+        Session::flash('success','Customer category record updated successfully');
         return redirect('productcategory');
     }
 }

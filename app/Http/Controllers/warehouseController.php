@@ -30,9 +30,9 @@ class warehouseController extends Controller
            
             ->addColumn('action', function ($warehouse) {
                 return '
-                  <a href="#edit-'.$warehouse->id.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#edit-'.$warehouse->id.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
-                  ';
+                    <a href="#" data-id="'.$warehouse->id.'" data-name="'.$warehouse->name.'" data-location="'.$warehouse->location.'" data-purpose="'.$warehouse->purpose.'" data-description="'.$warehouse->description.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                    <a href="#" data-id="'.$warehouse->id.'" data-name="'.$warehouse->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                   ';
             });
 
         return $datatables->make(true);
@@ -43,4 +43,16 @@ class warehouseController extends Controller
         Session::flash('success','Warehouse record Added successfully');
         return redirect('warehouse');
     }
+    public function update(Request $request){
+        $warehouse =Warehouse::find($request->idEdit);
+        $warehouse->name = $request->nameEdit;
+        $warehouse->location = $request->locationEdit;
+        $warehouse->purpose = $request->purposeEdit;
+        $warehouse->description = $request->descriptionEdit;
+      
+        $warehouse->save();
+        Session::flash('success','Warehouse  record updated successfully');
+        return redirect('product');
+    }
+    
 }

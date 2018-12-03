@@ -41,7 +41,18 @@ class supplierController extends Controller
     }
     public function save(Request $request){
         Supplier::create($request->all());
-        Session::flash('success','Suppplier record Added successfully');
+        Session::flash('success','Supplier record Added successfully');
         return redirect('supplier');
+    }
+
+    public function update(Request $request){
+        $address =Supplier::find($request->idEdit);
+        $address->name = $request->nameEdit;
+        $address->phonenumber = $request->phonenumberEdit;
+        $address->address = $request->addressEdit;
+        $address->description = $request->descriptionEdit;
+        $address->save();
+        Session::flash('success','Supplier record updated successfully');
+        return redirect('product');
     }
 }

@@ -38,9 +38,9 @@ class customercategoryController extends Controller
             })
             ->addColumn('action', function ($customercategory) {
                 return '
-                   <a href="#edit-'.$customercategory->id.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#edit-'.$customercategory->id.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
-               
+                   <a href="#" data-id="'.$customercategory->id.'" data-name="'.$customercategory->name.'" name-description="'.$customercategory->description.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                   <a href="#" data-name="'.$customercategory->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+              
                   
                   ';
             });
@@ -53,4 +53,13 @@ class customercategoryController extends Controller
         Session::flash('success','Customer category record Added successfully');
         return redirect('customercategory');
     }
+    public function update(Request $request){
+        $customercategory =Customercategory::find($request->idEdit);
+        $customercategory->name = $request->nameEdit;
+        $customercategory->description = $request->descriptionEdit;
+        $customercategory->save();
+        Session::flash('success','Customer category record updated successfully');
+        return redirect('customercategory');
+    }
+
 }

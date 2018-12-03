@@ -30,8 +30,8 @@ class customerController extends Controller
 
             ->addColumn('action', function ($customer) {
                 return '
-                  <a href="#edit-'.$customer->id.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#edit-'.$customer->id.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" data-id="'.$customer->id.'" data-name="'.$customer->name.'" data-phonenumber="'.$customer->phonenumber.'" data-address="'.$customer->address.'" data-customercategory_id="'.$customer->customercategory_id.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             })
         ->addColumn('customercategory', function ($customer) {
@@ -45,7 +45,17 @@ class customerController extends Controller
     }
     public function save(Request $request){
         Customer::create($request->all());
-        Session::flash('success','Customer  record Added successfully');
+        Session::flash('success','Customer record Added successfully');
+        return redirect('customer');
+    }
+    public function update(Request $request){
+        $customer =Customer::find($request->idEdit);
+        $customer->name = $request->nameEdit;
+        $customer->phonenumber = $request->phonenumberEdit;
+        $customer->address = $request->addressEdit;
+        $customer->customercategory_id = $request->customercategory_idEdit;
+        $customer->save();
+        Session::flash('success','Customer category record updated successfully');
         return redirect('customer');
     }
 }
