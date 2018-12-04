@@ -26,7 +26,7 @@ class grntypeController extends Controller
           
             ->addColumn('action', function ($grntype) {
                 return '
-                  <a href="#" class="editbtn" data-id="'.$grntype->id.'" data-name="'.$grntype->name.'"  ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="editbtn" data-id="'.$grntype->id.'" data-name="'.$grntype->name.'" data-toggle="modal"  data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
                   <a href="#" class="deletebtn" data-id="'.$grntype->id.'" data-name="'.$grntype->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             });

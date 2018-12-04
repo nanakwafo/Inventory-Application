@@ -254,37 +254,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Edit Product Category Details</h4></center>
+                                <center><h4 class="modal-title">Edit Details</h4></center>
                             </div>
                             <div class="modal-body">
                                 <div class="validation-system">
 
-                                    <div class="validation-form">
-                                        <!---->
+
 
                                         <form>
-                                            <div class="vali-form">
+
                                                 <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Product Category Name</label>
-                                                    <input type="text" placeholder="Fruits" required="">
+                                                    <label class="control-label">Product  Name</label>
+                                                    <input type="text"id="nameEdit" name="nameEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
-                                            </div>
+                                                <div class="col-md-12 form-group1">
+                                                    <label class="control-label">Productcode</label>
+                                                    <input type="text" id="productcodeEdit" name="productcodeEdit" required="">
+                                                </div>
 
-
-
-                                            <div class="col-md-12 form-group1 ">
-                                                <label class="control-label">Description</label>
-                                                <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
-                                            </div>
-                                            <div class="clearfix"> </div>
+                                                <div class="clearfix"> </div>
 
 
                                         </form>
 
-                                        <!---->
-                                    </div>
+
 
                                 </div>
                             </div>

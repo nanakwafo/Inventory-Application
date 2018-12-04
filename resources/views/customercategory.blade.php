@@ -258,14 +258,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="modal-body">
                                 <div class="validation-system">
 
-                                    <div class="validation-form">
-                                        <!---->
 
                                         <form>
                                             <div class="vali-form">
                                                 <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Product Category Name</label>
-                                                    <input type="text" placeholder="Fruits" required="">
+                                                    <label class="control-label">Customer Name</label>
+                                                    <input type="text" id="nameEdit" name="nameEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
@@ -275,15 +273,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="col-md-12 form-group1 ">
                                                 <label class="control-label">Description</label>
-                                                <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
+                                                <textarea id="descriptionEdit" name="descriptionEdit"  required=""></textarea>
                                             </div>
                                             <div class="clearfix"> </div>
 
-
                                         </form>
 
-                                        <!---->
-                                    </div>
+
 
                                 </div>
                             </div>

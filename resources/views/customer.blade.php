@@ -266,37 +266,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Edit Product Category Details</h4></center>
+                                <center><h4 class="modal-title">Edit Details</h4></center>
                             </div>
                             <div class="modal-body">
                                 <div class="validation-system">
 
-                                    <div class="validation-form">
-                                        <!---->
 
                                         <form>
-                                            <div class="vali-form">
+
                                                 <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Product Category Name</label>
-                                                    <input type="text" placeholder="Fruits" required="">
+                                                    <label class="control-label">Customer Name</label>
+                                                    <input type="text"  id="nameEdit" name="nameEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
-                                            </div>
 
+                                            <div class="col-md-12 form-group1">
+                                                    <label class="control-label">Phone number</label>
+                                                    <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
+                                                </div>
 
+                                                <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group1 ">
-                                                <label class="control-label">Description</label>
-                                                <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
+                                            <div class="col-md-12 form-group1">
+                                                    <label class="control-label">Address</label>
+                                                    <input type="text"  id="addressEdit" name="addressEdit" required="">
+                                                </div>
+
+                                                <div class="clearfix"> </div>
+
+                                            <div class="col-md-12 form-group2 group-mail">
+                                                <label class="control-label">Customer Category</label>
+                                                <select id="customercategory_idEdit" name="customercategory_idEdit">
+                                                    <option value="">Select</option>
+                                                    @foreach(\App\Customercategory::all() as $s)
+                                                        <option value="{{$s->id}}">{{$s->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="clearfix"> </div>
 
-
                                         </form>
 
-                                        <!---->
-                                    </div>
+
 
                                 </div>
                             </div>
