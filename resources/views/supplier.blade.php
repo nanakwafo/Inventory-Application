@@ -268,7 +268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                         <form method="post" action="updatesupplier">
-
+                                            <input id="idEdit" name="idEdit" type="hidden"/>
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Supplier Name</label>
                                                     <input type="text" id="nameEdit" name="nameEdit" required="">
@@ -373,7 +373,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#descriptionEdit').val($(this).data('description'));
         $('#addressEdit').val($(this).data('address'));
         $('#phonenumberEdit').val($(this).data('phonenumber'));
-//        $('#idEdit').val($(this).data('id'));
+        $('#idEdit').val($(this).data('id'));
 
 
     });

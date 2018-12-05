@@ -273,7 +273,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                         <form method="post" action="updatecustomer">
-
+                                            <input id="idEdit" name="idEdit" type="hidden"/>
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Customer Name</label>
                                                     <input type="text"  id="nameEdit" name="nameEdit" required="">

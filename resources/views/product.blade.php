@@ -302,6 +302,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                         <form method="post" action="updateproduct">
+                                            <input id="idEdit" name="idEdit" type="hidden"/>
                                             <div class="vali-form">
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Receive date</label>

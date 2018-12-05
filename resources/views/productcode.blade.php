@@ -262,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                         <form method="post" action="updateproductcode">
-
+                                            <input id="idEdit" name="idEdit" type="hidden"/>
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Product  Name</label>
                                                     <input type="text" id="nameEdit" name="nameEdit" required="">
@@ -359,7 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#nameEdit').val($(this).data('name'));
         $('#productcodeEdit').val($(this).data('productcode'));
 //        $('#addressEdit').val($(this).data('address'));
-//        $('#idEdit').val($(this).data('id'));
+        $('#idEdit').val($(this).data('id'));
 
 
     });
