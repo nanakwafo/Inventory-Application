@@ -36,8 +36,8 @@ class productcategoryController extends Controller
             })
             ->addColumn('action', function ($productcategory) {
                 return '
-                  <a href="#" data-id="'.$productcategory->id.'" data-name="'.$productcategory->name.'" data-description="'.$productcategory->description.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" data-id="'.$productcategory->id.'" data-name="'.$productcategory->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" class="editbtn" data-id="'.$productcategory->id.'" data-name="'.$productcategory->name.'" data-description="'.$productcategory->description.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-id="'.$productcategory->id.'" data-name="'.$productcategory->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             });
 

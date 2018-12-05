@@ -261,7 +261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="modal-body">
                                 <div class="validation-system">
 
-                                        <form>
+                                        <form method="post" action="updateproductcategory">
 
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Product Category Name</label>
@@ -301,10 +301,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Remove Product Category</h4></center>
+                                <center><h4 class="modal-title">Remove </h4></center>
                             </div>
                             <div class="modal-body">
-
+                                <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
+                                <input type="hidden" id="idDelete" name="idDelete"/>
                             </div>
                             <div class="modal-footer">
                                 <div class="col-md-12 form-group">
@@ -353,6 +354,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 { data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
+    });
+</script>
+<script>
+    $(document).on('click','.editbtn',function(){
+        $('#nameEdit').val($(this).data('name'));
+        $('#descriptionEdit').val($(this).data('description'));
+//        $('#addressEdit').val($(this).data('address'));
+//        $('#idEdit').val($(this).data('id'));
+
+
+    });
+</script>
+<script>
+    $(document).on('click','.deletebtn',function() {
+        $('#idDelete').val($(this).data('id'));
+        $("#nameDelete").html($(this).data('name'));
+
     });
 </script>
 </body>

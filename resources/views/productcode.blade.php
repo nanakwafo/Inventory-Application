@@ -261,11 +261,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-                                        <form>
+                                        <form method="post" action="updateproductcode">
 
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Product  Name</label>
-                                                    <input type="text"id="nameEdit" name="nameEdit" required="">
+                                                    <input type="text" id="nameEdit" name="nameEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
@@ -299,10 +299,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Remove Product Category</h4></center>
+                                <center><h4 class="modal-title">Remove </h4></center>
                             </div>
                             <div class="modal-body">
-
+                                <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
+                                <input type="hidden" id="idDelete" name="idDelete"/>
                             </div>
                             <div class="modal-footer">
                                 <div class="col-md-12 form-group">
@@ -352,6 +353,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     });
 </script>
+
+<script>
+    $(document).on('click','.editbtn',function(){
+        $('#nameEdit').val($(this).data('name'));
+        $('#productcodeEdit').val($(this).data('productcode'));
+//        $('#addressEdit').val($(this).data('address'));
+//        $('#idEdit').val($(this).data('id'));
+
+
+    });
+</script>
+<script>
+    $(document).on('click','.deletebtn',function() {
+        $('#idDelete').val($(this).data('id'));
+        $("#nameDelete").html($(this).data('name'));
+
+    });
+</script>
+
 </body>
 </html>
 

@@ -33,8 +33,8 @@ class productController extends Controller
 
             ->addColumn('action', function ($product) {
                 return '
-                  <a href="#" data-id="'.$product->id.'" data-datereceived="'.$product->datereceived.'" data-productcode="'.$product->productcode.'" data-productcategory_id="'.$product->productcategory_id.'" data-unit="'.$product->unit.'" data-payamount="'.$product->payamount.'" data-quantity="'.$product->quantity.'" data-supplier_id="'.$product->supplier_id.'" data-remark="'.$product->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" data-id="'.$product->id.'" data-productcode="'.$product->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" class="editbtn" data-id="'.$product->id.'" data-datereceived="'.$product->datereceived.'" data-productcode="'.$product->productcode.'" data-productcategory_id="'.$product->productcategory_id.'" data-unit="'.$product->unit.'" data-payamount="'.$product->payamount.'" data-quantity="'.$product->quantity.'" data-supplier_id="'.$product->supplier_id.'" data-remark="'.$product->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-id="'.$product->id.'" data-productcode="'.$product->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             });
 

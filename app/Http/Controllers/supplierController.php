@@ -30,8 +30,8 @@ class supplierController extends Controller
 
             ->addColumn('action', function ($supplier) {
                 return '
-                  <a href="#edit-'.$supplier->id.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#edit-'.$supplier->id.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" data-id="'.$supplier->id.'" data-name="'.$supplier->name.'" data-phonenumber="'.$supplier->phonenumber.'" data-address="'.$supplier->address.'" data-description="'.$supplier->description.'" class="editbtn" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" data-id="'.$supplier->id.'" data-name="'.$supplier->name.'" class="deletebtn" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             });
 

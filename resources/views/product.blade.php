@@ -301,7 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="validation-system">
 
 
-                                        <form>
+                                        <form method="post" action="updateproduct">
                                             <div class="vali-form">
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Receive date</label>
@@ -501,6 +501,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         {{--});--}}
     {{--});--}}
 {{--</script>--}}
+<script>
+    $(document).on('click','.editbtn',function(){
+        $('#nameEdit').val($(this).data('name'));
+        $('#datereceivedEdit').val($(this).data('datereceived'));
+        $('#barcodeEdit').val($(this).data('barcode'));
+        $('#productcodeEdit').val($(this).data('productcode'));
+        $('#quantityEdit').val($(this).data('quantity'));
+        $('#discountEdit').val($(this).data('discount'));
+        $('#payamountEdit').val($(this).data('payamount'));
+        $('#remarkEdit').val($(this).data('remark'));
+        $('#unitEdit').val($(this).data('unit'));
+        $('#supplier_idEdit').val($(this).data('supplier_id'));
+        $('#idEdit').val($(this).data('id'));
+
+
+    });
+</script>
+<script>
+    $(document).on('click','.deletebtn',function() {
+        $('#idDelete').val($(this).data('id'));
+        $("#nameDelete").html($(this).data('name'));
+
+    });
+</script>
 </body>
 </html>
 
