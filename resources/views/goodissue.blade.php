@@ -157,14 +157,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             </ul>
                         </li>
-
                         <li>
-                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Sales</span><span class="fa arrow"></span></a>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i> <span class="nav-label">Sales</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="order" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Order</a></li>
-                                <li><a href="bill" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>Bill</a></li>
+                                <li><a href="order" class=" hvr-bounce-to-right"> <i class="fa fa-shopping-cart nav_icon"></i>Add Order</a></li>
+                                <li><a href="manageorder" class=" hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Manage Order</a></li>
                             </ul>
                         </li>
+
                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -195,15 +195,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--content-->
             <div class="content-top">
 
-
+                <form id="" method="post" action="savegoodissue">
+                    {{csrf_field()}}
                 <div class="col-md-4 ">
                     @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
-                            <!---->
 
-                            <form>
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">ADD Number</label>
@@ -211,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Date</label>
-                                        <input type="date" type="date" required="">
+                                        <input type="date" name="adddate" required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
@@ -219,8 +218,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">ADD Type</label>
                                     <select name="addtype">
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
+                                        <option value="from warehouse">From warehouse</option>
+
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
@@ -236,15 +235,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="col-md-12 form-group1 ">
                                     <label class="control-label">Description</label>
-                                    <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
+                                    <textarea  name="remark" required=""></textarea>
                                 </div>
                                 <div class="clearfix"> </div>
 
-
-                            </form>
-
-                            <!---->
                         </div>
+
+
 
                     </div>
                 </div>
@@ -258,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="vali-form">
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Store To</label>
-                                    <select id="store_to">
+                                    <select id="store_to" name="warehouse_to_id">
                                         <option value="">Select</option>
                                             @foreach(App\Warehouse::where('purpose','store')->get() as $s)
                                             <option value="{{$s->id}}">{{$s->name}}</option>
@@ -267,10 +264,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="col-md-12">
                                     <span id="attention"></span>
+                                    <input type="hidden" id="number_of_items" name="number_of_items" value="0" />
                                     <table class="table table-hover table-inverse">
                                         <thead>
                                         <tr>
                                             <th>Product</th>
+                                            <th>Rate</th>
                                             <th>quantity</th>
                                             <th>Desciption</th>
                                             <th>Unit</th>
@@ -278,7 +277,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </tr>
                                         </thead>
                                         <tbody id="data"></tbody>
-                                    </table>
+                                    </table><br>
                                     <div class="col-md-12 form-group">
                                         <button type="submit" class="btn btn-default">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
@@ -301,6 +300,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 </div>
+                </form>
                 <div class="clearfix"> </div>
                 <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
@@ -392,7 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//scrolling js-->
 <script src="js/bootstrap.min.js"> </script>
 
-<script src="js/jquery.dataTables.min.js"></script
+<script src="js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script type="text/javascript">
@@ -420,6 +420,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             var strToAdd='<tr class="item">' +
                     '<td><div class="form-group"><select name="product[]" class="form-control" onchange="getquantity(this);"  >'+product+'</select> </div></td>' +
+                    '<td><div class="form-group"><input name="rate[]" class="form-control" type="number" /> </div> </td> ' +
                     '<td><div class="form-group"><input name="quantity[]" class="form-control" type="number" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="description[]" class="form-control"  type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="unit[]" class="form-control"  type="text" /> </div> </td>' +

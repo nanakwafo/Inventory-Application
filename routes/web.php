@@ -28,6 +28,7 @@ Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']
 Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);
 Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
 Route::get('grntype',['as'=>'grntype','uses'=>'grntypeController@index']);
+Route::get('order',['as'=>'order','uses'=>'orderController@index']);
 Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
 Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);
 Route::get('warehouseproductselectbox/{warehouse_id}',['as'=>'warehouseproductselectbox','uses'=>'goodissueController@warehouseproductselectbox']);
@@ -86,3 +87,4 @@ Route::post('deleteproduct',['as'=>'deleteproduct','uses'=>'productController@de
 
 
 Route::post('savegoodreceive',['as'=>'savegoodreceive','uses'=>'goodreceiveController@save']);
+Route::post('savegoodissue',['as'=>'savegoodissue','uses'=>'goodissueController@save']);

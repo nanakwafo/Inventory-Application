@@ -20,6 +20,7 @@ class CreateStoreitemsTable extends Migration
             $table->integer('warehouse_issue_from');
             $table->integer('store_issue_to');
             $table->integer('productcode');
+            $table->integer('rate');
             $table->text('description');
             $table->string('unit');
             

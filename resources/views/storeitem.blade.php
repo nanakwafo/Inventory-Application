@@ -160,12 +160,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                         <li>
-                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Sales</span><span class="fa arrow"></span></a>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i> <span class="nav-label">Sales</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="order" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Order</a></li>
-                                <li><a href="bill" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>Bill</a></li>
+                                <li><a href="order" class=" hvr-bounce-to-right"> <i class="fa fa-shopping-cart nav_icon"></i>Add Order</a></li>
+                                <li><a href="manageorder" class=" hvr-bounce-to-right"><i class="fa fa-pencil-square-o nav_icon"></i>Manage Order</a></li>
                             </ul>
                         </li>
+
                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -205,7 +206,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">Warehouse From</th>
                             <th style="background-color: white;color: black">Store To</th>
                             <th style="background-color: white;color: black">Product</th>
-                            <th style="background-color: white;color: black">Product Category</th>
+                            <th style="background-color: white;color: black">Rate</th>
                             <th style="background-color: white;color: black">Description</th>
                             <th style="background-color: white;color: black">Quantity</th>
 
@@ -263,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 { data: 'warehousenamefrom', name: 'warehousenamefrom' },
                 { data: 'storeissueto', name: 'storeissueto' },
                 { data: 'product', name: 'product' },
-                { data: 'productcategory', name: 'productcategory' },
+                { data: 'rate', name: 'rate' },
                 { data: 'description', name: 'description' },
                 { data: 'quantity', name: 'quantity' },
             ],

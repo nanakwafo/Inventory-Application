@@ -31,6 +31,7 @@ class goodreceiveController extends Controller
        
     }
     public function save(Request $request){
+        //dd($request->all());
         //first check if grnnumber already exist
         //if yes return good receive already exist
         $goodreceive= new Goodreceive();

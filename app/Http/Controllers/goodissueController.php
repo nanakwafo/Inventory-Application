@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Goodissue;
 use App\Productcode;
 use App\Storeitem;
 use App\Warehouse;
@@ -29,5 +30,37 @@ class goodissueController extends Controller
         $totalquantity_product_in_store=Storeitem::where('productcode',$productcode)->where('warehouse_issue_from',$warehouse_from)->sum('quantity');
         return (int)$totalquantity_product - (int)$totalquantity_product_in_store;
 
+    }
+    public function save(Request $request){
+        //first check if grnnumber already exist
+        //if yes return good receive already exist
+        $goodissue= new Goodissue();
+        $goodissue->addnumber= $request->addnumber;
+        $goodissue->adddate= $request->adddate;
+        $goodissue->addtype= $request->addtype;
+        $goodissue->warehouse_issue_from=$request->warehouse_from_id;
+        $goodissue->store_issue_to=$request->warehouse_to_id;
+        $goodissue->remark=$request->remark;
+        $goodissue->save();
+
+        $number_of_items=$request->number_of_items;
+
+        for($i=0;$i < $number_of_items;$i++){
+            $storeitem=new Storeitem();
+            $storeitem->goodissue_addnumber= $request->addnumber;
+            $storeitem->date=$request->adddate;
+            $storeitem->warehouse_issue_from=$request->warehouse_from_id;
+            $storeitem->store_issue_to=$request->warehouse_to_id;
+
+            $storeitem->productcode=$request->product[$i];
+            $storeitem->quantity=$request->quantity[$i];
+            $storeitem->rate=$request->rate[$i];
+            $storeitem->description=$request->description[$i];
+            $storeitem->unit=$request->unit[$i];
+            $storeitem->save();
+
+        }
+        Session::flash('success','New Goods issue successfully');
+        return redirect('goodreceive');
     }
 }

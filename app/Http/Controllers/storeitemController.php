@@ -8,6 +8,9 @@ use Illuminate\Support\Collection;
 use Yajra\Datatables\Datatables;
 use DB;
 use Session;
+use App\Warehouse;
+use App\Productcode;
+use App\Productcategory;
 class storeitemController extends Controller
 {
     public function index(){
@@ -24,7 +27,7 @@ class storeitemController extends Controller
             $obj->warehousenamefrom = Warehouse::find($w->warehouse_issue_from)->name;
             $obj->storeissueto = Warehouse::find($w->store_issue_to)->name;
             $obj->product = Productcode::find($w->productcode)->name;
-            $obj->productcategory = Productcategory::find($w->productcategory_id)->name;
+            $obj->rate = $w->rate;
             $obj->description = $w->description;
             $obj->quantity = $w->quantity;
             $data[] = $obj;
