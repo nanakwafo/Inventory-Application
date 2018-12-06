@@ -380,8 +380,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Remove Product Category</h4></center>
+                                <center><h4 class="modal-title">Remove</h4></center>
                             </div>
+                            <form action="deleteproduct" method="post">
                             <div class="modal-body">
 
                             </div>
@@ -392,6 +393,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
+                                </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div>

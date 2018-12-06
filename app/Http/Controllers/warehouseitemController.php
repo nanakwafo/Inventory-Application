@@ -32,11 +32,12 @@ class warehouseitemController extends Controller
             $obj->warehousename = Warehouse::find($w->warehouse_id)->name;
             $obj->suppliername = Supplier::find($w->supplier_id)->name;
             $obj->product = Productcode::find($w->productcode)->name;
-            $obj->productcategory = Productcategory::find($w->productcategory_id)->name;
+//            $obj->productcategory = ",mkmkdss";//Productcategory::find($w->productcode)->name;
             $obj->description = $w->description;
             $obj->quantity = $w->quantity;
             $data[] = $obj;
         }
+
         $warehouseitems_sorted = new Collection($data);
 
         return Datatables::of($warehouseitems_sorted)->make(true);

@@ -83,3 +83,6 @@ Route::post('deletewarehouse',['as'=>'deletewarehouse','uses'=>'warehouseControl
 Route::post('saveproduct',['as'=>'saveproduct','uses'=>'productController@save']);
 Route::post('updateproduct',['as'=>'updateproduct','uses'=>'productController@update']);
 Route::post('deleteproduct',['as'=>'deleteproduct','uses'=>'productController@delete']);
+
+
+Route::post('savegoodreceive',['as'=>'savegoodreceive','uses'=>'goodreceiveController@save']);

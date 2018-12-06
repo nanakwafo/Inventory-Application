@@ -207,25 +207,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">ADD Number</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="text" name="addnumber" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Date</label>
-                                        <input type="text" placeholder="Fruits" required="">
+                                        <input type="date" type="date" required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
 
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">ADD Type</label>
-                                    <select>
+                                    <select name="addtype">
                                         <option value="">Male</option>
                                         <option value="">Female</option>
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Warehouse From</label>
-                                    <select id="warehouse_from_id">
+                                    <select id="warehouse_from_id" name="warehouse_from_id">
                                         <option value="">Select</option>
 
                                         @foreach(App\Warehouse::where('purpose','warehouse')->get() as $s)

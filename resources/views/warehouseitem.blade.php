@@ -204,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">Warehouse Name</th>
                             <th style="background-color: white;color: black">Supplier Name</th>
                             <th style="background-color: white;color: black">Product</th>
-                            <th style="background-color: white;color: black">Product Category</th>
+                            {{--<th style="background-color: white;color: black">Product Category</th>--}}
                             <th style="background-color: white;color: black">Description</th>
                             <th style="background-color: white;color: black">Quantity</th>
 
@@ -217,7 +217,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            {{--<td></td>--}}
                             <td></td>
                             <td></td>
 
@@ -262,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 { data: 'warehousename', name: 'warehousename' },
                 { data: 'suppliername', name: 'suppliername' },
                 { data: 'product', name: 'product' },
-                { data: 'productcategory', name: 'productcategory' },
+//                { data: 'productcategory', name: 'productcategory' },
                 { data: 'description', name: 'description' },
                 { data: 'quantity', name: 'quantity' },
             ],

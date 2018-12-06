@@ -301,6 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <center><h4 class="modal-title">Remove </h4></center>
                             </div>
+                            <form action="deleteproductcode" method="post">
                             <div class="modal-body">
                                 <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
                                 <input type="hidden" id="idDelete" name="idDelete"/>
@@ -312,6 +313,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
+                            </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div>
