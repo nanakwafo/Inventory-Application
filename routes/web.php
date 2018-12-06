@@ -23,7 +23,10 @@ Route::get('warehouse',['as'=>'warehouse','uses'=>'warehouseController@index']);
 Route::get('customer',['as'=>'customer','uses'=>'customerController@index']);
 Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
 Route::get('product',['as'=>'product','uses'=>'productController@index']);
-Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitem
+Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'productController@getproductrate']);
+Route::get('productselectbox',['as'=>'productselectbox','uses'=>'productController@productselectbox']);
+Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
+Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
 Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);
 Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);
 Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
@@ -88,3 +91,7 @@ Route::post('deleteproduct',['as'=>'deleteproduct','uses'=>'productController@de
 
 Route::post('savegoodreceive',['as'=>'savegoodreceive','uses'=>'goodreceiveController@save']);
 Route::post('savegoodissue',['as'=>'savegoodissue','uses'=>'goodissueController@save']);
+
+
+Route::post('saveorder',['as'=>'saveorder','uses'=>'orderController@save']);
+

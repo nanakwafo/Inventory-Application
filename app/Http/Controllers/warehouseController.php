@@ -13,6 +13,14 @@ class warehouseController extends Controller
     public function index(){
       return view('warehouse');  
     }
+    public function  storeselectbox(){
+        $output_store='<option value="">Select Store</option>';
+        $store=Warehouse::where('purpose','store')->get();
+        foreach ($store as $p){
+            $output_store.='<option value="'.$p->id.'">'.$p->name.'</option>';
+        }
+        return Response($output_store);
+    }
     public function allwarehouse(Request $request)
     {
         DB::statement(DB::raw('set @rownum=0'));
