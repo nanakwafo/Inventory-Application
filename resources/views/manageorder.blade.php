@@ -44,13 +44,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         });
     </script>
-    {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">--}}
+
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
     <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
-    <!----->
-    <!--skycons-icons-->
+    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
     <script src="js/skycons.js"></script>
-    <!--//skycons-icons-->
+
 </head>
 <body>
 <div id="wrapper">
@@ -191,7 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Store Items</span>
+                    <span>Manage Orders</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -202,21 +201,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <table class="table table-bordered " id="users-table">
                         <thead>
                         <tr>
+                            <th style="background-color: white;color: black"></th>
                             <th style="background-color: white;color: black">No</th>
-                            <th style="background-color: white;color: black">Add Number</th>
-                            <th style="background-color: white;color: black">Warehouse From</th>
-                            <th style="background-color: white;color: black">Store To</th>
-                            <th style="background-color: white;color: black">Product</th>
-                            <th style="background-color: white;color: black">Rate</th>
-                            <th style="background-color: white;color: black">Description</th>
-                            <th style="background-color: white;color: black">Quantity</th>
+                            <th style="background-color: white;color: black">Order Date</th>
+                            <th style="background-color: white;color: black">Order Number</th>
+                            <th style="background-color: white;color: black">Customer</th>
+                            <th style="background-color: white;color: black">Customer contact</th>
+                            <th style="background-color: white;color: black">Total Order Item</th>
+                            <th style="background-color: white;color: black">Payment Mode</th>
 
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <td class="non_searchable"></td>
-                            <td></td>
+                            <td id="non_searchable"></td>
+                            <td id="non_searchable"></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -231,7 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 </div>
                 <div class="clearfix"> </div>
- </div>
+            </div>
             <!---->
 
 
@@ -244,37 +243,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!---->
-<!--scrolling js-->
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
-<!--//scrolling js-->
 <script src="js/bootstrap.min.js"> </script>
+<!--//scrolling js-->
+<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
+<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
+<script src="https://datatables.yajrabox.com/js/handlebars.js"></script>
 
-<script src="js/jquery.dataTables.min.js"></script>
-<!-- Bootstrap JavaScript -->
-{{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
+
+<script id="details-template" type="text/x-handlebars-template">
+    @verbatim
+    <div class="label label-info">   </div>
+    <table class="table details-table" id="orders-{{ordernumber}}">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Bank account number</th>
+            <th>Company</th>
+        </tr>
+        </thead>
+    </table>
+    @endverbatim
+</script>
 <script>
-    $(function() {
-        $('#users-table').DataTable({
+
+        var template = Handlebars.compile($("#details-template").html());
+        var table = $('#users-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('allstoreitem') !!}',
+            ajax: '{!! route('allorders') !!}',
             columns: [
+                {
+                    "className":     'details-control',
+                    "orderable":      false,
+                    "searchable":     false,
+                    "data":           null,
+                    "defaultContent": ''
+                },
                 { data: 'id', name: 'id', orderable: false, searchable: false},
-                { data: 'goodissue_addnumber', name: 'goodissue_addnumber' },
-                { data: 'warehousenamefrom', name: 'warehousenamefrom' },
-                { data: 'storeissueto', name: 'storeissueto' },
-                { data: 'product', name: 'product' },
-                { data: 'rate', name: 'rate' },
-                { data: 'description', name: 'description' },
-                { data: 'quantity', name: 'quantity' },
+                { data: 'orderdate', name: 'orderdate' },
+                { data: 'ordernumber', name: 'ordernumber' },
+                { data: 'customer', name: 'customer' },
+                { data: 'customercontact', name: 'customercontact' },
+                { data: 'totalorderitem', name: 'totalorderitem' },
+                { data: 'paymentstatus', name: 'paymentstatus' },
             ],
+            order: [[1, 'asc']],
             initComplete: function () {
                 this.api().columns().every(function () {
                     var column = this;
 
                     //example for removing search field
-                    if (column.footer().className !== 'non_searchable') {
+                    if (column.footer().id !== 'non_searchable') {
                         var input = document.createElement("input");
                         $(input).appendTo($(column.footer()).empty())
                                 .keyup(function () {
@@ -284,7 +305,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 });
             }
         });
+
+    $('#users-table tbody').on('click', 'td.details-control', function () {
+
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+        var tableId = 'orders-' + row.data().ordernumber;
+
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        } else {
+            // Open this row
+            row.child(template(row.data())).show();
+            initTable(tableId, row.data());
+            console.log(row.data());
+            tr.addClass('shown');
+            tr.next().find('td').addClass('no-padding bg-gray');
+        }
     });
+    function initTable(tableId, data) {
+        $('#' + tableId).DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: data.details_url,
+            columns: [
+                { data: 'id', name: 'id' },
+                { data: 'ordernumber', name: 'ordernumber' },
+                { data: 'product', name: 'product'}
+            ]
+        })
+    }
 </script>
 </body>
 </html>

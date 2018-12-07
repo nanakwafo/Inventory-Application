@@ -2,16 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Order;
 use App\Paymentorder;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Collection;
+use Yajra\Datatables\Datatables;
+use DB;
+use Session;
 class orderController extends Controller
 {
     //
     public function index(){
         
         return view('order');
+    }
+    public function manageorder(){
+        return view('manageorder');
+    }
+    public function allorders(){
+        $paymentoder = Paymentorder::all();
+  
+        $data  = [];
+
+        foreach ($paymentoder as $w) {
+
+            $obj = new \stdClass;
+            $obj->id = $w->id;
+            $obj->orderdate = Order::find($w->ordernumber)->pluck('orderdate')->first();
+            $obj->ordernumber = $w->ordernumber;
+            $obj->customer = Customer::find(Order::find($w->ordernumber)->pluck('customer')->first())->name;
+            $obj->customercontact = Customer::find(Order::find($w->ordernumber)->pluck('customer')->first())->phonenumber;
+            $obj->totalorderitem = Order::where('ordernumber',$w->ordernumber)->count();
+            $obj->paymentstatus = $w->paymentstatus;
+            $obj->details_url =  route('paymentorderdetails', $w->ordernumber);
+
+            $data[] = $obj;
+        }
+
+        $paymentoderitems_sorted = new Collection($data);
+
+        return Datatables::of($paymentoderitems_sorted) ->make(true);
+    }
+    public function getorders($ordernumber)
+    {
+        $orders =Paymentorder::findOrFail($ordernumber)->orders;   
+
+        return Datatables::of($orders)->make(true);
     }
 
     public function save(Request $request){
@@ -38,15 +75,11 @@ class orderController extends Controller
             $orderitem->rate=$request->rate[$i];
             $orderitem->quantity=$request->quantity[$i];
             $orderitem->Total=$request->total[$i];
-
-//     
             $orderitem->save();
 
         }
-        Session::flash('success','
-<p>New Order placed successfully</p>
-<a href="downloadorderreceipt" class="btn btn-primary" type="button"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
-                                    ');
+
+        Session::flash('success','New Order placed successfully ');
         return redirect('order');
     }
 }

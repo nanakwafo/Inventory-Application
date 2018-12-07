@@ -45,7 +45,8 @@ class productcodeController extends Controller
         return redirect('productcode');
     }
     public function update(Request $request){
-        $productcode =Productcode::find($request->idEdit);
+
+        $productcode =Productcode::find($request->productcodeEdit);
         $productcode->name = $request->nameEdit;
         $productcode->productcode = $request->productcodeEdit;
         $productcode->save();

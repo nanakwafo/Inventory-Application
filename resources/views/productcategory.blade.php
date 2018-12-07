@@ -55,7 +55,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div id="wrapper">
 
-    <!----->
     <nav class="navbar-default navbar-static-top" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -64,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <h1> <a class="navbar-brand" href="dashboard">Best Inventory</a></h1>
+            <h1> <a class="navbar-brand" href="dashboard">EYSN</a></h1>
         </div>
         <div class=" border-bottom">
             <div class="full-left">
@@ -93,19 +92,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <i class="caret"></i></span>
 
                             @if(!empty(\App\Helpers\AppHelper::profileimage()->logo))
-                                <img src="images/{{\App\Helpers\AppHelper::profileimage()->logo}}">
+                                <img src="images/{{\App\Helpers\AppHelper::profileimage()->logo}}" width="70" height="60">
                             @else
-                                <img src="images/wo.jpg">
+                                <img src="images/wo.jpg" width="70" height="60">
                             @endif
                         </a>
                         <ul class="dropdown-menu " role="menu">
                             <li><a href="profile"><i class="fa fa-user"></i>Edit Profile</a></li>
-                            <li><a href="task"><i class="fa fa-clipboard"></i>Tasks</a></li>
+                            {{--<li><a href="task"><i class="fa fa-clipboard"></i>Tasks</a></li>--}}
                             <li>
+                                &nbsp;
                                 <form action="{{route('logout')}}" method="post" id="logout-form">
                                     {{csrf_field()}}
                                     <a href="#" onclick="document.getElementById('logout-form').submit()"><i class="fa fa-clipboard"></i>Logout</a>
                                 </form>
+                                &nbsp;
+                                &nbsp;
                             </li>
 
 
@@ -130,16 +132,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cogs nav_icon"></i> <span class="nav-label">Master Entry</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="grntype" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>Grn Type</a></li>
-                                <li><a href="productcode" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>Product Codes</a></li>
+                                <li><a href="grntype" class=" hvr-bounce-to-right"> <i class="fa fa-angle-double-down nav_icon"></i>Grn Type</a></li>
+                                <li><a href="productcode" class=" hvr-bounce-to-right"> <i class="fa fa-dot-circle-o nav_icon"></i>Product Codes</a></li>
 
-                                <li><a href="productcategory" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>Product Category</a></li>
+                                <li><a href="productcategory" class=" hvr-bounce-to-right"> <i class="fa fa-shopping-basket nav_icon"></i>Product Category</a></li>
 
                                 <li><a href="customercategory" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i>Customer Category</a></li>
-                                <li><a href="customer" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i>Customer</a></li>
-                                <li><a href="supplier" class=" hvr-bounce-to-right"><i class="fa fa-cart-arrow-down nav_icon"></i> Supplier </a></li>
+                                <li><a href="customer" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>Customer</a></li>
+                                <li><a href="supplier" class=" hvr-bounce-to-right"><i class="fa fa-paper-plane nav_icon"></i> Supplier </a></li>
                                 <li><a href="warehouse" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> Warehouse/Store </a></li>
-                                <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-ship nav_icon"></i> Product </a></li>
+                                <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> Product </a></li>
                                 <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
 
 
@@ -259,10 +261,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                <center><h4 class="modal-title">Edit  Details</h4></center>
                             </div>
+                            <form method="post" action="updateproductcategory">
+                                {{csrf_field()}}
                             <div class="modal-body">
                                 <div class="validation-system">
 
-                                        <form method="post" action="updateproductcategory">
+
                                             <input id="idEdit" name="idEdit" type="hidden"/>
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Product Category Name</label>
@@ -281,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="clearfix"> </div>
 
 
-                                        </form>
+
 
 
                                 </div>
@@ -293,6 +297,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
+                            </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div>

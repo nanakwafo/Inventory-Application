@@ -19,5 +19,6 @@ class AppHelper
         return (int)$totalfrom_warehouseitem_table - (int)$totalfrom_storeitem_table;
 
     }
+    
 
 }

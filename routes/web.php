@@ -28,10 +28,12 @@ Route::get('productselectbox',['as'=>'productselectbox','uses'=>'productControll
 Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
 Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
 Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);
+Route::get('profile',['as'=>'profile','uses'=>'profileController@index']);
 Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);
 Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
 Route::get('grntype',['as'=>'grntype','uses'=>'grntypeController@index']);
 Route::get('order',['as'=>'order','uses'=>'orderController@index']);
+Route::get('manageorder',['as'=>'manageorder','uses'=>'orderController@manageorder']);
 Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
 Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);
 Route::get('warehouseproductselectbox/{warehouse_id}',['as'=>'warehouseproductselectbox','uses'=>'goodissueController@warehouseproductselectbox']);
@@ -50,6 +52,8 @@ Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeCon
 Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
 Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
 Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
+Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
+Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
 
 
 Route::post('login',['as'=>'login','uses'=>'loginController@login']);
@@ -94,4 +98,6 @@ Route::post('savegoodissue',['as'=>'savegoodissue','uses'=>'goodissueController@
 
 
 Route::post('saveorder',['as'=>'saveorder','uses'=>'orderController@save']);
+
+Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@updateprofile']);
 

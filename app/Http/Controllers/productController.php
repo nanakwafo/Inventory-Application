@@ -61,6 +61,8 @@ class productController extends Controller
         return redirect('product');
     }
     public  function update(Request $request){
+
+     
         $product =Product::find($request->idEdit);
         $product->datereceived = $request->datereceivedEdit;
         $product->productcode = $request->productcodeEdit;
