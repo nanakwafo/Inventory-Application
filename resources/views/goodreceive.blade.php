@@ -213,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">GRN Number</label>
-                                        <input type="text" name="grnnumber" required="" id="grnnumber">
+                                        <input type="text" readonly name="grnnumber" required="" value="{{\App\Helpers\AppHelper::get_grnnumber()}}" id="grnnumber">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Date</label>

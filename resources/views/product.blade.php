@@ -280,6 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black"></th>
                             <th style="background-color: white;color: black">No</th>
                             <th style="background-color: white;color: black">Product Code</th>
+                            <th style="background-color: white;color: black">Product Name</th>
                             <th style="background-color: white;color: black">Date Received</th>
 
                             <th style="background-color: white;color: black">Unit price</th>
@@ -306,11 +307,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                             <input id="idEdit" name="idEdit" type="hidden"/>
+
                                             <div class="vali-form">
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Receive date</label>
                                                     <input type="date" id="datereceivedEdit" name="datereceivedEdit" required="">
                                                 </div>
+
                                                 <div class="col-md-12 form-group2 group-mail">
                                                     <label class="control-label">Product Category</label>
                                                     <select id="productcategory_idEdit" name="productcategory_idEdit">
@@ -320,9 +323,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-md-12 form-group2 group-mail">
+                                                <div class="col-md-12  form-group2 group-mail">
                                                     <label class="control-label">Product Code</label>
-                                                    <select id=productcodeEdit" name="productcodeEdit">
+                                                       <select id="productcodeEdit" name="productcodeEdit">
                                                         <option value="">Select</option>
                                                         @foreach(\App\Productcode::all() as $s)
                                                             <option value="{{$s->productcode}}">{{$s->name}}</option>
@@ -461,6 +464,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 },
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
                 { data: 'productcode', name: 'productcode' },
+                { data: 'productname', name: 'productname' },
                 { data: 'datereceived', name: 'datereceived' },
                 { data: 'unit', name: 'unit' },
                 { data: 'quantity', name: 'quantity' },
@@ -494,7 +498,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#datereceivedEdit').val($(this).data('datereceived'));
         $('#barcodeEdit').val($(this).data('barcode'));
 
-        $('#productcodeEdit').val($(this).data('productcode')).select();
+        $('#productcodeEdit').val($(this).data('productcode'));
         $('#quantityEdit').val($(this).data('quantity'));
         $('#discountEdit').val($(this).data('discount'));
         $('#payamountEdit').val($(this).data('payamount'));

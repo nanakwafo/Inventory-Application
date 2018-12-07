@@ -213,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-4 form-group1">
                                         <label class="control-label">Order Number</label>
-                                        <input type="text" name="ordernumber" required="" id="ordernumber">
+                                        <input type="text" name="ordernumber" required="" readonly value="{{\App\Helpers\AppHelper::get_ordernumber()}}" id="ordernumber">
                                     </div>
                                     <div class="col-md-4 form-group1">
                                         <label class="control-label">Order Date</label>

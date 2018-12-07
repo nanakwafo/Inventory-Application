@@ -209,6 +209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">Customer contact</th>
                             <th style="background-color: white;color: black">Total Order Item</th>
                             <th style="background-color: white;color: black">Payment Mode</th>
+                            <th style="background-color: white;color: black">Action</th>
 
                         </tr>
                         </thead>
@@ -222,6 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td id="non_searchable"></td>
 
 
                         </tr>
@@ -254,13 +256,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script id="details-template" type="text/x-handlebars-template">
     @verbatim
-    <div class="label label-info">   </div>
+    <div class="label label-info"> order-{{ordernumber}}  </div>
     <table class="table details-table" id="orders-{{ordernumber}}">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Bank account number</th>
-            <th>Company</th>
+
+            <th>Order Number</th>
+            <th>Store</th>
+            <th>Order Date</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Total</th>
         </tr>
         </thead>
     </table>
@@ -288,6 +296,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 { data: 'customercontact', name: 'customercontact' },
                 { data: 'totalorderitem', name: 'totalorderitem' },
                 { data: 'paymentstatus', name: 'paymentstatus' },
+                { data: 'action', name: 'action' },
             ],
             order: [[1, 'asc']],
             initComplete: function () {
@@ -331,9 +340,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             serverSide: true,
             ajax: data.details_url,
             columns: [
-                { data: 'id', name: 'id' },
+
                 { data: 'ordernumber', name: 'ordernumber' },
-                { data: 'product', name: 'product'}
+                { data: 'store', name: 'store'},
+                { data: 'orderdate', name: 'orderdate'},
+                { data: 'customer', name: 'customer'},
+                { data: 'product', name: 'product'},
+                { data: 'rate', name: 'rate'},
+                { data: 'quantity', name: 'quantity'},
+                { data: 'total', name: 'total'},
             ]
         })
     }

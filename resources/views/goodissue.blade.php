@@ -209,7 +209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">ADD Number</label>
-                                        <input type="text" name="addnumber" required="">
+                                        <input type="text" name="addnumber" readonly value="{{\App\Helpers\AppHelper::get_addnumber()}}" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Date</label>
@@ -221,7 +221,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">ADD Type</label>
                                     <select name="addtype">
-                                        <option value="from warehouse">From warehouse</option>
+                                        <option value="">Select</option>
+                                        <option value="fromwarehouse">From warehouse</option>
+                                        <option value="fromindividual">From Individual</option>
+
 
                                     </select>
                                 </div>

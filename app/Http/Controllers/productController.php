@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Productcategory;
 use App\Storeitem;
+use App\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Yajra\Datatables\Datatables;
 use DB;
 use Session;
 use App\Productcode;
+use Illuminate\Support\Collection;
 class productController extends Controller
 {
     //
@@ -29,31 +32,31 @@ class productController extends Controller
         return Response($output_product);
     }
     public function allproduct(Request $request){
-        DB::statement(DB::raw('set @rownum=0'));
-        $product =Product::select([
-            DB::raw('@rownum  := @rownum  + 1 AS rownum'),
-            'id',
-            'datereceived',
-            'productcode',
-            'productcategory_id',
-            'unit',
-            'payamount',
-            'quantity',
-            'supplier_id',
-            'remark',
-        ]);
-
-        $datatables =  Datatables::of($product)
-
-            ->addColumn('action', function ($product) {
-                return '
-                  <a href="#" class="editbtn" data-id="'.$product->id.'" data-datereceived="'.$product->datereceived.'" data-productcode="'.$product->productcode.'" data-productcategory_id="'.$product->productcategory_id.'" data-unit="'.$product->unit.'" data-payamount="'.$product->payamount.'" data-quantity="'.$product->quantity.'" data-supplier_id="'.$product->supplier_id.'" data-remark="'.$product->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="deletebtn" data-id="'.$product->id.'" data-productcode="'.$product->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+        $productitems = Product::all();
+        $data  = [];
+        $rownum=1;
+        foreach ($productitems as $w) {
+            $obj = new \stdClass;
+            $obj->id = $w->id;
+            $obj->rownum = $rownum ++;
+            $obj->datereceived = $w->datereceived;
+            $obj->productcode = $w->productcode;
+            $obj->productname = Productcode::find($w->productcode)->name;
+            $obj->productcategory_id = Productcategory::find($w->productcategory_id)->name;
+            $obj->unit = $w->unit;
+            $obj->payamount = $w->payamount;
+            $obj->quantity = $w->quantity;
+            $obj->supplier_id = Supplier::find($w->supplier_id)->name ;
+            $obj->remark = $w->remark;
+            $obj->action = '
+                  <a href="#" class="editbtn" data-id="'.$w->id.'" data-datereceived="'.$w->datereceived.'" data-productcode="'.$w->productcode.'" data-productcategory_id="'.$w->productcategory_id.'" data-unit="'.$w->unit.'" data-payamount="'.$w->payamount.'" data-quantity="'.$w->quantity.'" data-supplier_id="'.$w->supplier_id.'" data-remark="'.$w->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-id="'.$w->id.'" data-productcode="'.$w->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
-            });
+            $data[] = $obj;
+        }
+        $productitems_sorted = new Collection($data);
 
-       
-        return $datatables->make(true);
+        return Datatables::of($productitems_sorted)->make(true);
     }
     public function save(Request $request){
         Product::create($request->all());

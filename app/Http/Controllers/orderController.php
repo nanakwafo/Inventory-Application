@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Order;
+use App\Warehouse;
+use App\Productcode;
 use App\Paymentorder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -36,7 +38,12 @@ class orderController extends Controller
             $obj->totalorderitem = Order::where('ordernumber',$w->ordernumber)->count();
             $obj->paymentstatus = $w->paymentstatus;
             $obj->details_url =  route('paymentorderdetails', $w->ordernumber);
-
+            $obj->action = '
+                  <a href="#" class="editbtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="editbtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-money fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="editbtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-print fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-1x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  ';
             $data[] = $obj;
         }
 
@@ -46,9 +53,24 @@ class orderController extends Controller
     }
     public function getorders($ordernumber)
     {
-        $orders =Paymentorder::findOrFail($ordernumber)->orders;   
+        $orders =Paymentorder::findOrFail($ordernumber)->orders;
+        $data  = [];
+        foreach ($orders as $w) {
+            $obj = new \stdClass;
+            $obj->id = $w->id;
+            $obj->ordernumber = $w->ordernumber;
+            $obj->store = Warehouse::find($w->store)->name;
+            $obj->orderdate = $w->orderdate;
+            $obj->customer = Customer::find($w->customer)->name;
+            $obj->product = Productcode::find($w->product)->name;
+            $obj->rate = $w->rate;
+            $obj->quantity = $w->quantity;
+            $obj->total = $w->total;
+            $data[] = $obj;
+        }
+        $orders_sorted = new Collection($data);
 
-        return Datatables::of($orders)->make(true);
+        return Datatables::of($orders_sorted)->make(true);
     }
 
     public function save(Request $request){
