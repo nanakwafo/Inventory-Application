@@ -60,6 +60,10 @@ Route::post('login',['as'=>'login','uses'=>'loginController@login']);
 Route::post('logout',['as'=>'logout','uses'=>'loginController@logout']);
 
 
+Route::post('adduser',['as'=>'adduser','uses'=>'userController@adduser']);
+Route::post('edituser',['as'=>'edituser','uses'=>'userController@edituser']);
+Route::post('deleteuser',['as'=>'deleteuser','uses'=>'userController@deleteuser']);
+
 Route::post('savegrntype',['as'=>'savegrntype','uses'=>'grntypeController@save']);
 Route::post('updategrntype',['as'=>'updategrntype','uses'=>'grntypeController@update']);
 Route::post('deletegrntype',['as'=>'deletegrntype','uses'=>'grntypeController@delete']);

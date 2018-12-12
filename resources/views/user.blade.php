@@ -201,31 +201,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="col-md-4 ">
+                    @include('partials.messages')
                     <div class="validation-system">
 
                         <div class="validation-form">
                             <!---->
 
-                            <form>
+                            <form action="adduser" method="post">
+                                {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-6 form-group1">
-                                        <label class="control-label">First Nane</label>
-                                        <input type="text"  required="">
+                                        <label class="control-label">First Name</label>
+                                        <input type="text" name="first_name"  required="">
                                     </div>
                                     <div class="col-md-6 form-group1">
-                                        <label class="control-label">Last Nane</label>
-                                        <input type="text"  required="">
+                                        <label class="control-label">Last Name</label>
+                                        <input type="text" name="last_name"  required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="vali-form">
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Email</label>
-                                        <input type="text"  required="">
+                                        <input type="text" name="email"  required="">
                                     </div>
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Phone Number</label>
-                                        <input type="text"  required="">
+                                        <input type="text" name="phonenumber" required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
@@ -233,26 +235,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Username</label>
-                                        <input type="text" required="">
+                                        <input type="text" name="username" required="">
                                     </div>
                                     <div class="col-md-6 form-group1">
                                         <label class="control-label">Password</label>
-                                        <input type="text"  required="">
+                                        <input type="text" name="password"  required="">
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Sex</label>
-                                    <select>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
+                                    <select name="sex">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Role</label>
-                                    <select>
-                                        <option value="">Admin</option>
-                                        <option value="">Rep</option>
+                                    <select name="role">
+                                        <option value="Admin">Admin</option>
+                                        <option value="Rep">Rep</option>
                                     </select>
                                 </div>
                                 <div class="clearfix"> </div>
@@ -287,77 +289,166 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 </div>
                 <div class="clearfix"> </div>
-                <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="editmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Edit Product Category Details</h4></center>
+                        <form action="{{route('edituser')}}" method="post">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title">Edit</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" id="idEdit" name="idEdit" />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Firstname</label>
+                                                <input type="text" class="form-control"  id="firstnameEdit" name="firstnameEdit">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Lastname</label>
+                                                <input type="text" class="form-control"  id="lastnameEdit" name="lastnameEdit">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Username</label>
+                                                <input type="text" class="form-control" id="usernameEdit"  name="usernameEdit">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Email</label>
+                                                <input type="text" class="form-control" id="emailEdit"  name="emailEdit">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Sex</label>
+                                                <select name="sexEdit" class="form-control" id="sexEdit" >
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Phone number</label>
+                                                <input type="text" class="form-control" id="phonenumberEdit"  name="phonenumberEdit">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Role</label>
+                                                <select name="roleEdit" class="form-control" id="roleEdit" >
+                                                    <option value="Admin">Admin</option>
+                                                    <option value="Rep">Finance</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Password</label>
+                                                <input type="password" class="form-control"  id="passwordEdit"  name="passwordEdit" required>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                    <button  type="submit" class="btn  waves-effect waves-light">Save changes</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <div class="validation-system">
-
-                                    <div class="validation-form">
-                                        <!---->
-
-                                        <form>
-                                            <div class="vali-form">
-                                                <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Product Category Name</label>
-                                                    <input type="text" placeholder="Fruits" required="">
-                                                </div>
-
-                                                <div class="clearfix"> </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal -->
+                <div id="deletemodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <form action="{{route('deleteuser')}}" method="post">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title">Delete</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label">Are you sure you want to delete <span id="name_delete"></span>?</label>
+                                                <input type="hidden" class="form-control" id="idDelete" placeholder="John" name="idDelete" >
                                             </div>
+                                        </div>
 
-
-
-                                            <div class="col-md-12 form-group1 ">
-                                                <label class="control-label">Description</label>
-                                                <textarea  placeholder="Your Comment..." required="">use for.....</textarea>
-                                            </div>
-                                            <div class="clearfix"> </div>
-
-
-                                        </form>
-
-                                        <!---->
                                     </div>
 
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
 
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                    <button  type="submit" class="btn  waves-effect waves-light">Delete</button>
                                 </div>
-                                <div class="clearfix"> </div>
                             </div>
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                </div>
-
-                <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        </form>
+                    </div>
+                </div><!-- /.modal -->
+                <div id="forgotpasswordModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
+                        <!-- Modal content-->
+
                         <div class="modal-content">
+
+
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Remove Product Category</h4></center>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Forgot Password</h4>
                             </div>
                             <div class="modal-body">
 
+                                <input type="hidden" id="useridedit"  name="userid" class="form-control" >
+
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Email:</label>
+                                    <input type="email" id="useremail" name="email"class="form-control"  >
+                                </div>
+
                             </div>
                             <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
-
-                                </div>
-                                <div class="clearfix"> </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                                <a type="submit" id="add-row" class="sendcode btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Send Code</a>
                             </div>
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                </div>
 
+
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <!---->
 
@@ -398,6 +489,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             ]
         });
+    });
+</script>
+<script>
+    $(document).on('click','.editmodal',function() {
+        alert($(this).data('priviledge'));
+        $('#idEdit').val($(this).data('id'));
+        $('#firstnameEdit').val($(this).data('firstname'));
+        $('#lastnameEdit').val($(this).data('lastname'));
+        $('#usernameEdit').val($(this).data('username'));
+        $('#sexEdit').val($(this).data('sex')).change();
+        $('#phonenumberEdit').val($(this).data('phonenumber'));
+        $('#emailEdit').val($(this).data('email'));
+        $('#roleEdit').val($(this).data('priviledge')).change();
+
+
+
+    });
+</script>
+<script>
+    $(document).on('click','.deletemodal',function() {
+        alert("Hey");
+
+        $('#idDelete').val($(this).data('id'));
+
+
+        $("#name_delete").html($(this).data('firstname')+""+$(this).data('lastname'));
+
     });
 </script>
 </body>
