@@ -39,10 +39,9 @@ class orderController extends Controller
             $obj->paymentstatus = $w->paymentstatus;
             $obj->details_url =  route('paymentorderdetails', $w->ordernumber);
             $obj->action = '
-                  <a href="#" class="editbtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="editbtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-money fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="editbtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#editmodal" ><i class="fa fa-print fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="deletebtn" data-id="'.$w->id.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-1x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" class="paymentbtn" data-ordernumber="'.$w->ordernumber.'" data-paidamount="'.$w->paidamount.'" data-dueamount="'.$w->dueamount.'" data-paymenttype="'.$w->paymenttype.'" data-paymentstatus="'.$w->paymentstatus.'" data-toggle="modal" data-target="#paymentmodal" ><i class="fa fa-money fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="printbtn" data-ordernumber="'.$w->ordernumber.'"  data-toggle="modal" data-target="#printmodal" ><i class="fa fa-print fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-ordernumber="'.$w->ordernumber.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-1x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             $data[] = $obj;
         }
@@ -104,5 +103,23 @@ class orderController extends Controller
 
         Session::flash('success','New Order placed successfully ');
         return redirect('order');
+    }
+
+    public function updatepaymentorder(Request $request){
+        
+        $paymentorder =Paymentorder::find($request->idEdit);
+        $paymentorder->paidamount = $request->payamountEdit;
+        $paymentorder->dueamount = $request->dueamountEdit;
+        $paymentorder->paymenttype = $request->paymenttypeEdit;
+        $paymentorder->paymentstatus = $request->paymentstatusEdit;
+        $paymentorder->save();
+        Session::flash('success','Payment Record updated successfully');
+        return redirect('manageorder');
+    }
+    public function deletepaymentorder(Request $request){
+        Paymentorder::find($request->idDelete)->delete();
+        Order::find($request->idDelete)->delete();
+        Session::flash('success','Order deleted successfully');
+        return redirect('manageorder');
     }
 }

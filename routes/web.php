@@ -98,6 +98,10 @@ Route::post('savegoodissue',['as'=>'savegoodissue','uses'=>'goodissueController@
 
 
 Route::post('saveorder',['as'=>'saveorder','uses'=>'orderController@save']);
+Route::post('updatepaymentorder',['as'=>'updatepaymentorder','uses'=>'orderController@updatepaymentorder']);
+Route::post('deletepaymentorder',['as'=>'deletepaymentorder','uses'=>'orderController@deletepaymentorder']);
+
+
 
 Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@updateprofile']);
 
