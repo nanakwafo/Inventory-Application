@@ -90,6 +90,7 @@ class orderController extends Controller
             $orderitem=new Order();
             $orderitem->ordernumber= $request->ordernumber;
             $orderitem->orderdate=$request->orderdate;
+            $orderitem->ordertime=date("H:i");
             $orderitem->customer=$request->customer;
 
             $orderitem->product=$request->product[$i];

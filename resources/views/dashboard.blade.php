@@ -105,15 +105,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <h1> <a class="navbar-brand" href="dashboard">EYSN</a></h1>
         </div>
         <div class=" border-bottom">
+
             <div class="full-left">
                 <section class="full-top">
                     <button id="toggle"><i class="fa fa-arrows-alt"></i></button>
+
                 </section>
                 <form class=" navbar-left-right">
                     <input type="text"  value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
                     <input type="submit" value="" class="fa fa-search">
                 </form>
                 <div class="clearfix"> </div>
+
             </div>
 
 
@@ -296,7 +299,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="content-top-1">
                         <div class="col-md-6 top-content">
                             <h5>Out of Stock Product</h5>
-                            <label>{{\App\Helpers\AppHelper::get_out_stock_product()}}</label>
+                            <label>{{is_null(\App\Helpers\AppHelper::get_out_stock_product())? 0 : \App\Helpers\AppHelper::get_out_stock_product()}}</label>
                         </div>
                         <div class="col-md-6 top-content1">
                             <div id="demo-pie-2" class="pie-title-center" data-percent="50"> <span class="pie-value"></span> </div>
@@ -432,53 +435,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <script src="js/site.js" type="text/javascript"></script>
                     <!----End Calender -------->
                 </div>
+                <div class="col-md-7 compose">
 
-                <div class="col-md-7 mid-content-top">
-                    <div class="middle-content">
-                        <h3>Out of Stock Products</h3>
-                        <!-- start content_slider -->
-                        <div id="owl-demo" class="owl-carousel text-center">
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na.jpg" alt="name">
-                            </div>
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na1.jpg" alt="name">
-                            </div>
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na2.jpg" alt="name">
-                            </div>
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na.jpg" alt="name">
-                            </div>
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na1.jpg" alt="name">
-                            </div>
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na2.jpg" alt="name">
-                            </div>
-                            <div class="item">
-                                <img class="lazyOwl img-responsive" data-src="images/na.jpg" alt="name">
-                            </div>
+                    <h2>Out of Stock Product from Stores</h2>
+                    <nav class="nav-sidebar">
+                        <ul class="nav tabs">
+                            @foreach(\App\Helpers\AppHelper::get_out_stock_product_all() as $s)
+                            <li class=""><a><i class="fa fa-star-o"></i>{{$s->store.'---------------'.$s->product}}</a></li>
+                            @endforeach
+                        </ul>
+                    </nav>
 
-                        </div>
-                    </div>
-                    <!--//sreen-gallery-cursual---->
-                    <!-- requried-jsfiles-for owl -->
-                    <link href="css/owl.carousel.css" rel="stylesheet">
-                    <script src="js/owl.carousel.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            $("#owl-demo").owlCarousel({
-                                items : 3,
-                                lazyLoad : true,
-                                autoPlay : true,
-                                pagination : true,
-                                nav:true,
-                            });
-                        });
-                    </script>
-                    <!-- //requried-jsfiles-for owl -->
                 </div>
+
                 <div class="clearfix"> </div>
             </div>
             <!----->

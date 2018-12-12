@@ -9,13 +9,13 @@
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
         'datereceived' => $faker->date('Y-m-d'),
-        'productcode'=> $faker->randomElement(['1', '2','3','4','5', '6','7','8','9','10']),
-        'productcategory_id'=> $faker->randomDigit,
-        'unit'=> $faker->name,
-        'payamount'=> $faker->name,
+        'productcode'=> \App\Productcode::all()->random()->productcode,
+        'productcategory_id'=> \App\Productcategory::all()->random()->id,
+        'unit'=> 'unit',
+        'payamount'=> $faker->randomDigit,
         'quantity'=> $faker->randomDigit,
-        'supplier_id'=> $faker->randomDigit,
-        'remark'=> $faker->name
+        'supplier_id'=> \App\Supplier::all()->random()->id,
+        'remark'=> $faker->paragraph
 
     ];
 });

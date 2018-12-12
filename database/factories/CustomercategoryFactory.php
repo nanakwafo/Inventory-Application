@@ -9,6 +9,6 @@
 $factory->define(App\Customercategory::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'description' => $faker->name,
+        'description' => $faker->paragraph,
     ];
 });

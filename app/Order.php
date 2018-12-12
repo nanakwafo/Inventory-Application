@@ -11,5 +11,5 @@ class Order extends Model
 
     public $incrementing = false;
 
-    protected $fillable =['ordernumber','store','orderdate','customer','product','rate','quantity','total'];
+    protected $fillable =['ordernumber','store','orderdate','ordertime','customer','product','rate','quantity','total'];
 }

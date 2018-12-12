@@ -9,8 +9,8 @@
 $factory->define(App\Customer::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'phonenumber'=> $faker->name,
-        'address'=> $faker->name,
-        'customercategory_id'=> $faker->randomDigit
+        'phonenumber'=> $faker->phoneNumber,
+        'address'=> $faker->address,
+        'customercategory_id'=> \App\Customercategory::all()->random()->id,
     ];
 });

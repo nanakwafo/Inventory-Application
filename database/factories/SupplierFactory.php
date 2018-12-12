@@ -8,8 +8,8 @@
 $factory->define(App\Supplier::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'phonenumber'=> $faker->name,
-        'address'=> $faker->name,
-        'description'=> $faker->name
+        'phonenumber'=> $faker->phoneNumber,
+        'address'=> $faker->city,
+        'description'=> $faker->paragraph
     ];
 });

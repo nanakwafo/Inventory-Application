@@ -8,8 +8,8 @@
 $factory->define(App\Warehouse::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'location' => $faker->locale,
+        'location' => $faker->city,
         'purpose' => $faker->randomElement(['warehouse', 'store']),
-        'description' => $faker->name,
+        'description' => $faker->paragraph,
     ];
 });
