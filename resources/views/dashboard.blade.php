@@ -320,104 +320,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-8 content-top-2">
                     <!---start-chart---->
                     <!----->
-                    <div class="content-graph">
-                        <div class="content-color">
-                            <div class="content-ch"><p><i></i>Today Timely Sales Chart</p><span></span>
-                                <div class="clearfix"> </div>
-                            </div>
-
-                        </div>
-                        <!--graph-->
-                        <link rel="stylesheet" href="css/graph.css">
-                        <!--//graph-->
-                        <script src="js/jquery.flot.js"></script>
-                        <script>
-                            $(document).ready(function () {
-
-                                // Graph Data ##############################################
-                                var graphData = [{
-                                    // Visits
-                                    data: [ [6, 1300], [7, 1600], [8, 1900], [9, 2100], [10, 2500], [11, 2200], [12, 2000], [13, 1950], [14, 1900], [15, 2000],[16, 2000] ],
-                                    color: '#999999'
-                                }
-                                ];
-
-                                // Lines Graph #############################################
-                                $.plot($('#graph-lines'), graphData, {
-                                    series: {
-                                        points: {
-                                            show: true,
-                                            radius: 5
-                                        },
-                                        lines: {
-                                            show: true
-                                        },
-                                        shadowSize: 0
-                                    },
-                                    grid: {
-                                        color: '#7f8c8d',
-                                        borderColor: 'transparent',
-                                        borderWidth: 20,
-                                        hoverable: true
-                                    },
-                                    xaxis: {
-                                        tickColor: 'transparent',
-                                        tickDecimals: 2
-                                    },
-                                    yaxis: {
-                                        tickSize: 500
-                                    }
-                                });
-
-
-
-                                // Graph Toggle ############################################
-                                $('#graph-bars').hide();
-
-                                $('#lines').on('click', function (e) {
-                                    $('#bars').removeClass('active');
-                                    $('#graph-bars').fadeOut();
-                                    $(this).addClass('active');
-                                    $('#graph-lines').fadeIn();
-                                    e.preventDefault();
-                                });
-
-
-
-                                // Tooltip #################################################
-                                function showTooltip(x, y, contents) {
-                                    $('<div id="tooltip">' + contents + '</div>').css({
-                                        top: y - 16,
-                                        left: x + 20
-                                    }).appendTo('body').fadeIn();
-                                }
-
-                                var previousPoint = null;
-
-                                $('#graph-lines').bind('plothover', function (event, pos, item) {
-                                    if (item) {
-                                        if (previousPoint != item.dataIndex) {
-                                            previousPoint = item.dataIndex;
-                                            $('#tooltip').remove();
-                                            var x = item.datapoint[0],
-                                                    y = item.datapoint[1];
-                                            showTooltip(item.pageX, item.pageY, y + ' visitors at ' + x + '.00h');
-                                        }
-                                    } else {
-                                        $('#tooltip').remove();
-                                        previousPoint = null;
-                                    }
-                                });
-
-                            });
-                        </script>
-                        <div class="graph-container">
-
-                            <div id="graph-lines"> </div>
-                            <div id="graph-bars"> </div>
-                        </div>
-
-                    </div>
+                    <div id="container" style="height: 542px"></div>
                 </div>
                 <div class="clearfix"> </div>
 
@@ -468,6 +371,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/scripts.js"></script>
 <!--//scrolling js-->
 <script src="js/bootstrap.min.js"> </script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script>
+    Highcharts.chart('container', {
+
+        title: {
+            text: 'Sales Project by Store'
+        },
+
+        subtitle: {
+            text: 'Source: EYSN'
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Total Sales'
+            }
+        },
+         legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+        plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+
+        }
+    },
+        series: [{
+            name: 'Store1',
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 154175, 154175, 154175, 154175]
+        }, {
+            name: 'Store2',
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 154175, 154175, 154175, 154175]
+        }, {
+            name: 'Store3',
+            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 154175, 154175, 154175, 154175]
+        }, {
+            name: 'Store4',
+            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227, 154175, 154175, 154175, 154175]
+        }, {
+            name: 'Store5',
+            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111, 154175, 154175, 154175, 154175]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+</script>
 </body>
 </html>
 
