@@ -356,7 +356,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <label for="field-1" class="control-label">Role</label>
                                                 <select name="roleEdit" class="form-control" id="roleEdit" >
                                                     <option value="Admin">Admin</option>
-                                                    <option value="Rep">Finance</option>
+                                                    <option value="Rep">Rep</option>
 
                                                 </select>
                                             </div>
@@ -493,7 +493,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script>
     $(document).on('click','.editmodal',function() {
-        alert($(this).data('priviledge'));
+//        alert($(this).data('priviledge'));
         $('#idEdit').val($(this).data('id'));
         $('#firstnameEdit').val($(this).data('firstname'));
         $('#lastnameEdit').val($(this).data('lastname'));
@@ -509,7 +509,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script>
     $(document).on('click','.deletemodal',function() {
-        alert("Hey");
+//        alert("Hey");
 
         $('#idDelete').val($(this).data('id'));
 

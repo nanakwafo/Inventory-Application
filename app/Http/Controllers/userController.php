@@ -14,18 +14,14 @@ class userController extends Controller
     public function index(){
         return view('user');
     }
-    public function allusers(Request $request){
-
+    public function allusers(){
         DB::statement(DB::raw('set @rownum=0'));
-        $users = EloquentUser::select([
-            DB::raw('@rownum  := @rownum  + 1 AS rownum'),
-            'id',
-            'first_name',
-            'last_name',
-            'sex',
-            'email',
-            'username',
-            'phonenumber']);
+        $users = DB::table('users')
+            ->join('role_users', 'users.id', '=', 'role_users.user_id')
+            ->join('roles', 'roles.id', '=', 'role_users.role_id')
+            ->select(DB::raw('@rownum  := @rownum  + 1 AS rownum'),'users.id','users.first_name','users.last_name','users.sex','users.email','roles.name as priviledge','users.last_login','users.username','users.phonenumber')
+            ->get();
+
 
         $datatables =  Datatables::of($users)
 
