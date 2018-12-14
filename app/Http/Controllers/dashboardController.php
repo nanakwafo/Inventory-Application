@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AppHelper;
 use App\Product;
 use App\Productcode;
 use App\Warehouse;
@@ -45,4 +46,6 @@ class dashboardController extends Controller
         dd($allitems);
 
     }
+    
+ 
 }

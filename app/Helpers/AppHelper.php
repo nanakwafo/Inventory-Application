@@ -23,13 +23,14 @@ class AppHelper
         return (int)$totalfrom_warehouseitem_table - (int)$totalfrom_storeitem_table;
 
     }
-    public static function gethourly_revenue($hour){
-        $x= \App\Order::whereTime('updated_at', '<=',\Carbon\Carbon::createFromTimeString($hour))
-                          ->whereDate('orderdate',date('Y-m-d'))
-                          ->sum('total');
+    public static function getmontlyrevenue($month){
+      $data=  \App\Paymentorder::whereMonth('updated_at', '01')->sum('paidamount');
+      return  $data;
 
-        return (int)$x;
-
+    }
+    public static function x(){
+        $allstore=Storeitem::select('store_issue_to')->distinct('store_issue_to')->get();
+        return $allstore;
     }
     public static function get_grnnumber(){
         $year=date('Y');

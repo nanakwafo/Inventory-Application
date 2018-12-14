@@ -379,7 +379,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     Highcharts.chart('container', {
 
         title: {
-            text: 'Sales Project by Store'
+            text: 'Sales Projection'
         },
 
         subtitle: {
@@ -406,22 +406,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         }
     },
-        series: [{
-            name: 'Store1',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 154175, 154175, 154175, 154175]
-        }, {
-            name: 'Store2',
-            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 154175, 154175, 154175, 154175]
-        }, {
-            name: 'Store3',
-            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 154175, 154175, 154175, 154175]
-        }, {
-            name: 'Store4',
-            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227, 154175, 154175, 154175, 154175]
-        }, {
-            name: 'Store5',
-            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111, 154175, 154175, 154175, 154175]
-        }],
+        series: [
+
+            {
+            name: 'Sales',
+            data: [{{\App\Helpers\AppHelper::getmontlyrevenue(01)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(02)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(03)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(04)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(05)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(06)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(07)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(8)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(9)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(10)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(11)}}, {{\App\Helpers\AppHelper::getmontlyrevenue(12)}}]
+         }
+
+
+
+        ],
 
         responsive: {
             rules: [{

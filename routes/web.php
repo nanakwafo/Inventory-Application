@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
+Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
 Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryController@index']);
 Route::get('customercategory',['as'=>'customercategory','uses'=>'customercategoryController@index']);
 Route::get('user',['as'=>'user','uses'=>'userController@index']);
