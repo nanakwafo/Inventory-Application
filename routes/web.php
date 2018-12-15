@@ -20,6 +20,7 @@ Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
 Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryController@index']);
 Route::get('customercategory',['as'=>'customercategory','uses'=>'customercategoryController@index']);
 Route::get('user',['as'=>'user','uses'=>'userController@index']);
+Route::get('waste',['as'=>'waste','uses'=>'wasteController@index']);
 Route::get('warehouse',['as'=>'warehouse','uses'=>'warehouseController@index']);
 Route::get('customer',['as'=>'customer','uses'=>'customerController@index']);
 Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
@@ -54,6 +55,7 @@ Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehousei
 Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
 Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
 Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
+Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste'));
 Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
 
 
@@ -106,7 +108,9 @@ Route::post('saveorder',['as'=>'saveorder','uses'=>'orderController@save']);
 Route::post('updatepaymentorder',['as'=>'updatepaymentorder','uses'=>'orderController@updatepaymentorder']);
 Route::post('deletepaymentorder',['as'=>'deletepaymentorder','uses'=>'orderController@deletepaymentorder']);
 
-
+Route::post('savewaste',['as'=>'savewaste','uses'=>'wasteController@save']);
+Route::post('updatewaste',['as'=>'updatewaste','uses'=>'wasteController@update']);
+Route::post('deletewaste',['as'=>'deletewaste','uses'=>'wasteController@delete']);
 
 Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@updateprofile']);
 

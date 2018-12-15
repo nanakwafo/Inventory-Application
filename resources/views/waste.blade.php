@@ -192,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Product Category</span>
+                    <span>Wastes</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -207,25 +207,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="validation-form">
                             <!---->
 
-                            <form action="saveproductcategory" method="post">
+                            <form method="post" action="savewaste">
                                 {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Product Category Name</label>
-                                        <input type="text" name="name" required="">
+                                        <label class="control-label">Date:</label>
+                                        <input type="date" name="date" required="">
+                                    </div>
+                                    <div class="col-md-12 form-group2 group-mail">
+                                        <label class="control-label">Store</label>
+                                        <select  name="store_id">
+                                            <option></option>
+                                            @foreach(\App\Warehouse::where('purpose','store')->get() as $s)
+                                                <option value="{{$s->id}}">{{$s->name}}</option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Product code</label>
+                                        <input type="text" name="productcode" required="">
+                                    </div>
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Unit</label>
+                                        <input type="text" name="unit" required="">
                                     </div>
 
                                     <div class="clearfix"> </div>
                                 </div>
-
-
-
                                 <div class="col-md-12 form-group1 ">
-                                    <label class="control-label">Description</label>
-                                    <textarea  name="description" required=""></textarea>
+                                    <label class="control-label">Remark</label>
+                                    <textarea  name="remark" required=""></textarea>
                                 </div>
                                 <div class="clearfix"> </div>
-
                                 <div class="col-md-12 form-group">
                                     <button type="submit" class="btn btn-default">Submit</button>
 
@@ -239,14 +253,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
                 <div class="col-md-8 ">
-                    <table class="table table-bordered " id="productcategory-table">
+                    <table class="table table-bordered " id="waste-table">
                         <thead>
                         <tr>
                             <th style="background-color: white;color: black">No.</th>
-                            <th style="background-color: white;color: black">Name</th>
-                            <th style="background-color: white;color: black">Description</th>
-                            <th style="background-color: white;color: black">Created At</th>
-                            <th style="background-color: white;color: black">Updated At</th>
+                            <th style="background-color: white;color: black">Date</th>
+                            <th style="background-color: white;color: black">Store</th>
+                            <th style="background-color: white;color: black">Product Code</th>
+                            <th style="background-color: white;color: black">Unit</th>
+                            <th style="background-color: white;color: black">Remark</th>
+
                             <th style="background-color: white;color: black;width: 20%">Action</th>
                         </tr>
                         </thead>
@@ -260,44 +276,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                               <center><h4 class="modal-title">Edit  Details</h4></center>
+                                <center><h4 class="modal-title">Edit  Details</h4></center>
                             </div>
-                            <form method="post" action="updateproductcategory">
+                            <form method="post" action="updatewaste">
                                 {{csrf_field()}}
-                            <div class="modal-body">
-                                <div class="validation-system">
-
-
-                                            <input id="idEdit" name="idEdit" type="hidden"/>
-                                                <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Product Category Name</label>
-                                                    <input type="text" id="nameEdit" name="nameEdit" required="">
-                                                </div>
-
-                                                <div class="clearfix"> </div>
+                                <div class="modal-body">
+                                    <div class="validation-system">
 
 
 
 
-                                            <div class="col-md-12 form-group1 ">
-                                                <label class="control-label">Description</label>
-                                                <textarea  name="descriptionEdit" id="descriptionEdit" required=""></textarea>
+                                        <input id="idEdit" name="idEdit" type="hidden"/>
+                                        <div class="vali-form">
+                                            <div class="col-md-12 form-group1">
+                                                <label class="control-label">Date:</label>
+                                                <input type="date" name="dateEdit" id="dateEdit" required="">
                                             </div>
+                                            <div class="col-md-12 form-group2 group-mail">
+                                                <label class="control-label">Store</label>
+                                                <select  name="store_idEdit" id="store_idEdit">
+                                                    <option></option>
+                                                    @foreach(\App\Warehouse::where('purpose','store')->get() as $s)
+                                                        <option value="{{$s->id}}">{{$s->name}}</option>
+                                                    @endforeach
+                                                </select>
+
+                                            </div>
+                                            <div class="col-md-12 form-group1">
+                                                <label class="control-label">Product code</label>
+                                                <input type="text" name="productcodeEdit" id="productcodeEdit" required="">
+                                            </div>
+                                            <div class="col-md-12 form-group1">
+                                                <label class="control-label">Unit</label>
+                                                <input type="text" name="unitEdit" id="unitEdit" required="">
+                                            </div>
+
                                             <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="col-md-12 form-group1 ">
+                                            <label class="control-label">Remark</label>
+                                            <textarea  name="remarkEdit" id="remarkEdit" required=""></textarea>
+                                        </div>
+                                        <div class="clearfix"> </div>
 
 
 
 
 
+                                    </div>
                                 </div>
-                                 </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                <div class="modal-footer">
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
 
+                                    </div>
+                                    <div class="clearfix"> </div>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
                             </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -308,20 +342,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Remove </h4></center>
+                                <center><h4 class="modal-title">Remove</h4></center>
                             </div>
-                            <form action="deleteproductcategory" method="post">
-                            <div class="modal-body">
-                                <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
-                                <input type="hidden" id="idDelete" name="idDelete"/>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
-
+                            <form action="deletewaste" method="post">
+                                <div class="modal-body">
+                                    <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
+                                    <input type="hidden" id="idDelete" name="idDelete"/>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                                <div class="modal-footer">
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
+
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
                             </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -350,16 +384,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
     $(function() {
-        $('#productcategory-table').DataTable({
+        $('#waste-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('allproductcategory') !!}',
+            ajax: '{!! route('allwaste') !!}',
             columns: [
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
-                { data: 'name', name: 'name' },
-                { data: 'description', name: 'description' },
-                { data: 'created_at', name: 'created_at' },
-                { data: 'updated_at', name: 'updated_at' },
+                { data: 'date', name: 'date' },
+                { data: 'store', name: 'store' },
+                { data: 'productcode', name: 'productcode' },
+                { data: 'unit', name: 'unit' },
+                { data: 'remark', name: 'remark' },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
@@ -367,9 +402,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script>
     $(document).on('click','.editbtn',function(){
-        $('#nameEdit').val($(this).data('name'));
-        $('#descriptionEdit').val($(this).data('description'));
-//        $('#addressEdit').val($(this).data('address'));
+        $('#dateEdit').val($(this).data('date'));
+        $('#store_idEdit').val($(this).data('store'));
+        $('#productcodeEdit').val($(this).data('productcode'));
+        $('#unitEdit').val($(this).data('unit'));
+        $('#remarkEdit').val($(this).data('remark'));
         $('#idEdit').val($(this).data('id'));
 
 
@@ -378,7 +415,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
     $(document).on('click','.deletebtn',function() {
         $('#idDelete').val($(this).data('id'));
-        $("#nameDelete").html($(this).data('name'));
+        $("#nameDelete").html($(this).data('productcode'));
 
     });
 </script>
