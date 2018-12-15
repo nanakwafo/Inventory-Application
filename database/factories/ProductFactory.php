@@ -15,7 +15,9 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'payamount'=> $faker->randomDigit,
         'quantity'=> $faker->randomDigit,
         'supplier_id'=> \App\Supplier::all()->random()->id,
-        'remark'=> $faker->paragraph
+        'remark'=> $faker->paragraph,
+        'reorderlimit'=> $faker->randomDigit,
+        
 
     ];
 });

@@ -256,6 +256,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             @endforeach
                                     </select>
                                 </div>
+                                <div class="col-md-12 form-group1">
+                                    <label class="control-label">Re order Limit</label>
+                                    <input type="text" name="reorderlimit" required="">
+                                </div>
                                 <div class="col-md-12 form-group1 ">
                                     <label class="control-label">Remark</label>
                                     <textarea  name="remark" required=""></textarea>
@@ -358,18 +362,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     @endforeach
                                                 </select>
                                             </div>
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Re order Limit</label>
+                                        <input type="text" name="reorderlimitEdit" id="reorderlimitEdit" required="">
+                                    </div>
                                             <div class="col-md-12 form-group1 ">
                                                 <label class="control-label">Remark</label>
                                                 <textarea  id="remarkEdit" name="remarkEdit" required=""></textarea>
                                             </div>
                                             <div class="clearfix"> </div>
-
-
-
-
-
-
-                                </div>
+                                  </div>
                             </div>
                             <div class="modal-footer">
                                 <div class="col-md-12 form-group">
@@ -435,7 +437,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         @verbatim
         <table class="table">
 
-
+            <tr>
+                <td>Reorder limit:</td>
+                <td>{{reorderlimit}}</td>
+            </tr>
             <tr>
                 <td>Remark:</td>
                 <td>{{remark}}</td>
@@ -505,7 +510,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#payamountEdit').val($(this).data('payamount'));
         $('#remarkEdit').val($(this).data('remark'));
         $('#unitEdit').val($(this).data('unit'));
-        $('#supplier_idEdit').val($(this).data('supplier_id'));
+        $('#unitEdit').val($(this).data('reorderlimit'));
+        $('#reorderlimitEdit').val($(this).data('reorderlimit'));
         $('#idEdit').val($(this).data('id'));
         $('#productcategory_idEdit').val($(this).data('productcategory_id')).select();
 

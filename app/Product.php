@@ -16,6 +16,7 @@ class Product extends Model
         'quantity',
         'supplier_id',
         'remark',
+        'reorderlimit',
     ];
     public function productcode(){
         return $this->belongsTo('App\Productcode');
