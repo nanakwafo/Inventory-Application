@@ -61,6 +61,10 @@ Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste')
 Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
 
 
+
+Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
+
+
 Route::post('login',['as'=>'login','uses'=>'loginController@login']);
 Route::post('logout',['as'=>'logout','uses'=>'loginController@logout']);
 

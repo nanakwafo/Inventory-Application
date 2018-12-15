@@ -179,7 +179,8 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Vsmoraes\Pdf\PdfServiceProvider::class
+        Vsmoraes\Pdf\PdfServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -234,6 +235,7 @@ return [
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Vsmoraes\Pdf\PdfFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

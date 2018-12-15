@@ -306,6 +306,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
+    var store="all",fromdate="all",todate="all";
   var table =  $('#inventoryonhand-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
         "<'row'<'col-xs-12't>>"+
@@ -345,8 +346,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $('#search-form').on('submit', function(e) {
         table.draw();
         e.preventDefault();
+        store = $('#storedropdownvalue').val();
+        fromdate = $('input[name=fromdate]').val();
+        todate = $('input[name=todate]').val();
+
     });
 
+  $('#inventoryonhandpdf').on('click', function(e) {
+      e.preventDefault();
+     var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate;
+      $.ajax({
+          type:"GET",
+          url:url,
+          success: function(data) {
+
+          }
+      });
+  });
+  $('#inventoryonhandexcel').on('click', function(e) {
+      e.preventDefault();
+      var url='inventoryhandexcel/'+ store + '/' + fromdate + '/' + todate;
+      $.ajax({
+          type:"GET",
+          url:url,
+          success: function(data) {
+
+          }
+      });
+  });
 </script>
 
 </body>
