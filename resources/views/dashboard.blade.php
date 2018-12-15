@@ -214,10 +214,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="stockreport" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Stock</a></li>
-                                <li><a href="salesreport" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>Sales</a></li>
-                                <li><a href="productreport" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>Product</a></li>
-                                <li><a href="customerreport" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>Product</a></li>
+                                <li><a href="inventoryonhand" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Inventory On Hand</a></li>
+
                             </ul>
                         </li>
 
