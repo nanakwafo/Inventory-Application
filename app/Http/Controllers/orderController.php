@@ -102,6 +102,7 @@ class orderController extends Controller
         }
 
         Session::flash('success','New Order placed successfully ');
+        Session::flash('printurl','orderreceiptpdf/'.$request->ordernumber);
         return redirect('order');
     }
 
