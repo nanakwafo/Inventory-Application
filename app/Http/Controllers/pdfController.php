@@ -8,7 +8,7 @@ Use PDF;
 class pdfController extends Controller
 {
     //
-    public function inventoryonhandpdf($store,$fromdate,$todate){
+    public function inventoryonhandpdf($store,$fromdate,$todate,$product){
 
         $html=view('pdf.inventoryonhand')->with([
            'value'=>'inventoryonhandpdf'

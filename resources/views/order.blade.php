@@ -423,11 +423,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             type:"GET",
             url:"{{url('getproductrate')}}/"+ product_id +"/"+ store_id,
             success: function(data) {
-//
+// ;
+
+
                $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data.rate));
-                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
-                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
-                        '</div>');
+//                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
+//                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
+//                        '</div>');
             }
         });
     }
@@ -445,10 +447,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             url:"{{url('getproductrate')}}/"+ product_id +"/"+ store_id,
             success: function(data) {
 
+
                $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data.rate));
-                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
-                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
-                        '</div>');
+//                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
+//                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
+//                        '</div>');
             }
         });
     }

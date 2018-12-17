@@ -2,13 +2,15 @@
 namespace App\Helpers;
 
 use App\Order;
+use App\Product;
 use App\Storeitem;
 use App\Waste;
 
 class ReportHelper
 {
-    public static function getproductioncost($fromdate,$todate,$store,$productcode){
-        return 0;
+    public static function getproductionunitcost($fromdate,$todate,$store,$productcode){
+      $x=  Product::where('productcode',$productcode)->select('unitprice')->first();
+        return $x->unitprice;
     }
     public static function getstartinginventory($fromdate,$todate,$store,$productcode){
 //        The number of units of a product on hand at the beginning of the
@@ -44,6 +46,7 @@ class ReportHelper
     }
     public static function variancecost($fromdate,$todate,$store,$productcode){
         //The total cost of the variance.
-        return 0;
+        $v=Waste::whereDate('date','>=',$fromdate)->whereDate('date','<=',$todate)->where('productcode',$productcode)->where('store_id',$store)->sum('totalcost');
+        return $v;
     }
 }

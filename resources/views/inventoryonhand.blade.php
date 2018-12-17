@@ -259,17 +259,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">Store</th>
                             <th style="background-color: white;color: black">Supplier</th>
                             <th style="background-color: white;color: black">Product category</th>
-                            <th style="background-color: white;color: black">unit</th>
-                            <th style="background-color: white;color: black">cost</th>
-                            <th style="background-color: white;color: black">retail price</th>
-                            <th style="background-color: white;color: black">reorder limit</th>
-                            <th style="background-color: white;color: black">starting inventory</th>
-                            <th style="background-color: white;color: black">received</th>
-                            <th style="background-color: white;color: black">usage</th>
-                            <th style="background-color: white;color: black">onhand</th>
-                            <th style="background-color: white;color: black">variance</th>
-                            <th style="background-color: white;color: black">variance cost</th>
-                            <th style="background-color: white;color: black">value on hand(GHC)</th>
+                            <th style="background-color: white;color: black">Unit</th>
+                            <th style="background-color: white;color: black">Cost(GHC)</th>
+                            <th style="background-color: white;color: black">Retail price(GHC)</th>
+                            <th style="background-color: white;color: black">Reorder limit</th>
+                            <th style="background-color: white;color: black">Starting inventory</th>
+                            <th style="background-color: white;color: black">Received</th>
+                            <th style="background-color: white;color: black">Usage</th>
+                            <th style="background-color: white;color: black">Onhand</th>
+                            <th style="background-color: white;color: black">Variance</th>
+                            <th style="background-color: white;color: black">Variance cost(GHC)</th>
+                            <th style="background-color: white;color: black">Value on hand(GHC)</th>
 
                         </tr>
                         </thead>

@@ -62,7 +62,7 @@ Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->n
 
 
 
-Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
+Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
 
 
 Route::post('login',['as'=>'login','uses'=>'loginController@login']);

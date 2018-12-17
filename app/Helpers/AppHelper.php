@@ -102,5 +102,8 @@ class AppHelper
         return $allitems;
     }
 
+    public static function quantityboughtinStore($store,$productcode){
+        return Order::where('store',$store)->where('productcode',$productcode)->sum('quantity');
+    }
 
 }
