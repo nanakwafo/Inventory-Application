@@ -50,6 +50,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="js/select2.min.js"></script>
     <!--//skycons-icons-->
 </head>
 <body>
@@ -219,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-4 form-group2 group-mail">
                                         <label class="control-label">Customer</label>
-                                        <select id="customer" name="customer">
+                                        <select id="customer" name="customer" class="customer">
                                             <option value="">Select</option>
                                             @foreach(App\Customer::all() as $s)
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -360,7 +362,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script type="text/javascript">
-
+    $(".customer").select2();
 
     $(document).ready(function() {
         var currentItem = 0;
@@ -423,13 +425,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             type:"GET",
             url:"{{url('getproductrate')}}/"+ product_id +"/"+ store_id,
             success: function(data) {
-// ;
 
+              var x=data.split('|');
 
-               $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data.rate));
-//                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
-//                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
-//                        '</div>');
+               $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(x[0]);
+                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
+                        '<strong>Attention!</strong>quantity left is ' + x[1] +
+                        '</div>');
             }
         });
     }
@@ -447,11 +449,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             url:"{{url('getproductrate')}}/"+ product_id +"/"+ store_id,
             success: function(data) {
 
-
-               $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data.rate));
-//                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
-//                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
-//                        '</div>');
+                var x=data.split('|');
+                $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(x[0]);
+                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
+                        '<strong>Attention!</strong>quantity left is ' + x[1] +
+                        '</div>');
             }
         });
     }

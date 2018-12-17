@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AppHelper;
 use App\Product;
 use App\Productcategory;
 use App\Storeitem;
@@ -20,8 +21,11 @@ class productController extends Controller
         return view('product');
     }
   public function getproductrate($product_id,$store_id){
-
-      return Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->select('rate','quantity')->first();
+      $rate= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->pluck('rate')->first();
+      $totalquantity= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->sum('quantity');
+      $totalsold=AppHelper::quantityboughtinStore($store_id,$product_id);
+      $quantityleft=$totalquantity - $totalsold;
+      return $rate ."|". $quantityleft;
   }
     public function productselectbox(){
         $output_product='<option value="">Select product</option>';
