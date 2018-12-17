@@ -229,6 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="clearfix"> </div>
                                     <input type="hidden" id="number_of_items" name="number_of_items" value="0" />
                                     <table class="table table-hover table-inverse">
+                                        <span id="attention"></span>
                                         <thead>
                                         <tr>
                                             <th>Product</th>
@@ -422,9 +423,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             type:"GET",
             url:"{{url('getproductrate')}}/"+ product_id +"/"+ store_id,
             success: function(data) {
-
-                $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data));
-
+//
+               $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data.rate));
+                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
+                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
+                        '</div>');
             }
         });
     }
@@ -442,8 +445,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             url:"{{url('getproductrate')}}/"+ product_id +"/"+ store_id,
             success: function(data) {
 
-                $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data));
-
+               $('#data').find("tr").eq(row).find("td").eq(ratecol).find("input[type='text']").val(JSON.parse(data.rate));
+                $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
+                        '<strong>Attention!</strong>quantity left is ' + data.quantity +
+                        '</div>');
             }
         });
     }

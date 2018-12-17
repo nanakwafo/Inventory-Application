@@ -17,7 +17,7 @@ class goodreceiveController extends Controller
     }
     public function  supplierproductselectbox($supplier_id){
         $output_product_for_supplier='<option value="">Select product</option>';
-        $product_from_supplier=Product::where('supplier_id',$supplier_id)->get();
+        $product_from_supplier=Product::where('supplier_id',$supplier_id)->select('productcode')->groupBy('productcode')->get();
         foreach ($product_from_supplier as $p){
             $output_product_for_supplier.='<option value="'.$p->productcode.'">'.Productcode::find($p->productcode)->name.'</option>';
         }

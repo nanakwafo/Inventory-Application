@@ -23,6 +23,7 @@ class inventoryonhandController extends Controller
             $todate=$request->todate;
             $productitems = DB::table('inventoryonhand')
                 ->where('store_issue_to',$request->store)
+                ->where('productcode',$request->product)
                 ->whereDate('date','>=',$fromdate)->whereDate('date','<=',$todate)
                 ->get();
         }else{
@@ -31,7 +32,7 @@ class inventoryonhandController extends Controller
             $productitems = DB::table('inventoryonhand')->get();
         }
 
-       
+
 
         $data  = [];
 

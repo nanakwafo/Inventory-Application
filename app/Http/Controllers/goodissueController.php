@@ -61,6 +61,6 @@ class goodissueController extends Controller
 
         }
         Session::flash('success','New Goods issue successfully');
-        return redirect('goodreceive');
+        return redirect('goodissue');
     }
 }

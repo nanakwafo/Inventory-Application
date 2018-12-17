@@ -21,11 +21,11 @@ class productController extends Controller
     }
   public function getproductrate($product_id,$store_id){
 
-      return Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->pluck('rate');
+      return Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->select('rate','quantity')->first();
   }
     public function productselectbox(){
         $output_product='<option value="">Select product</option>';
-        $product_from=Product::all();
+        $product_from=Product::select('productcode')->groupBy('productcode')->get();
         foreach ($product_from as $p){
             $output_product.='<option value="'.$p->productcode.'">'.Productcode::find($p->productcode)->name.'</option>';
         }

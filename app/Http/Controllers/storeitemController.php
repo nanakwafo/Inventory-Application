@@ -24,6 +24,7 @@ class storeitemController extends Controller
             $obj = new \stdClass;
             $obj->id = $w->id;
             $obj->goodissue_addnumber = $w->goodissue_addnumber;
+            $obj->date = $w->date;
             $obj->warehousenamefrom = Warehouse::find($w->warehouse_issue_from)->name;
             $obj->storeissueto = Warehouse::find($w->store_issue_to)->name;
             $obj->product = Productcode::find($w->productcode)->name;

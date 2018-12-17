@@ -202,6 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <tr>
                             <th style="background-color: white;color: black">No</th>
                             <th style="background-color: white;color: black">Add Number</th>
+                            <th style="background-color: white;color: black">Add Date</th>
                             <th style="background-color: white;color: black">Warehouse From</th>
                             <th style="background-color: white;color: black">Store To</th>
                             <th style="background-color: white;color: black">Product</th>
@@ -219,6 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td class="non_searchable"></td>
                             <td></td>
                             <td></td>
 
@@ -260,6 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             columns: [
                 { data: 'id', name: 'id', orderable: false, searchable: false},
                 { data: 'goodissue_addnumber', name: 'goodissue_addnumber' },
+                { data: 'date', name: 'date' },
                 { data: 'warehousenamefrom', name: 'warehousenamefrom' },
                 { data: 'storeissueto', name: 'storeissueto' },
                 { data: 'product', name: 'product' },

@@ -217,18 +217,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-3 form-group1">
+                                    <div class="col-md-3 form-group2 group-mail">
+                                        <label class="control-label">Product</label>
+                                        <select name="product" id="productdropdownvalue">
+                                            <option value="">Select</option>
+                                            @foreach(\App\Product::select('productcode')->distinct('productcode')->get() as $s)
+                                                <option value="{{$s->productcode}}">{{\App\Productcode::find($s->productcode)->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 form-group1">
                                         <label class="control-label">From Date</label>
                                         <input type="date" name="fromdate" required="">
                                     </div>
-                                    <div class="col-md-3 form-group1">
+                                    <div class="col-md-2 form-group1">
                                         <label class="control-label">To Date</label>
                                         <input type="date" name="todate" required="">
                                     </div>
 
 
 
-                                    <div class="col-md-3 form-group">
+                                    <div class="col-md-2 form-group">
                                         <button type="submit" class="btn btn-default">Search</button>
 
                                     </div>
@@ -306,7 +315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
-    var store="all",fromdate="all",todate="all";
+    var store="all",fromdate="all",todate="all",product="all";
   var table =  $('#inventoryonhand-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
         "<'row'<'col-xs-12't>>"+
@@ -317,6 +326,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             url: '{!! route('allinventoryonhand') !!}',
             data: function (d) {
                 d.store = $('#storedropdownvalue').val();
+                d.product = $('#productdropdownvalue').val();
                 d.fromdate = $('input[name=fromdate]').val();
                 d.todate = $('input[name=todate]').val();
             }
@@ -347,6 +357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         table.draw();
         e.preventDefault();
         store = $('#storedropdownvalue').val();
+        product = $('#productdropdownvalue').val();
         fromdate = $('input[name=fromdate]').val();
         todate = $('input[name=todate]').val();
 
@@ -354,7 +365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   $('#inventoryonhandpdf').on('click', function(e) {
       e.preventDefault();
-     var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate;
+     var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
       $.ajax({
           type:"GET",
           url:url,
@@ -365,7 +376,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   });
   $('#inventoryonhandexcel').on('click', function(e) {
       e.preventDefault();
-      var url='inventoryhandexcel/'+ store + '/' + fromdate + '/' + todate;
+      var url='inventoryhandexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
       $.ajax({
           type:"GET",
           url:url,
