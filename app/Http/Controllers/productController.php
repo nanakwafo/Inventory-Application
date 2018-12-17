@@ -50,7 +50,7 @@ class productController extends Controller
             $obj->remark = $w->remark;
             $obj->reorderlimit = $w->reorderlimit;
             $obj->action = '
-                  <a href="#" class="editbtn" data-id="'.$w->id.'" data-reorderlimit="'.$w->reorderlimit.'" data-datereceived="'.$w->datereceived.'" data-productcode="'.$w->productcode.'" data-productcategory_id="'.$w->productcategory_id.'" data-unit="'.$w->unit.'" data-payamount="'.$w->payamount.'" data-quantity="'.$w->quantity.'" data-supplier_id="'.$w->supplier_id.'" data-remark="'.$w->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="editbtn" data-id="'.$w->id.'" data-unitprice="'.$w->unitprice.'" data-reorderlimit="'.$w->reorderlimit.'" data-datereceived="'.$w->datereceived.'" data-productcode="'.$w->productcode.'" data-productcategory_id="'.$w->productcategory_id.'" data-unit="'.$w->unit.'" data-payamount="'.$w->payamount.'" data-quantity="'.$w->quantity.'" data-supplier_id="'.$w->supplier_id.'" data-remark="'.$w->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
                   <a href="#" class="deletebtn" data-id="'.$w->id.'" data-productcode="'.$w->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             $data[] = $obj;
@@ -72,6 +72,7 @@ class productController extends Controller
         $product->productcode = $request->productcodeEdit;
         $product->productcategory_id = $request->productcategory_idEdit;
         $product->unit = $request->unitEdit;
+        $product->unitprice = $request->unitpriceEdit;
         $product->payamount = $request->payamountEdit;
         $product->quantity = $request->quantityEdit;
         $product->supplier_id = $request->supplier_idEdit;

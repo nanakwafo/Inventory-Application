@@ -30,7 +30,7 @@ class wasteController extends Controller
             $obj->remark = $w->remark;
 
             $obj->action = '
-                  <a href="#" class="editbtn" data-id="'.$w->id.'" data-date="'.$w->date.'" data-store="'.$w->store_id.'" data-productcode="'.$w->productcode.'" data-unit="'.$w->unit.'" data-remark="'.$w->remark.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-money fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="editbtn" data-id="'.$w->id.'" data-date="'.$w->date.'" data-store="'.$w->store_id.'" data-productcode="'.$w->productcode.'" data-unit="'.$w->unit.'" data-remark="'.$w->remark.'" data-unitcost="'.$w->unitcost.'" data-totalcost="'.$w->totalcost.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-money fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
                     <a href="#" class="deletebtn" data-id="'.$w->id.'" data-productcode="'.$w->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-1x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             $data[] = $obj;
@@ -51,6 +51,8 @@ class wasteController extends Controller
         $waste->store_id = $request->store_idEdit;
         $waste->productcode = $request->productcodeEdit;
         $waste->unit = $request->unitEdit;
+        $waste->unitcost = $request->unitcostEdit;
+        $waste->totalcost = $request->totalcostEdit;
         $waste->remark = $request->remarkEdit;
         $waste->save();
         Session::flash('success','Waste record updated successfully');

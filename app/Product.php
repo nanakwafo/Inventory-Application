@@ -12,6 +12,7 @@ class Product extends Model
         'productcode',
         'productcategory_id',
         'unit',
+        'unitprice',
         'payamount',
         'quantity',
         'supplier_id',

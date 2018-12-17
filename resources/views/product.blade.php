@@ -230,8 +230,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
 
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Unit Price</label>
+                                        <label class="control-label">Unit</label>
                                         <input type="text" name="unit" required="">
+                                    </div>
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Unit Price</label>
+                                        <input type="text" name="unitprice" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Quantity</label>
@@ -336,8 +340,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </div>
 
                                                 <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Unit Price</label>
+                                                    <label class="control-label">Unit </label>
                                                     <input type="text" id="unitEdit" name="unitEdit" required="">
+                                                </div>
+                                                <div class="col-md-12 form-group1">
+                                                    <label class="control-label">Unit Price</label>
+                                                    <input type="text" name="unitpriceEdit" id="unitpriceEdit" required="">
                                                 </div>
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Quantity</label>

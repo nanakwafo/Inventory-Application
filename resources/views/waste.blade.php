@@ -229,6 +229,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <label class="control-label">Unit</label>
                                         <input type="text" name="unit" required="">
                                     </div>
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Unit Cost</label>
+                                        <input type="text" name="unitcost" required="">
+                                    </div>
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Total Cost</label>
+                                        <input type="text" name="totalcost" required="">
+                                    </div>
 
                                     <div class="clearfix"> </div>
                                 </div>
@@ -307,7 +315,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <label class="control-label">Unit</label>
                                                 <input type="text" name="unitEdit" id="unitEdit" required="">
                                             </div>
-
+                                            <div class="col-md-12 form-group1">
+                                                <label class="control-label">Unit Cost</label>
+                                                <input type="text" name="unitcostEdit" id="unitcostEdit" required="">
+                                            </div>
+                                            <div class="col-md-12 form-group1">
+                                                <label class="control-label">Total Cost</label>
+                                                <input type="text" name="totalcostEdit" id="totalcostEdit" required="">
+                                            </div>
                                             <div class="clearfix"> </div>
                                         </div>
                                         <div class="col-md-12 form-group1 ">
@@ -403,6 +418,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#store_idEdit').val($(this).data('store'));
         $('#productcodeEdit').val($(this).data('productcode'));
         $('#unitEdit').val($(this).data('unit'));
+        $('#unitcostEdit').val($(this).data('unitcost'));
+        $('#totalcostEdit').val($(this).data('totalcost'));
         $('#remarkEdit').val($(this).data('remark'));
         $('#idEdit').val($(this).data('id'));
 

@@ -19,6 +19,8 @@ class CreateWastesTable extends Migration
             $table->string('store_id');
             $table->string('productcode');
             $table->string('unit');
+            $table->string('unitcost');
+            $table->string('totalcost');
             $table->string('remark');
             $table->timestamps();
         });
