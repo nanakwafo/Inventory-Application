@@ -366,24 +366,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   $('#inventoryonhandpdf').on('click', function(e) {
       e.preventDefault();
      var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
-      $.ajax({
-          type:"GET",
-          url:url,
-          success: function(data) {
+      document.location.href = url;
 
-          }
-      });
   });
   $('#inventoryonhandexcel').on('click', function(e) {
       e.preventDefault();
-      var url='inventoryhandexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
-      $.ajax({
-          type:"GET",
-          url:url,
-          success: function(data) {
+      var url='inventoryonhandexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+      document.location.href = url;
 
-          }
-      });
   });
 </script>
 

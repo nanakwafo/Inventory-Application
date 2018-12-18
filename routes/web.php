@@ -63,6 +63,7 @@ Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->n
 
 
 Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
+Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
 Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
 
 

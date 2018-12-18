@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
-Use PDF;
-
+use PDF;
+use DB;
+use App\Warehouse;
+use App\Supplier;
+use App\Productcategory;
+use App\Helpers\AppHelper;
+use App\Helpers\ReportHelper;
+use Illuminate\Support\Collection;
 class pdfController extends Controller
 {
     //
@@ -51,12 +58,18 @@ class pdfController extends Controller
         $html=view('pdf.inventoryonhand')->with([
            'data'=>$productitems_sorted
            ])->render();
-        return PDF::load($html)->show();
+
+        $mypdf= new  PDF();
+        $mypdf::filename('inventoryonhand'.date('Y-m-d'));
+
+        return $mypdf::load($html, 'A4', 'landscape')->show();
     }
     
     public function orderreceiptpdf($ordernumber){
+        $data=Order::where('ordernumber',$ordernumber)->get();
         $html=view('pdf.orderreceipt')->with([
-            
+            'data'=>$data,
+            'ordernumber'=>$ordernumber
         ])->render();
         return PDF::load($html)->show();
     }

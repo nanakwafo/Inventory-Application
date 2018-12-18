@@ -101,6 +101,15 @@ class orderController extends Controller
 
         }
 
+        $customernumber=Customer::find($request->customer)->pluck('phonenumber')->first();
+        $sender = "inven";
+        $message = "It was really a pleasure doing business with you! Thank you for choosing us!";
+        $receipient = preg_replace('/^0/','233',$customernumber);
+        $msg = urlencode($message);
+        $api = 'http://api.nalosolutions.com/bulksms/?username=naname&password=christ123!@&type=0&dlr=1&destination=' . $receipient . '&source=' . $sender . '&message=' . $msg;
+        file_get_contents($api);
+
+
         Session::flash('success','New Order placed successfully ');
         Session::flash('printurl','orderreceiptpdf/'.$request->ordernumber);
         return redirect('order');

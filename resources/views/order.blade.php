@@ -50,8 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
-    <link href="css/select2.min.css" rel="stylesheet" />
-    <script src="js/select2.min.js"></script>
+
     <!--//skycons-icons-->
 </head>
 <body>
@@ -361,10 +360,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
+<link href="css/select2.min.css" rel="stylesheet" />
+<script src="js/select2.min.js"></script>
 <script type="text/javascript">
     $(".customer").select2();
 
+
     $(document).ready(function() {
+
         var currentItem = 0;
         var product=null;
         var store=null;
@@ -388,18 +391,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
         $('#addnew').click(function(){
+
             currentItem =currentItem+1;
             $('#number_of_items').val(currentItem);
 
             var strToAdd='<tr class="item">' +
-                    '<td><div class="form-group"><select name="product[]" class="form-control" onchange="getval(this);"  >'+product+'</select> </div></td>' +
-                    '<td><div class="form-group"><select name="store[]" class="form-control" onchange="getval2(this);"  >'+store+'</select> </div></td>' +
+                    '<td><div class="form-group"><select name="product[]" class="form-control product" onchange="getval(this);"  >'+product+'</select> </div></td>' +
+                    '<td><div class="form-group"><select name="store[]" class="form-control store" onchange="getval2(this);"  >'+store+'</select> </div></td>' +
                     '<td><div class="form-group"><input name="rate[]" class="form-control" type="text" readonly /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="quantity[]" class="form-control" onkeyup="getval3(this);"  type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="total[]" class="form-control total"  type="text" readonly /> </div> </td>' +
                     '<td><button type="button" class="btn btn-default remove" name="remove" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button> </td>'+
                     ' </tr>';
             $('#data').append(strToAdd);
+            $('.product').select2();
+            $('.store').select2();
+
         });
         $(document).on('click','.remove',function () {
             $(this).closest('tr').remove();
@@ -494,6 +501,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#dueamount').val($('#grandtotal').val() - paidamount);
     });
 </script>
+
+
 </body>
 </html>
 
