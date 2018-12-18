@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
     <!--//skycons-icons-->
 </head>
 <body>
@@ -314,8 +315,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
+
+<script src="js/select2.min.js"></script>
 <script>
+    $("#storedropdownvalue,#productdropdownvalue").select2({
+        theme: "classic",
+        width: 'resolve' // need to override the changed default
+    });
     var store="all",fromdate="all",todate="all",product="all";
+
   var table =  $('#inventoryonhand-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
         "<'row'<'col-xs-12't>>"+

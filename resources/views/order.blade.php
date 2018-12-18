@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
-
+    <link href="css/select2.min.css" rel="stylesheet" />
     <!--//skycons-icons-->
 </head>
 <body>
@@ -227,6 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             @endforeach
                                         </select>
                                     </div>
+
                                     <div class="clearfix"> </div>
                                     <input type="hidden" id="number_of_items" name="number_of_items" value="0" />
                                     <table class="table table-hover table-inverse">
@@ -360,10 +361,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
-<link href="css/select2.min.css" rel="stylesheet" />
+
 <script src="js/select2.min.js"></script>
 <script type="text/javascript">
-    $(".customer").select2();
+    $(".customer").select2({
+        theme: "classic",
+        width: 'resolve' // need to override the changed default
+    });
 
 
     $(document).ready(function() {
@@ -404,13 +408,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     '<td><button type="button" class="btn btn-default remove" name="remove" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button> </td>'+
                     ' </tr>';
             $('#data').append(strToAdd);
-            $('.product').select2();
-            $('.store').select2();
+             $('.product').select2();
+             $('.store').select2();
 
         });
         $(document).on('click','.remove',function () {
             $(this).closest('tr').remove();
         })
+
 
 
 

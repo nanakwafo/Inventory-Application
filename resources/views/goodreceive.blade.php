@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
     <!--//skycons-icons-->
+    <link href="css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 <div id="wrapper">
@@ -347,8 +348,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
-<script type="text/javascript">
 
+<script src="js/select2.min.js"></script>
+<script type="text/javascript">
+    $("#grntype,#warehouse_id,#supplier_id").select2({
+        theme: "classic",
+        width: 'resolve' // need to override the changed default
+    });
 
     $(document).ready(function() {
         var currentItem = 0;

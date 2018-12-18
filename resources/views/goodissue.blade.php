@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
     <!--//skycons-icons-->
+    <link href="css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 <div id="wrapper">
@@ -218,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">ADD Type</label>
-                                    <select name="addtype">
+                                    <select name="addtype" id="addtype">
                                         <option value="">Select</option>
                                         <option value="fromwarehouse">From warehouse</option>
                                         <option value="fromindividual">From Individual</option>
@@ -399,8 +400,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
+<script src="js/select2.min.js"></script>
 <script type="text/javascript">
-
+    $("#addtype,#warehouse_from_id,#store_to").select2({
+        theme: "classic",
+        width: 'resolve' // need to override the changed default
+    });
 
     $(document).ready(function() {
         var currentItem = 0;
