@@ -30,7 +30,7 @@ class productcodeController extends Controller
             ->addColumn('action', function ($productcode) {
                 return '
                   <a href="#"  class="editbtn" data-id="'.$productcode->id.'" data-productcode="'.$productcode->productcode.'" data-name="'.$productcode->name.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="deletebtn" data-name="'.$productcode->name.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" class="deletebtn" data-id="'.$productcode->productcode.'" data-name="'.$productcode->name.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             });
 

@@ -40,7 +40,7 @@ class orderController extends Controller
             $obj->details_url =  route('paymentorderdetails', $w->ordernumber);
             $obj->action = '
                   <a href="#" class="paymentbtn" data-ordernumber="'.$w->ordernumber.'" data-paidamount="'.$w->paidamount.'" data-dueamount="'.$w->dueamount.'" data-paymenttype="'.$w->paymenttype.'" data-paymentstatus="'.$w->paymentstatus.'" data-toggle="modal" data-target="#paymentmodal" ><i class="fa fa-money fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="printbtn" data-ordernumber="'.$w->ordernumber.'"  data-toggle="modal" data-target="#printmodal" ><i class="fa fa-print fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="orderreceiptpdf/'.$w->ordernumber.'" class="printbtn"><i class="fa fa-print fa-1x" style="color:#8080ff" aria-hidden="true"></i> </a> |
                   <a href="#" class="deletebtn" data-ordernumber="'.$w->ordernumber.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-1x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             $data[] = $obj;

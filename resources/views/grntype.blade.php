@@ -292,6 +292,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <center><h4 class="modal-title">Remove </h4></center>
                             </div>
                             <form action="deletegrntype" method="post">
+                                {{csrf_field()}}
                             <div class="modal-body">
                                     <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
                                     <input type="hidden" id="idDelete" name="idDelete"/>
