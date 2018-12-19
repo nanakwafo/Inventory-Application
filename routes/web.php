@@ -15,57 +15,60 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
-Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
-Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryController@index']);
-Route::get('customercategory',['as'=>'customercategory','uses'=>'customercategoryController@index']);
-Route::get('user',['as'=>'user','uses'=>'userController@index']);
-Route::get('waste',['as'=>'waste','uses'=>'wasteController@index']);
-Route::get('inventoryonhand',['as'=>'inventoryonhand','uses'=>'inventoryonhandController@inventoryonhand']);
-Route::get('warehouse',['as'=>'warehouse','uses'=>'warehouseController@index']);
-Route::get('customer',['as'=>'customer','uses'=>'customerController@index']);
-Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
-Route::get('product',['as'=>'product','uses'=>'productController@index']);
-Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'productController@getproductrate']);
-Route::get('productselectbox',['as'=>'productselectbox','uses'=>'productController@productselectbox']);
-Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
-Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
-Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);
-Route::get('profile',['as'=>'profile','uses'=>'profileController@index']);
-Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);
-Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
-Route::get('grntype',['as'=>'grntype','uses'=>'grntypeController@index']);
-Route::get('order',['as'=>'order','uses'=>'orderController@index']);
-Route::get('manageorder',['as'=>'manageorder','uses'=>'orderController@manageorder']);
-Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
-Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);
-Route::get('warehouseproductselectbox/{warehouse_id}',['as'=>'warehouseproductselectbox','uses'=>'goodissueController@warehouseproductselectbox']);
-Route::get('productquantityleft/{productcode}/{supplier_id}',['as'=>'productquantityleft','uses'=>'goodreceiveController@productquantityleft']);
-Route::get('productquantityleftwarehouse/{productcode}/{warehouse_from}',['as'=>'productquantityleftwarehouse','uses'=>'goodissueController@productquantityleftwarehouse']);
+Route::group(['middleware' => ['checkauth']], function () {
+    Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
+    Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
+    Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryController@index']);
+    Route::get('customercategory',['as'=>'customercategory','uses'=>'customercategoryController@index']);
+    Route::get('user',['as'=>'user','uses'=>'userController@index']);
+    Route::get('waste',['as'=>'waste','uses'=>'wasteController@index']);
+    Route::get('inventoryonhand',['as'=>'inventoryonhand','uses'=>'inventoryonhandController@inventoryonhand']);
+    Route::get('warehouse',['as'=>'warehouse','uses'=>'warehouseController@index']);
+    Route::get('customer',['as'=>'customer','uses'=>'customerController@index']);
+    Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
+    Route::get('product',['as'=>'product','uses'=>'productController@index']);
+    Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'productController@getproductrate']);
+    Route::get('productselectbox',['as'=>'productselectbox','uses'=>'productController@productselectbox']);
+    Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
+    Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
+    Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);
+    Route::get('profile',['as'=>'profile','uses'=>'profileController@index']);
+    Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);
+    Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
+    Route::get('grntype',['as'=>'grntype','uses'=>'grntypeController@index']);
+    Route::get('order',['as'=>'order','uses'=>'orderController@index']);
+    Route::get('manageorder',['as'=>'manageorder','uses'=>'orderController@manageorder']);
+    Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
+    Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);
+    Route::get('warehouseproductselectbox/{warehouse_id}',['as'=>'warehouseproductselectbox','uses'=>'goodissueController@warehouseproductselectbox']);
+    Route::get('productquantityleft/{productcode}/{supplier_id}',['as'=>'productquantityleft','uses'=>'goodreceiveController@productquantityleft']);
+    Route::get('productquantityleftwarehouse/{productcode}/{warehouse_from}',['as'=>'productquantityleftwarehouse','uses'=>'goodissueController@productquantityleftwarehouse']);
 
-Route::get('allproductcategory',array('as'=>'allproductcategory','uses'=>'productcategoryController@allproductcategory'));
-Route::get('allcustomercategory',array('as'=>'allcustomercategory','uses'=>'customercategoryController@allcustomercategory'));
-Route::get('allusers',array('as'=>'allusers','uses'=>'userController@allusers'));
-Route::get('allwarehouse',array('as'=>'allwarehouse','uses'=>'warehouseController@allwarehouse'));
-Route::get('allinventoryonhand',array('as'=>'allinventoryonhand','uses'=>'inventoryonhandController@allinventoryonhand'));
-Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
-Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
-Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allproduct'));
-Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
-Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeController@allproductcode'));
-Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
-Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
-Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
-Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
-Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste'));
-Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
+    Route::get('allproductcategory',array('as'=>'allproductcategory','uses'=>'productcategoryController@allproductcategory'));
+    Route::get('allcustomercategory',array('as'=>'allcustomercategory','uses'=>'customercategoryController@allcustomercategory'));
+    Route::get('allusers',array('as'=>'allusers','uses'=>'userController@allusers'));
+    Route::get('allwarehouse',array('as'=>'allwarehouse','uses'=>'warehouseController@allwarehouse'));
+    Route::get('allinventoryonhand',array('as'=>'allinventoryonhand','uses'=>'inventoryonhandController@allinventoryonhand'));
+    Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
+    Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
+    Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allproduct'));
+    Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
+    Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeController@allproductcode'));
+    Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
+    Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
+    Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
+    Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
+    Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste'));
+    Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
+    Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
+    Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
+    Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
 
 
 
-Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
-Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
-Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
 
+
+});
 
 Route::post('login',['as'=>'login','uses'=>'loginController@login']);
 Route::post('logout',['as'=>'logout','uses'=>'loginController@logout']);
@@ -121,4 +124,3 @@ Route::post('updatewaste',['as'=>'updatewaste','uses'=>'wasteController@update']
 Route::post('deletewaste',['as'=>'deletewaste','uses'=>'wasteController@delete']);
 
 Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@updateprofile']);
-
