@@ -1,4 +1,12 @@
-<!DOCTYPE HTML>
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE Html>
 <html>
 <head>
     <title>EYSN</title>
@@ -13,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/font-awesome.css" rel="stylesheet">
     <script src="js/jquery.min.js"> </script>
     <script src="js/bootstrap.min.js"> </script>
+
 </head>
 <body>
 <div class="login">
