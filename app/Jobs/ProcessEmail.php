@@ -39,5 +39,6 @@ class ProcessEmail implements ShouldQueue
     public function handle()
     {
         //
+        echo "to be implemented";
     }
 }

@@ -13,10 +13,10 @@ use App\Emailcreator;
 
 class EmailHelper
 {
-    public static function sendSMS(){
+    public static function sendEmail(){
         $details=Emailcreator::all();
         foreach ($details as $d){
-            $job = (new processEmail($d->name,$d->telephone,$d->sender,$d->messagecontent))
+            $job = (new processEmail($d->name,$d->email,$d->sender,$d->messagecontent))
                 ->delay(Carbon::now()->addMinutes(5));
 
             dispatch($job);

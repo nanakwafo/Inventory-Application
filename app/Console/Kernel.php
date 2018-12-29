@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        Commands\smsSchedular::class,
+        Commands\emailSchedular::class
     ];
 
     /**
@@ -24,8 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+         $schedule->command('command:emailschedular')->everyMinute();
+         $schedule->command('command:smsschedular')->everyMinute();
     }
 
     /**

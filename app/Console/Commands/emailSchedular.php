@@ -2,17 +2,17 @@
 
 namespace App\Console\Commands;
 
-use App\Helpers\SmsHelper;
+use App\Helpers\EmailHelper;
 use Illuminate\Console\Command;
 
-class smsSchedular extends Command
+class emailSchedular extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:smsschedular';
+    protected $signature = 'command:emailschedular';
 
     /**
      * The console command description.
@@ -39,6 +39,6 @@ class smsSchedular extends Command
     public function handle()
     {
         //
-        SmsHelper::sendSMS();
+        EmailHelper::sendEmail();
     }
 }
