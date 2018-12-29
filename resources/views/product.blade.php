@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
     <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
     <script src="js/skycons.js"></script>
-
+    <link href="css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 <div id="wrapper">
@@ -140,13 +140,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="customer" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>Customer</a></li>
                                 <li><a href="supplier" class=" hvr-bounce-to-right"><i class="fa fa-paper-plane nav_icon"></i> Supplier </a></li>
                                 <li><a href="warehouse" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> Warehouse/Store </a></li>
-                                <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> Product </a></li>
-                                <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
+                               <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
 
 
                             </ul>
                         </li>
+                        <li>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Product</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> New Product </a></li>
 
+
+                            </ul>
+                        </li>
                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Inventory</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -219,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-12 form-group2 group-mail">
                                         <label class="control-label">Product Category</label>
-                                        <select name="productcategory_id">
+                                        <select name="productcategory_id" id="productcategory_id">
                                             <option value="">Select</option>
                                             @foreach(\App\Productcategory::all() as $s)
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -227,8 +233,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </select>
                                     </div>
                                     <div class="col-md-12 form-group2 group-mail">
-                                        <label class="control-label">Product Code</label>
-                                        <select name="productcode">
+                                        <label class="control-label">Product</label>
+                                        <select name="productcode" id="product">
                                             <option value="">Select</option>
                                             @foreach(\App\Productcode::all() as $s)
                                                 <option value="{{$s->productcode}}">{{$s->name .'-'. $s->productcode}}</option>
@@ -257,7 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Supplier</label>
-                                    <select name="supplier_id">
+                                    <select name="supplier_id" id="supplier">
                                         <option value="">Select</option>
                                         @foreach(\App\Supplier::all() as $s)
                                         <option value="{{$s->id}}">{{$s->name}}</option>
@@ -445,7 +451,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 
-
+<script src="js/select2.min.js"></script>
     <script id="details-template" type="text/x-handlebars-template">
         @verbatim
         <table class="table">
@@ -468,6 +474,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <script>
+        $("#productcategory_id,#product,#supplier").select2({
+            theme: "classic",
+            width: 'resolve' // need to override the changed default
+        });
+
         var template = Handlebars.compile($("#details-template").html());
         var table = $('#users-table').DataTable({
             processing: true,

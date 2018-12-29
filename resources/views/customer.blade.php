@@ -143,7 +143,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="customer" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>Customer</a></li>
                                 <li><a href="supplier" class=" hvr-bounce-to-right"><i class="fa fa-paper-plane nav_icon"></i> Supplier </a></li>
                                 <li><a href="warehouse" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> Warehouse/Store </a></li>
-                                <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> Product </a></li>
                                 <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
 
 
@@ -151,6 +150,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
 
                         <li>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Product</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> New Product </a></li>
+
+
+                            </ul>
+                        </li>
+                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Inventory</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="goodreceive" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>Goods Receive</a></li>
@@ -221,7 +228,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Phone number</label>
-                                        <input type="text" name="phonenumber" required="">
+                                        <input type="text" name="phonenumber"  required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Email</label>
@@ -263,6 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">No.</th>
                             <th style="background-color: white;color: black">Name</th>
                             <th style="background-color: white;color: black">Phone number</th>
+                            <th style="background-color: white;color: black">Email</th>
                             <th style="background-color: white;color: black">address</th>
                             <th style="background-color: white;color: black">customer Category</th>
 
@@ -298,7 +306,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="col-md-12 form-group1">
                                                     <label class="control-label">Phone number</label>
-                                                    <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
+                                                    <input type="text"  id="phonenumberEdit" name="phonenumberEdit"  required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
@@ -306,7 +314,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                              <div class="col-md-12 form-group1">
                                                     <label class="control-label">Email</label>
-                                                    <input type="email"  id="emailEdit" name="emailEdit" required="">
+                                                    <input type="text"  id="emailEdit" name="emailEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
@@ -403,6 +411,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
                 { data: 'name', name: 'name' },
                 { data: 'phonenumber', name: 'phonenumber' },
+                { data: 'email', name: 'email' },
                 { data: 'address', name: 'address' },
                 { data: 'customercategory', name: 'customercategory' ,searchable: false},
                 { data: 'action', name: 'action', orderable: false, searchable: false}

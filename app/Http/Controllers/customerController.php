@@ -21,6 +21,7 @@ class customerController extends Controller
             'id',
             'name',
             'phonenumber',
+            'email',
             'address',
             'customercategory_id',
             'created_at',
