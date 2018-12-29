@@ -37,6 +37,8 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
     Route::get('grntype',['as'=>'grntype','uses'=>'grntypeController@index']);
     Route::get('order',['as'=>'order','uses'=>'orderController@index']);
+    Route::get('sms',['as'=>'sms','uses'=>'smsController@index']);
+    Route::get('email',['as'=>'email','uses'=>'emailController@index']);
     Route::get('manageorder',['as'=>'manageorder','uses'=>'orderController@manageorder']);
     Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
     Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);
@@ -49,6 +51,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allusers',array('as'=>'allusers','uses'=>'userController@allusers'));
     Route::get('allwarehouse',array('as'=>'allwarehouse','uses'=>'warehouseController@allwarehouse'));
     Route::get('allinventoryonhand',array('as'=>'allinventoryonhand','uses'=>'inventoryonhandController@allinventoryonhand'));
+    Route::get('allcontact',array('as'=>'allcontact','uses'=>'smsController@allcontact'));
     Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
     Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
     Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allproduct'));
@@ -118,6 +121,8 @@ Route::post('savegoodissue',['as'=>'savegoodissue','uses'=>'goodissueController@
 Route::post('saveorder',['as'=>'saveorder','uses'=>'orderController@save']);
 Route::post('updatepaymentorder',['as'=>'updatepaymentorder','uses'=>'orderController@updatepaymentorder']);
 Route::post('deletepaymentorder',['as'=>'deletepaymentorder','uses'=>'orderController@deletepaymentorder']);
+
+Route::post('insertsms',['as'=>'insertsms','uses'=>'smscreatorController@insert']);
 
 Route::post('savewaste',['as'=>'savewaste','uses'=>'wasteController@save']);
 Route::post('updatewaste',['as'=>'updatewaste','uses'=>'wasteController@update']);

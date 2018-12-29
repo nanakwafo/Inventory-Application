@@ -197,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Customer</span>
+                    <span>Promotion SMS</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -216,32 +216,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Customer Name</label>
-                                        <input type="text" name="name" required="">
+                                        <label class="control-label">Sender</label>
+                                        <input type="text" name="sender" id="sender" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Phone number</label>
-                                        <input type="text" name="phonenumber" required="">
+                                        <label class="control-label">Message</label>
+                                        <textarea row="5" name="messagecontent" id="messagecontent" required ></textarea>
                                     </div>
-                                    <div class="col-md-12 form-group1">
-                                        <label class="control-label">Address</label>
-                                        <input type="text" name="address" required="">
-                                    </div>
+
 
                                     <div class="clearfix"> </div>
                                 </div>
-                                <div class="col-md-12 form-group2 group-mail">
-                                    <label class="control-label">Customer Category</label>
-                                    <select name="customercategory_id">
-                                        <option value="">Select</option>
-                                        @foreach(\App\Customercategory::all() as $s)
-                                        <option value="{{$s->id}}">{{$s->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+
 
                                 <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <button type="submit" id="send_bulk_sms" class="btn btn-default">Send</button>
 
                                 </div>
                                 <div class="clearfix"> </div>
@@ -253,18 +242,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
                 <div class="col-md-8 ">
-                    <table class="table table-bordered " id="warehouse-table">
+                    <div class="validation-system">
+
+                        <div class="validation-form">
+                            <!---->
+
+                            <form id="search-form">
+                                {{csrf_field()}}
+                                <div class="vali-form">
+                                    <div class="col-md-4 form-group2 group-mail">
+                                        <label class="control-label">Customer Category</label>
+                                        <select name="customercat" id="customercat">
+                                            <option value="">Select</option>
+                                            @foreach(\App\Customercategory::all() as $s)
+                                                <option value="{{$s->id}}">{{$s->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <button type="submit" class="btn btn-default">Search</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </form>
+
+                            <!---->
+                        </div>
+
+                    </div>
+                    <table class="table table-bordered " id="contacts-table">
                         <thead>
                         <tr>
                             <th style="background-color: white;color: black">No.</th>
+                            <th style="background-color: white;color: black"><input type="checkbox" id="checkAll" name="checkAll" />&nbsp;Select All</th>
                             <th style="background-color: white;color: black">Name</th>
                             <th style="background-color: white;color: black">Phone number</th>
-                            <th style="background-color: white;color: black">address</th>
-                            <th style="background-color: white;color: black">customer Category</th>
 
-                            <th style="background-color: white;color: black;width: 20%">Action</th>
                         </tr>
                         </thead>
+                        <tbody id="contacts-table-data"></tbody>
                     </table>
 
                 </div>
@@ -279,57 +297,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <form method="post" action="updatecustomer">
                                 {{csrf_field()}}
-                            <div class="modal-body">
-                                <div class="validation-system">
+                                <div class="modal-body">
+                                    <div class="validation-system">
 
 
 
-                                            <input id="idEdit" name="idEdit" type="hidden"/>
-                                                <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Customer Name</label>
-                                                    <input type="text"  id="nameEdit" name="nameEdit" required="">
-                                                </div>
+                                        <input id="idEdit" name="idEdit" type="hidden"/>
+                                        <div class="col-md-12 form-group1">
+                                            <label class="control-label">Customer Name</label>
+                                            <input type="text"  id="nameEdit" name="nameEdit" required="">
+                                        </div>
 
-                                                <div class="clearfix"> </div>
+                                        <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Phone number</label>
-                                                    <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
-                                                </div>
+                                        <div class="col-md-12 form-group1">
+                                            <label class="control-label">Phone number</label>
+                                            <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
+                                        </div>
 
-                                                <div class="clearfix"> </div>
+                                        <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Address</label>
-                                                    <input type="text"  id="addressEdit" name="addressEdit" required="">
-                                                </div>
+                                        <div class="col-md-12 form-group1">
+                                            <label class="control-label">Address</label>
+                                            <input type="text"  id="addressEdit" name="addressEdit" required="">
+                                        </div>
 
-                                                <div class="clearfix"> </div>
+                                        <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group2 group-mail">
-                                                <label class="control-label">Customer Category</label>
-                                                <select id="customercategory_idEdit" name="customercategory_idEdit">
-                                                    <option value="">Select</option>
-                                                    @foreach(\App\Customercategory::all() as $s)
-                                                        <option value="{{$s->id}}">{{$s->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="clearfix"> </div>
-
-
+                                        <div class="col-md-12 form-group2 group-mail">
+                                            <label class="control-label">Customer Category</label>
+                                            <select id="customercategory_idEdit" name="customercategory_idEdit">
+                                                <option value="">Select</option>
+                                                @foreach(\App\Customercategory::all() as $s)
+                                                    <option value="{{$s->id}}">{{$s->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"> </div>
 
 
 
+
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                <div class="modal-footer">
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
 
+                                    </div>
+                                    <div class="clearfix"> </div>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
                             </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -344,17 +362,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <form method="post" action="deletecustomer">
                                 {{csrf_field()}}
-                            <div class="modal-body">
-                                <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
-                                <input type="hidden" id="idDelete" name="idDelete"/>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
-
+                                <div class="modal-body">
+                                    <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
+                                    <input type="hidden" id="idDelete" name="idDelete"/>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                                <div class="modal-footer">
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
+
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
                             </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -382,38 +400,95 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
-    $(function() {
-        $('#warehouse-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{!! route('allcustomer') !!}',
-            columns: [
-                { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
-                { data: 'name', name: 'name' },
-                { data: 'phonenumber', name: 'phonenumber' },
-                { data: 'address', name: 'address' },
-                { data: 'customercategory', name: 'customercategory' ,searchable: false},
-                { data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
+    var table =  $('#contacts-table').DataTable({
+        dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
+        "<'row'<'col-xs-12't>>"+
+        "<'row'<'col-xs-12'<'col-xs-6'i><'col-xs-6'p>>>",
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: '{!! route('allcontact') !!}',
+            data: function (d) {
+                d.customercat = $('#customercat').val();
+
+            }
+        },
+        columns: [
+            {data: 'no', name: 'no',orderable: false, searchable: false},
+            {data: 'select', name: 'select',orderable: false, searchable: false},
+            {data: 'name', name: 'name', orderable: false, searchable: false},
+            {data: 'contact', name: 'contact',orderable: false, searchable: false},
+
+
+        ]
+    });
+    $('#search-form').on('submit', function(e) {
+        table.draw();
+        e.preventDefault();
+        customercat = $('#customercat').val();
+
+
+    });
+
+    $('input[type="checkbox"][name="checkAll"]').change(function() {
+        if(this.checked) {
+            var table = document.getElementById('contacts-table');
+            var val = table.rows[0].cells[1].children[0].checked;
+            for (var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[1].children[0].checked = val;
+            }
+        }else{
+            var table = document.getElementById('contacts-table');
+            var val = table.rows[0].cells[1].children[0].unchecked;
+            for (var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[1].children[0].checked = val;
+            }
+        }
+    });
+    $('#send_bulk_sms').on('click',function(e) {
+        e.preventDefault();
+        var totalchecked=$('#contacts-table-data').find('input[type="checkbox"]:checked').length;
+        var count=0;
+
+        $('#contacts-table-data').find('input[type="checkbox"]:checked').each(function () {
+            var name=$(this).data('name');
+            var telephone=$(this).data('phonenumber');
+            var sender=$('#sender').val();
+            var messagecontent=$('#messagecontent').val();
+            $.ajax({
+                type:'post' ,
+                url: '{{URL::to('insertsms')}}',
+                data:{
+                    '_token':$('input[name=_token]').val(),
+                    'name':name,
+                    'telephone':telephone,
+                    'sender':sender,
+                    'messagecontent':messagecontent
+
+
+
+                }, beforeSend: function() {
+                    // setting a timeout
+                    $('#send_bulk_sms').html("Processing....");
+                },
+                success:function(data){
+                   // alert("ok");
+//                    count=count+1;
+//                    if(count===totalchecked){
+//                        toastr.success('Message Sent Out','Success',{timeOut: 2000});
+//
+//                        location.reload();
+//                    }
+
+
+                },complete: function() {
+                    // alert("messages has been scheduled");
+                    $('#send_bulk_sms').html("Send");
+                }
+            });
         });
-    });
-</script>
-<script>
-    $(document).on('click','.editbtn',function(){
-        $('#nameEdit').val($(this).data('name'));
-        $('#phonenumberEdit').val($(this).data('phonenumber'));
-        $('#addressEdit').val($(this).data('address'));
-        $('#customercategory_idEdit').val($(this).data('customercategory_id'));
-        $('#idEdit').val($(this).data('id'));
-
-
-    });
-</script>
-<script>
-    $(document).on('click','.deletebtn',function() {
-        $('#idDelete').val($(this).data('id'));
-        $("#nameDelete").html($(this).data('name'));
-
     });
 </script>
 </body>

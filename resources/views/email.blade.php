@@ -235,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <select name="customercategory_id">
                                         <option value="">Select</option>
                                         @foreach(\App\Customercategory::all() as $s)
-                                        <option value="{{$s->id}}">{{$s->name}}</option>
+                                            <option value="{{$s->id}}">{{$s->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -279,57 +279,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <form method="post" action="updatecustomer">
                                 {{csrf_field()}}
-                            <div class="modal-body">
-                                <div class="validation-system">
+                                <div class="modal-body">
+                                    <div class="validation-system">
 
 
 
-                                            <input id="idEdit" name="idEdit" type="hidden"/>
-                                                <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Customer Name</label>
-                                                    <input type="text"  id="nameEdit" name="nameEdit" required="">
-                                                </div>
+                                        <input id="idEdit" name="idEdit" type="hidden"/>
+                                        <div class="col-md-12 form-group1">
+                                            <label class="control-label">Customer Name</label>
+                                            <input type="text"  id="nameEdit" name="nameEdit" required="">
+                                        </div>
 
-                                                <div class="clearfix"> </div>
+                                        <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Phone number</label>
-                                                    <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
-                                                </div>
+                                        <div class="col-md-12 form-group1">
+                                            <label class="control-label">Phone number</label>
+                                            <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
+                                        </div>
 
-                                                <div class="clearfix"> </div>
+                                        <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Address</label>
-                                                    <input type="text"  id="addressEdit" name="addressEdit" required="">
-                                                </div>
+                                        <div class="col-md-12 form-group1">
+                                            <label class="control-label">Address</label>
+                                            <input type="text"  id="addressEdit" name="addressEdit" required="">
+                                        </div>
 
-                                                <div class="clearfix"> </div>
+                                        <div class="clearfix"> </div>
 
-                                            <div class="col-md-12 form-group2 group-mail">
-                                                <label class="control-label">Customer Category</label>
-                                                <select id="customercategory_idEdit" name="customercategory_idEdit">
-                                                    <option value="">Select</option>
-                                                    @foreach(\App\Customercategory::all() as $s)
-                                                        <option value="{{$s->id}}">{{$s->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="clearfix"> </div>
-
-
+                                        <div class="col-md-12 form-group2 group-mail">
+                                            <label class="control-label">Customer Category</label>
+                                            <select id="customercategory_idEdit" name="customercategory_idEdit">
+                                                <option value="">Select</option>
+                                                @foreach(\App\Customercategory::all() as $s)
+                                                    <option value="{{$s->id}}">{{$s->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"> </div>
 
 
 
+
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                <div class="modal-footer">
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
 
+                                    </div>
+                                    <div class="clearfix"> </div>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
                             </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -344,17 +344,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <form method="post" action="deletecustomer">
                                 {{csrf_field()}}
-                            <div class="modal-body">
-                                <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
-                                <input type="hidden" id="idDelete" name="idDelete"/>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
-
+                                <div class="modal-body">
+                                    <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
+                                    <input type="hidden" id="idDelete" name="idDelete"/>
                                 </div>
-                                <div class="clearfix"> </div>
-                            </div>
+                                <div class="modal-footer">
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" class="btn btn-default">Submit</button>
+
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
                             </form>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
