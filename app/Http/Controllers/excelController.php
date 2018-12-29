@@ -20,8 +20,11 @@ class excelController extends Controller
         $type='csv';
         $title='INVENTORY ON HAND';
         if ($store=="all") {
+            $fromdate=date('Y-m-d');
+            $todate=date('Y-m-d');
             $productitems = DB::table('inventoryonhand')->get();
         }else{
+            
             $productitems = DB::table('inventoryonhand')
                 ->where('store_issue_to',$store)
                 ->where('productcode',$product)

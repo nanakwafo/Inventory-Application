@@ -326,7 +326,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                            <tr>
                                <th style="background-color: white;color: black">Warehouse </th>
                                <th style="background-color: white;color: black">Product Name</th>
-                               <th style="background-color: white;color: black">Quantity Left</th>
+                               <th style="background-color: white;color: black">Quantity In</th>
 
                            </tr>
                            </thead>

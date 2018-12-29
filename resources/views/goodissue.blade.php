@@ -468,7 +468,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             type:"GET",
             url:"{{url('productquantityleftwarehouse')}}/"+productcode+"/"+warehouse_from,
             success: function(data) {
-                alert(data);
+                //alert(data);
                 $('#attention').html(' <div class="alert alert-info" role="alert"> ' +
                         '<strong>Attention!</strong>quantity left is ' + data +
                         '</div>');

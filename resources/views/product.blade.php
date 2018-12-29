@@ -256,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
 
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Pay amount</label>
+                                        <label class="control-label">Pay amount(Production Cost)</label>
                                         <input type="text" name="payamount" required="">
                                     </div>
                                     <div class="clearfix"> </div>
@@ -343,7 +343,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </select>
                                                 </div>
                                                 <div class="col-md-12  form-group2 group-mail">
-                                                    <label class="control-label">Product Code</label>
+                                                    <label class="control-label">Product </label>
                                                        <select id="productcodeEdit" name="productcodeEdit">
                                                         <option value="">Select</option>
                                                         @foreach(\App\Productcode::all() as $s)
@@ -366,7 +366,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </div>
 
                                                 <div class="col-md-12 form-group1">
-                                                    <label class="control-label">Pay amount</label>
+                                                    <label class="control-label">Pay amount(Production Cost)</label>
                                                     <input type="text" id="payamountEdit" name="payamountEdit" required="">
                                                 </div>
                                                 <div class="clearfix"> </div>

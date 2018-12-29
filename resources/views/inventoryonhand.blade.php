@@ -335,7 +335,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         theme: "classic",
         width: 'resolve' // need to override the changed default
     });
-    var store="all",fromdate="all",todate="all",product="all";
+    var store="all";
+    var fromdate=$('input[name=fromdate]').val();
+    var todate=$('input[name=todate]').val();
+    var product="all";
 
   var table =  $('#inventoryonhand-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
