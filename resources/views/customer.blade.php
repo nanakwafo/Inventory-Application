@@ -224,6 +224,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <input type="text" name="phonenumber" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
+                                        <label class="control-label">Email</label>
+                                        <input type="text" name="email" required="">
+                                    </div>
+                                    <div class="col-md-12 form-group1">
                                         <label class="control-label">Address</label>
                                         <input type="text" name="address" required="">
                                     </div>
@@ -295,6 +299,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-12 form-group1">
                                                     <label class="control-label">Phone number</label>
                                                     <input type="text"  id="phonenumberEdit" name="phonenumberEdit" required="">
+                                                </div>
+
+                                                <div class="clearfix"> </div>
+
+
+                                             <div class="col-md-12 form-group1">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="email"  id="emailEdit" name="emailEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>
@@ -402,6 +414,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $(document).on('click','.editbtn',function(){
         $('#nameEdit').val($(this).data('name'));
         $('#phonenumberEdit').val($(this).data('phonenumber'));
+        $('#emailEdit').val($(this).data('email'));
         $('#addressEdit').val($(this).data('address'));
         $('#customercategory_idEdit').val($(this).data('customercategory_id'));
         $('#idEdit').val($(this).data('id'));
