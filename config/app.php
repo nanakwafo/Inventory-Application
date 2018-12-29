@@ -181,6 +181,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Vsmoraes\Pdf\PdfServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+       
     ],
 
     /*
@@ -236,6 +237,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Vsmoraes\Pdf\PdfFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        
 
     ],
 
