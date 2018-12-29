@@ -184,13 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="email" class=" hvr-bounce-to-right"> <i class="fa fa-envelope-o nav_icon"></i>Email</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-certificate nav_icon"></i> <span class="nav-label">Promotion</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="sms" class=" hvr-bounce-to-right"> <i class="fa fa-comment nav_icon"></i>SMS</a></li>
-                                <li><a href="email" class=" hvr-bounce-to-right"> <i class="fa fa-envelope-o nav_icon"></i>Email</a></li>
-                            </ul>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -204,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Customer</span>
+                    <span>Promotion Email</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -223,32 +217,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Customer Name</label>
-                                        <input type="text" name="name" required="">
+                                        <label class="control-label">From:</label>
+                                        <input type="text" name="sender" id="sender" required="">
                                     </div>
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Phone number</label>
-                                        <input type="text" name="phonenumber" required="">
+                                        <label class="control-label">Message</label>
+                                        <textarea row="5" name="messagecontent" id="messagecontent" required ></textarea>
                                     </div>
-                                    <div class="col-md-12 form-group1">
-                                        <label class="control-label">Address</label>
-                                        <input type="text" name="address" required="">
-                                    </div>
+
 
                                     <div class="clearfix"> </div>
                                 </div>
-                                <div class="col-md-12 form-group2 group-mail">
-                                    <label class="control-label">Customer Category</label>
-                                    <select name="customercategory_id">
-                                        <option value="">Select</option>
-                                        @foreach(\App\Customercategory::all() as $s)
-                                            <option value="{{$s->id}}">{{$s->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+
 
                                 <div class="col-md-12 form-group">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <button type="submit" id="send_bulk_sms" class="btn btn-default">Send</button>
 
                                 </div>
                                 <div class="clearfix"> </div>
@@ -260,18 +243,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
                 <div class="col-md-8 ">
-                    <table class="table table-bordered " id="warehouse-table">
+                    <div class="validation-system">
+
+                        <div class="validation-form">
+                            <!---->
+
+                            <form id="search-form">
+                                {{csrf_field()}}
+                                <div class="vali-form">
+                                    <div class="col-md-4 form-group2 group-mail">
+                                        <label class="control-label">Customer Category</label>
+                                        <select name="customercat" id="customercat">
+                                            <option value="">Select</option>
+                                            @foreach(\App\Customercategory::all() as $s)
+                                                <option value="{{$s->id}}">{{$s->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <button type="submit" class="btn btn-default">Search</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                    <table class="table table-bordered " id="contacts-table">
                         <thead>
                         <tr>
                             <th style="background-color: white;color: black">No.</th>
+                            <th style="background-color: white;color: black"><input type="checkbox" id="checkAll" name="checkAll" />&nbsp;Select All</th>
                             <th style="background-color: white;color: black">Name</th>
-                            <th style="background-color: white;color: black">Phone number</th>
-                            <th style="background-color: white;color: black">address</th>
-                            <th style="background-color: white;color: black">customer Category</th>
+                            <th style="background-color: white;color: black">Email</th>
 
-                            <th style="background-color: white;color: black;width: 20%">Action</th>
                         </tr>
                         </thead>
+                        <tbody id="contacts-table-data"></tbody>
                     </table>
 
                 </div>
@@ -389,38 +400,95 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
-    $(function() {
-        $('#warehouse-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{!! route('allcustomer') !!}',
-            columns: [
-                { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
-                { data: 'name', name: 'name' },
-                { data: 'phonenumber', name: 'phonenumber' },
-                { data: 'address', name: 'address' },
-                { data: 'customercategory', name: 'customercategory' ,searchable: false},
-                { data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
+    var table =  $('#contacts-table').DataTable({
+        dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
+        "<'row'<'col-xs-12't>>"+
+        "<'row'<'col-xs-12'<'col-xs-6'i><'col-xs-6'p>>>",
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: '{!! route('allcontact') !!}',
+            data: function (d) {
+                d.customercat = $('#customercat').val();
+
+            }
+        },
+        columns: [
+            {data: 'no', name: 'no',orderable: false, searchable: false},
+            {data: 'select', name: 'select',orderable: false, searchable: false},
+            {data: 'name', name: 'name', orderable: false, searchable: false},
+            {data: 'email', name: 'email',orderable: false, searchable: false},
+
+
+        ]
+    });
+    $('#search-form').on('submit', function(e) {
+        table.draw();
+        e.preventDefault();
+        customercat = $('#customercat').val();
+
+
+    });
+
+    $('input[type="checkbox"][name="checkAll"]').change(function() {
+        if(this.checked) {
+            var table = document.getElementById('contacts-table');
+            var val = table.rows[0].cells[1].children[0].checked;
+            for (var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[1].children[0].checked = val;
+            }
+        }else{
+            var table = document.getElementById('contacts-table');
+            var val = table.rows[0].cells[1].children[0].unchecked;
+            for (var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[1].children[0].checked = val;
+            }
+        }
+    });
+    $('#send_bulk_sms').on('click',function(e) {
+        e.preventDefault();
+        var totalchecked=$('#contacts-table-data').find('input[type="checkbox"]:checked').length;
+        var count=0;
+
+        $('#contacts-table-data').find('input[type="checkbox"]:checked').each(function () {
+            var name=$(this).data('name');
+            var email=$(this).data('email');
+            var sender=$('#sender').val();
+            var messagecontent=$('#messagecontent').val();
+            $.ajax({
+                type:'post' ,
+                url: '{{URL::to('insertemail')}}',
+                data:{
+                    '_token':$('input[name=_token]').val(),
+                    'name':name,
+                    'telephone':telephone,
+                    'sender':sender,
+                    'messagecontent':messagecontent
+
+
+
+                }, beforeSend: function() {
+                    // setting a timeout
+                    $('#send_bulk_sms').html("Processing....");
+                },
+                success:function(data){
+                    // alert("ok");
+//                    count=count+1;
+//                    if(count===totalchecked){
+//                        toastr.success('Message Sent Out','Success',{timeOut: 2000});
+//
+//                        location.reload();
+//                    }
+
+
+                },complete: function() {
+                    // alert("messages has been scheduled");
+                    $('#send_bulk_sms').html("Send");
+                }
+            });
         });
-    });
-</script>
-<script>
-    $(document).on('click','.editbtn',function(){
-        $('#nameEdit').val($(this).data('name'));
-        $('#phonenumberEdit').val($(this).data('phonenumber'));
-        $('#addressEdit').val($(this).data('address'));
-        $('#customercategory_idEdit').val($(this).data('customercategory_id'));
-        $('#idEdit').val($(this).data('id'));
-
-
-    });
-</script>
-<script>
-    $(document).on('click','.deletebtn',function() {
-        $('#idDelete').val($(this).data('id'));
-        $("#nameDelete").html($(this).data('name'));
-
     });
 </script>
 </body>

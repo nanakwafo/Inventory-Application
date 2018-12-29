@@ -30,13 +30,14 @@ class smsController extends Controller
             $obj->name = $w->name;
             $obj->no = $x++;
             $obj->contact = $w->phonenumber;
+            $obj->email = $w->email;
 
             $data[] = $obj;
         }
         $datatables =  Datatables::of($data)
 
             ->addColumn('select', function ($data) {
-                return '<input type="checkbox" data-phonenumber="'.$data->contact.'" data-name="'.$data->name.'">';
+                return '<input type="checkbox" data-phonenumber="'.$data->contact.'" data-email="'.$data->email.'"data-name="'.$data->name.'">';
             })
           
              ->rawColumns(['select']);
