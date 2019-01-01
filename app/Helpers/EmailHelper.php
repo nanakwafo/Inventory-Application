@@ -10,6 +10,7 @@ namespace App\Helpers;
 
 use App\Jobs\processEmail;
 use App\Emailcreator;
+use Carbon\Carbon;
 
 class EmailHelper
 {

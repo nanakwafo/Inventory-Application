@@ -469,7 +469,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 data:{
                     '_token':$('input[name=_token]').val(),
                     'name':name,
-                    'telephone':telephone,
+                    'email':email,
                     'sender':sender,
                     'messagecontent':messagecontent
 

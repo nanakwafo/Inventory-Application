@@ -331,14 +331,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/select2.min.js"></script>
 <script>
+    var store;
+    var fromdate;
+    var todate;
+    var product;
     $("#storedropdownvalue,#productdropdownvalue").select2({
         theme: "classic",
         width: 'resolve' // need to override the changed default
     });
-    var store="all";
-    var fromdate=$('input[name=fromdate]').val();
-    var todate=$('input[name=todate]').val();
-    var product="all";
+
 
   var table =  $('#inventoryonhand-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
@@ -388,15 +389,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
 
   $('#inventoryonhandpdf').on('click', function(e) {
+
       e.preventDefault();
-     var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+
+         store = $('#storedropdownvalue').val();
+         product = $('#productdropdownvalue').val();
+         fromdate = $('input[name=fromdate]').val();
+         todate = $('input[name=todate]').val();
+
+          if(store === ''){
+              store = 'all';
+              product = 'all';
+              fromdate = 'all';
+              todate = 'all';
+          }
+
+         var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+
       document.location.href = url;
 
   });
   $('#inventoryonhandexcel').on('click', function(e) {
+
       e.preventDefault();
+      store = $('#storedropdownvalue').val();
+      product = $('#productdropdownvalue').val();
+      fromdate = $('input[name=fromdate]').val();
+      todate = $('input[name=todate]').val();
+
+      if(store === ''){
+          store = 'all';
+          product = 'all';
+          fromdate = 'all';
+          todate = 'all';
+      }
       var url='inventoryonhandexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
-      document.location.href = url;
+
+     document.location.href = url;
 
   });
 </script>

@@ -123,6 +123,7 @@ Route::post('updatepaymentorder',['as'=>'updatepaymentorder','uses'=>'orderContr
 Route::post('deletepaymentorder',['as'=>'deletepaymentorder','uses'=>'orderController@deletepaymentorder']);
 
 Route::post('insertsms',['as'=>'insertsms','uses'=>'smscreatorController@insert']);
+Route::post('insertemail',['as'=>'insertemail','uses'=>'emailcreatorController@insert']);
 
 Route::post('savewaste',['as'=>'savewaste','uses'=>'wasteController@save']);
 Route::post('updatewaste',['as'=>'updatewaste','uses'=>'wasteController@update']);

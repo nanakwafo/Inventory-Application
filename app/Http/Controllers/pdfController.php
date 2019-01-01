@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Paymentorder;
+use App\profile;
 use Illuminate\Http\Request;
 use PDF;
 use DB;
@@ -56,7 +58,8 @@ class pdfController extends Controller
         
         
         $html=view('pdf.inventoryonhand')->with([
-           'data'=>$productitems_sorted
+           'data'=>$productitems_sorted,
+            'profile'=>profile::first(),
            ])->render();
 
         $mypdf= new  PDF();
@@ -66,11 +69,20 @@ class pdfController extends Controller
     }
     
     public function orderreceiptpdf($ordernumber){
+        $pdfname='order'.date('Y-m-d').$ordernumber;
         $data=Order::where('ordernumber',$ordernumber)->get();
         $html=view('pdf.orderreceipt')->with([
             'data'=>$data,
-            'ordernumber'=>$ordernumber
+            'ordernumber'=>$ordernumber,
+            'orderdate'=>Order::where('ordernumber',$ordernumber)->first(),
+            'profile'=>profile::first(),
+            'paymentorder'=>Paymentorder::where('ordernumber',$ordernumber)->first(),
         ])->render();
-        return PDF::load($html)->show();
+
+        $pdf= new  PDF();
+        $pdf::filename($pdfname.'.pdf');
+        return $pdf::load($html)->show();
+
+       // return PDF::load($html)->show();
     }
 }
