@@ -67,7 +67,8 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
     Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
 
-
+    Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+    Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 
 
 
