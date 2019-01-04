@@ -1,6 +1,6 @@
 <html>
 <body>
-<p>{!! $bodymessage !!}</p>
+<p>{{$bodymessage}}</p>
 </body>
 
 </html>

@@ -69,6 +69,9 @@ Route::group(['middleware' => ['checkauth']], function () {
 
     Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
     Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+    
+    Route::get('invoice',['as'=>'invoice','uses'=>'invoiceController@invoice']);
+    Route::get('allinvoice',['as'=>'allinvoice','uses'=>'invoiceController@allinvoice']);
 
 
 

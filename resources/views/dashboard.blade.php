@@ -216,7 +216,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="waste" class=" hvr-bounce-to-right"><i class="fa fa-trash nav_icon"></i>Manage Waste</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-transgender nav_icon"></i> <span class="nav-label">Invoices</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="invoice" class=" hvr-bounce-to-right"> <i class="fa fa-plus nav_icon"></i>New Invoice</a></li>
+                                <li><a href="allinvoice" class=" hvr-bounce-to-right"><i class="fa fa-bars nav_icon"></i>All Invoices</a></li>
 
+                            </ul>
+                        </li>
                         <li>
                             <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
