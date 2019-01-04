@@ -13,6 +13,6 @@ class Paymentinvoice extends Model
 
     public function invoiceitems()
     {
-        return $this->hasMany('App\Order', 'invoicenumber', 'invoicenumber');
+        return $this->hasMany('App\Invoiceitem', 'invoicenumber', 'invoicenumber');
     }
 }

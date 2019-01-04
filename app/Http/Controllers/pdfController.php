@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Invoiceitem;
 use App\Order;
+use App\Paymentinvoice;
 use App\Paymentorder;
 use App\profile;
 use Illuminate\Http\Request;
@@ -84,5 +86,20 @@ class pdfController extends Controller
         return $pdf::load($html)->show();
 
        // return PDF::load($html)->show();
+    }
+    public function invoicereceiptpdf($invoicenumber){
+        $pdfname='order'.date('Y-m-d').$invoicenumber;
+        $data=Invoiceitem::where('invoicenumber',$invoicenumber)->get();
+        $html=view('pdf.invoicereceipt')->with([
+            'data'=>$data,
+            'invoicenumber'=>$invoicenumber,
+            'invoicedate'=>Invoiceitem::where('invoicenumber',$invoicenumber)->first(),
+            'profile'=>profile::first(),
+            'paymentinvoice'=>Paymentinvoice::where('invoicenumber',$invoicenumber)->first(),
+        ])->render();
+
+        $pdf= new  PDF();
+        $pdf::filename($pdfname.'.pdf');
+        return $pdf::load($html)->show();
     }
 }

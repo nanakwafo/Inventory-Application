@@ -227,14 +227,14 @@
     <div id="details" class="clearfix">
         <div id="client">
             <div class="to">RECEIPT TO:</div>
-            <h2 class="name">{{\App\Customer::find($orderdate->customer)->name}}</h2>
-            <div class="address">{{\App\Customer::find($orderdate->customer)->address}}</div>
-            <div class="email">{{\App\Customer::find($orderdate->customer)->email}}</div>
-            <div class="email">{{\App\Customer::find($orderdate->customer)->phonenumber}}</div>
+            <h2 class="name">{{\App\Customer::find($invoicedate->customer)->name}}</h2>
+            <div class="address">{{\App\Customer::find($invoicedate->customer)->address}}</div>
+            <div class="email">{{\App\Customer::find($invoicedate->customer)->email}}</div>
+            <div class="email">{{\App\Customer::find($invoicedate->customer)->phonenumber}}</div>
         </div>
         <div id="invoice">
-            <div class="date">RECEIPT {{$ordernumber}}</div>
-            <div class="date">Date of Order: {{$orderdate->orderdate}}</div>
+            <div class="date">RECEIPT {{$invoicenumber}}</div>
+            <div class="date">Date of Order: {{$invoicedate->invoicedate}}</div>
 
         </div>
     </div>
@@ -252,14 +252,14 @@
         <?php $count=1; $subtotal=0;?>
         @foreach($data as $s)
             <?php $subtotal=$subtotal + $s->total ?>
-        <tr>
-            <td class="no">{{$count++}}</td>
-            <td class="desc"><h3>{{\App\Productcode::find($s->product)->name}}</h3></td>
-            <td class="unit">GHC &nbsp;{{$s->rate}}</td>
-            <td class="qty">{{$s->quantity}}</td>
-            <td class="total">GHC &nbsp;{{ $s->total}}</td>
-        </tr>
-       @endforeach
+            <tr>
+                <td class="no">{{$count++}}</td>
+                <td class="desc"><h3>{{\App\Productcode::find($s->product)->name}}</h3></td>
+                <td class="unit">GHC &nbsp;{{$s->rate}}</td>
+                <td class="qty">{{$s->quantity}}</td>
+                <td class="total">GHC &nbsp;{{ $s->total}}</td>
+            </tr>
+        @endforeach
         </tbody>
         <tfoot>
         <tr>
@@ -275,7 +275,7 @@
         <tr>
             <td colspan="2"></td>
             <td colspan="2">Discount</td>
-            <td>GHC &nbsp;{{$paymentorder->discount}}</td>
+            <td>GHC &nbsp;{{$paymentinvoice->discount}}</td>
         </tr>
         <tr>
             <td colspan="2"></td>
@@ -286,12 +286,12 @@
     </table>
     <div id="thanks">Thank you!</div>
     {{--<div id="notices">--}}
-        {{--<div>NOTICE:</div>--}}
-        {{--<div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>--}}
+    {{--<div>NOTICE:</div>--}}
+    {{--<div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>--}}
     {{--</div>--}}
 </main>
 <footer>
-    Order was created on a computer and is valid without the signature and seal.
+    Invoice was created on a computer and is valid without the signature and seal.
 </footer>
 </body>
 </html>

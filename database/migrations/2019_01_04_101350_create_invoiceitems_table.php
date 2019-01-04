@@ -14,6 +14,7 @@ class CreateInvoiceitemsTable extends Migration
     public function up()
     { 
         Schema::create('invoiceitems', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('invoicenumber');
             $table->string('store');
             $table->string('duedate');

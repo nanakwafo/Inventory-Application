@@ -433,6 +433,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         });
         $(document).on('click','.remove',function () {
+            currentItem =$('#number_of_items').val() - 1;
+            $('#number_of_items').val(currentItem);
             $(this).closest('tr').remove();
         })
 

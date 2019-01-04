@@ -232,7 +232,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-4 form-group1">
                                         <label class="control-label">Invoice Number</label>
-                                        <input type="text" name="ordernumber" required="" readonly value="{{\App\Helpers\AppHelper::get_ordernumber()}}" id="ordernumber">
+                                        <input type="text" name="invoicenumber" required="" readonly value="{{\App\Helpers\AppHelper::get_invoicenumber()}}" id="invoicenumber">
                                     </div>
                                     <div class="col-md-2 form-group1">
                                         <label class="control-label">Invoice Date</label>
@@ -410,6 +410,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         });
         $(document).on('click','.remove',function () {
+            currentItem =$('#number_of_items').val() - 1;
+            $('#number_of_items').val(currentItem);
             $(this).closest('tr').remove();
         })
 

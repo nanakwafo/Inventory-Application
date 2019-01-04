@@ -39,6 +39,8 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('order',['as'=>'order','uses'=>'orderController@index']);
     Route::get('sms',['as'=>'sms','uses'=>'smsController@index']);
     Route::get('email',['as'=>'email','uses'=>'emailController@index']);
+    Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+    Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
     Route::get('manageorder',['as'=>'manageorder','uses'=>'orderController@manageorder']);
     Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
     Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);
@@ -66,12 +68,11 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
     Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
     Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
-
-    Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
-    Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
-    
+    Route::get('/invoicereceiptpdf/{invoicenumber}',['as'=>'invoicereceiptpdf','uses'=>'pdfController@invoicereceiptpdf']);
     Route::get('invoice',['as'=>'invoice','uses'=>'invoiceController@invoice']);
     Route::get('allinvoice',['as'=>'allinvoice','uses'=>'invoiceController@allinvoice']);
+    Route::get('allinvoicedata',['as'=>'allinvoicedata','uses'=>'invoiceController@allinvoicedata']);
+    Route::get('/paymentinvoicedetails/{invoicenumber}', 'invoiceController@getinvoices')->name('paymentinvoicedetails');
 
 
 
@@ -127,6 +128,7 @@ Route::post('updatepaymentorder',['as'=>'updatepaymentorder','uses'=>'orderContr
 Route::post('deletepaymentorder',['as'=>'deletepaymentorder','uses'=>'orderController@deletepaymentorder']);
 
 Route::post('saveinvoice',['as'=>'saveinvoice','uses'=>'invoiceController@save']);
+Route::post('deletepaymentinvoice',['as'=>'deletepaymentinvoice','uses'=>'invoiceController@deletepaymentinvoice']);
 
 Route::post('insertsms',['as'=>'insertsms','uses'=>'smscreatorController@insert']);
 Route::post('insertemail',['as'=>'insertemail','uses'=>'emailcreatorController@insert']);

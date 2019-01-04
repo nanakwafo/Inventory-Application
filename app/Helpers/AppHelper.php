@@ -62,6 +62,16 @@ class AppHelper
         $tagname='ORDER';
         return $tagname.$year.$month.$date.$hour.$min;
     }
+    public static function get_invoicenumber(){
+        $year=date('Y');
+        $month=date('m');
+        $date=date('d');
+        $hour=date('h');
+        $min=date('s');
+
+        $tagname='INVOICE';
+        return $tagname.$year.$month.$date.$hour.$min;
+    }
     public static function get_out_stock_product(){
         $allproduct=Order::all();
         $count =0;
