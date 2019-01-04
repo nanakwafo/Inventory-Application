@@ -34,6 +34,8 @@ class goodissueController extends Controller
     public function save(Request $request){
         //first check if grnnumber already exist
         //if yes return good receive already exist
+        $number_of_items=$request->number_of_items;
+        if($number_of_items > 0){
         $goodissue= new Goodissue();
         $goodissue->addnumber= $request->addnumber;
         $goodissue->adddate= $request->adddate;
@@ -43,7 +45,7 @@ class goodissueController extends Controller
         $goodissue->remark=$request->remark;
         $goodissue->save();
 
-        $number_of_items=$request->number_of_items;
+
 
         for($i=0;$i < $number_of_items;$i++){
             $storeitem=new Storeitem();
@@ -61,6 +63,10 @@ class goodissueController extends Controller
 
         }
         Session::flash('success','New Goods issue successfully');
+
+    }else{
+        Session::flash('error','No Product was Selected');
+    }
         return redirect('goodissue');
     }
 }

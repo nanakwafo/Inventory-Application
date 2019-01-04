@@ -72,7 +72,8 @@ class invoiceController extends Controller
     }
 
     public function save(Request $request){
-
+        $number_of_items=$request->number_of_items;
+        if($number_of_items > 0){
         $payinvoice= new Paymentinvoice();
         $payinvoice->invoicenumber= $request->invoicenumber;
         $payinvoice->subamount= $request->subamount;
@@ -80,7 +81,7 @@ class invoiceController extends Controller
         $payinvoice->discount=$request->discount;
         $payinvoice->save();
 
-        $number_of_items=$request->number_of_items;
+        
         for($i=0;$i < $number_of_items;$i++){
             $invoiceitem=new Invoiceitem();
             $invoiceitem->invoicenumber= $request->invoicenumber;
@@ -96,12 +97,15 @@ class invoiceController extends Controller
             $invoiceitem->save();
 
         }
-
-//       
-
-
         Session::flash('success','New Invoice placed successfully ');
         Session::flash('printurl','invoicereceiptpdf/'.$request->invoicenumber);
+       
+    }else{
+         Session::flash('error','No Product was Selected');
+       }
+
+
+     
         return redirect('invoice');
     }
 

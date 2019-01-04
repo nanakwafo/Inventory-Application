@@ -73,45 +73,51 @@ class orderController extends Controller
     }
 
     public function save(Request $request){
-        $payorder= new Paymentorder();
-        $payorder->ordernumber= $request->ordernumber;
-        $payorder->subamount= $request->subamount;
-        $payorder->totalamount= $request->totalamount;
-        $payorder->discount=$request->discount;
-        $payorder->paidamount=$request->paidamount;
-        $payorder->dueamount=$request->dueamount;
-        $payorder->paymenttype=$request->paymenttype;
-        $payorder->paymentstatus=$request->paymentstatus;
-        $payorder->save();
-        
         $number_of_items=$request->number_of_items;
-        for($i=0;$i < $number_of_items;$i++){
-            $orderitem=new Order();
-            $orderitem->ordernumber= $request->ordernumber;
-            $orderitem->orderdate=$request->orderdate;
-            $orderitem->ordertime=date("H:i");
-            $orderitem->customer=$request->customer;
+        if($number_of_items > 0){
+            $payorder= new Paymentorder();
+            $payorder->ordernumber= $request->ordernumber;
+            $payorder->subamount= $request->subamount;
+            $payorder->totalamount= $request->totalamount;
+            $payorder->discount=$request->discount;
+            $payorder->paidamount=$request->paidamount;
+            $payorder->dueamount=$request->dueamount;
+            $payorder->paymenttype=$request->paymenttype;
+            $payorder->paymentstatus=$request->paymentstatus;
+            $payorder->save();
 
-            $orderitem->product=$request->product[$i];
-            $orderitem->store=$request->store[$i];
-            $orderitem->rate=$request->rate[$i];
-            $orderitem->quantity=$request->quantity[$i];
-            $orderitem->Total=$request->total[$i];
-            $orderitem->save();
 
+            for($i=0;$i < $number_of_items;$i++){
+                $orderitem=new Order();
+                $orderitem->ordernumber= $request->ordernumber;
+                $orderitem->orderdate=$request->orderdate;
+                $orderitem->ordertime=date("H:i");
+                $orderitem->customer=$request->customer;
+
+                $orderitem->product=$request->product[$i];
+                $orderitem->store=$request->store[$i];
+                $orderitem->rate=$request->rate[$i];
+                $orderitem->quantity=$request->quantity[$i];
+                $orderitem->Total=$request->total[$i];
+                $orderitem->save();
+
+            }
+
+            $customernumber=Customer::find($request->customer)->pluck('phonenumber')->first();
+            $sender = "inven";
+            $message = "It was really a pleasure doing business with you! Thank you for choosing us!";
+            $receipient = preg_replace('/^0/','233',$customernumber);
+            $msg = urlencode($message);
+            $api = 'http://api.nalosolutions.com/bulksms/?username=naname&password=christ123!@&type=0&dlr=1&destination=' . $receipient . '&source=' . $sender . '&message=' . $msg;
+            @file_get_contents($api);
+
+
+            Session::flash('success','New Order placed successfully ');
+            Session::flash('printurl','orderreceiptpdf/'.$request->ordernumber);
+        }else{
+            Session::flash('error','No Product was Selected');
         }
 
-        $customernumber=Customer::find($request->customer)->pluck('phonenumber')->first();
-        $sender = "inven";
-        $message = "It was really a pleasure doing business with you! Thank you for choosing us!";
-        $receipient = preg_replace('/^0/','233',$customernumber);
-        $msg = urlencode($message);
-        $api = 'http://api.nalosolutions.com/bulksms/?username=naname&password=christ123!@&type=0&dlr=1&destination=' . $receipient . '&source=' . $sender . '&message=' . $msg;
-        file_get_contents($api);
-
-
-        Session::flash('success','New Order placed successfully ');
-        Session::flash('printurl','orderreceiptpdf/'.$request->ordernumber);
         return redirect('order');
     }
 

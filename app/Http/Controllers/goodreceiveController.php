@@ -34,34 +34,35 @@ class goodreceiveController extends Controller
         //dd($request->all());
         //first check if grnnumber already exist
         //if yes return good receive already exist
-        $goodreceive= new Goodreceive();
-        $goodreceive->grnnumber= $request->grnnumber;
-        $goodreceive->grndate= $request->date;
-        $goodreceive->grntype= $request->grntype;
-        $goodreceive->warehouse_id=$request->warehouse_id;
-        $goodreceive->remark=$request->remark;
-        $goodreceive->save();
-
         $number_of_items=$request->number_of_items;
+        if($number_of_items >0 ){
+            $goodreceive= new Goodreceive();
+            $goodreceive->grnnumber= $request->grnnumber;
+            $goodreceive->grndate= $request->date;
+            $goodreceive->grntype= $request->grntype;
+            $goodreceive->warehouse_id=$request->warehouse_id;
+            $goodreceive->remark=$request->remark;
+            $goodreceive->save();
+            for($i=0;$i < $number_of_items;$i++){
+                $warehouseitem=new Warehouseitem();
+                $warehouseitem->goodreceive_grnnumber= $request->grnnumber;
+                $warehouseitem->warehouse_id=$request->warehouse_id;
+                $warehouseitem->supplier_id=$request->supplier_id;
 
-        for($i=0;$i < $number_of_items;$i++){
-            $warehouseitem=new Warehouseitem();
-            $warehouseitem->goodreceive_grnnumber= $request->grnnumber;
-            $warehouseitem->warehouse_id=$request->warehouse_id;
-            $warehouseitem->supplier_id=$request->supplier_id;
 
+                $warehouseitem->productcode=$request->product[$i];
+                $warehouseitem->quantity=$request->quantity[$i];
+                $warehouseitem->description=$request->description[$i];
+                $warehouseitem->unit=$request->unit[$i];
 
-            $warehouseitem->productcode=$request->product[$i];
-            $warehouseitem->quantity=$request->quantity[$i];
-            $warehouseitem->description=$request->description[$i];
-            $warehouseitem->unit=$request->unit[$i];
-            
-//          $warehouseitem->productcode=$request->product[$i];//Productcategory::find([$i])->name;
+                $warehouseitem->save();
 
-            $warehouseitem->save();
-
+            }
+            Session::flash('success','New Goods  added successfully');
+        }else{
+            Session::flash('error','No Product was Selected');
         }
-       Session::flash('success','New Goods  added successfully');
+
       return redirect('goodreceive');
     }
 }
