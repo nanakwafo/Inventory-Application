@@ -11,6 +11,7 @@ class Product extends Model
         'datereceived',
         'productcode',
         'productcategory_id',
+        'barcode',
         'unit',
         'unitprice',
         'payamount',

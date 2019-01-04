@@ -12,6 +12,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'productcode'=> \App\Productcode::all()->random()->productcode,
         'productcategory_id'=> \App\Productcategory::all()->random()->id,
         'unit'=> 'unit',
+        'barcode'=> $faker->bankAccountNumber,
         'unitprice'=> '1000',
         'payamount'=> $faker->randomDigit,
         'quantity'=> $faker->randomDigit,

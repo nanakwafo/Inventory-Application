@@ -126,6 +126,8 @@ Route::post('saveorder',['as'=>'saveorder','uses'=>'orderController@save']);
 Route::post('updatepaymentorder',['as'=>'updatepaymentorder','uses'=>'orderController@updatepaymentorder']);
 Route::post('deletepaymentorder',['as'=>'deletepaymentorder','uses'=>'orderController@deletepaymentorder']);
 
+Route::post('saveinvoice',['as'=>'saveinvoice','uses'=>'invoiceController@save']);
+
 Route::post('insertsms',['as'=>'insertsms','uses'=>'smscreatorController@insert']);
 Route::post('insertemail',['as'=>'insertemail','uses'=>'emailcreatorController@insert']);
 

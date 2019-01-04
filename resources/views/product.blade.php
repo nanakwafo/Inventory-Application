@@ -248,7 +248,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             @endforeach
                                         </select>
                                     </div>
-
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Barcode</label>
+                                        <input type="text" name="barcode" required="">
+                                    </div>
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Unit</label>
                                         <input type="text" name="unit" required="">

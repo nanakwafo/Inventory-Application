@@ -236,11 +236,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-2 form-group1">
                                         <label class="control-label">Invoice Date</label>
-                                        <input type="date" name="orderdate" required="" id="orderdate">
+                                        <input type="date" name="invoicedate" required="" id="invoicedate">
                                     </div>
                                     <div class="col-md-2 form-group1">
                                         <label class="control-label">Due Date</label>
-                                        <input type="date" name="orderdate" required="" id="orderdate">
+                                        <input type="date" name="duedate" required="" id="duedate">
                                     </div>
                                     <div class="col-md-4 form-group2 group-mail">
                                         <label class="control-label">Customer</label>

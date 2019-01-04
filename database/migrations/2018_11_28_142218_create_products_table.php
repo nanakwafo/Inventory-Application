@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('datereceived');
             $table->string('productcode');
             $table->integer('productcategory_id');
+            $table->string('barcode');
             $table->string('unit');
             $table->string('unitprice');
             $table->string('payamount');
