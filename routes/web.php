@@ -64,6 +64,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
     Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
     Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
+    Route::get('allaudit',array('as'=>'allaudit','uses'=>'auditController@allaudit'));
     Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste'));
     Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
     Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
