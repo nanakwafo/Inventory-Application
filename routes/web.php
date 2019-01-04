@@ -41,6 +41,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('email',['as'=>'email','uses'=>'emailController@index']);
     Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
     Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+    Route::get('audit', ['as' => 'audit', 'uses' => 'auditController@index']);
     Route::get('manageorder',['as'=>'manageorder','uses'=>'orderController@manageorder']);
     Route::get('productcode',['as'=>'productcode','uses'=>'productcodeController@index']);
     Route::get('supplierproductselectbox/{supplier_id}',['as'=>'supplierproductselectbox','uses'=>'goodreceiveController@supplierproductselectbox']);

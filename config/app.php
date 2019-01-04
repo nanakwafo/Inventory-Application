@@ -181,6 +181,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Vsmoraes\Pdf\PdfServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        OwenIt\Auditing\AuditingServiceProvider::class,
        
     ],
 

@@ -238,6 +238,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="email" class=" hvr-bounce-to-right"> <i class="fa fa-envelope-o nav_icon"></i>Email</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="audit" class=" hvr-bounce-to-right"><i class="fa fa-file-archive-o nav_icon"></i> <span class="nav-label">Audit Trails</span><span class="fa arrow"></span></a>
+
+                        </li>
 
                     </ul>
                 </div>
@@ -390,10 +394,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/scripts.js"></script>
 <!--//scrolling js-->
 <script src="js/bootstrap.min.js"> </script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/series-label.js"></script>
+<script src="js/exporting.js"></script>
+<script src="js/export-data.js"></script>
 <script>
     Highcharts.chart('container', {
 
