@@ -282,8 +282,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Role</label>
                                     <select name="role">
-                                        <option value="Admin">Admin</option>
-                                        <option value="Rep">Rep</option>
+                                        <option value="">Select</option>
+                                        @foreach(\Cartalyst\Sentinel\Roles\EloquentRole::all() as $s)
+                                        <option value="{{$s->id}}">{{$s->name}}</option>
+                                            @endforeach
                                     </select>
                                 </div>
                                 <div class="clearfix"> </div>
@@ -383,10 +385,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="field-1" class="control-label">Role</label>
-                                                <select name="roleEdit" class="form-control" id="roleEdit" >
-                                                    <option value="Admin">Admin</option>
-                                                    <option value="Rep">Rep</option>
-
+                                                <select name="roleEdit" id="roleEdit">
+                                                    <option value="">Select</option>
+                                                    @foreach(\Cartalyst\Sentinel\Roles\EloquentRole::all() as $s)
+                                                        <option value="{{$s->id}}">{{$s->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

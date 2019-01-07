@@ -146,3 +146,7 @@ Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@up
 
 Route::post('newrole',['as'=>'newrole','uses'=>'roleController@newrole']);
 Route::post('deleterole',['as'=>'deleterole','uses'=>'roleController@delete']);
+
+
+
+Route::post('assignpermission',['as'=>'assignpermission','uses'=>'permissionController@assignpermission']);

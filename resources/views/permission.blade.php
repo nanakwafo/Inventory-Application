@@ -234,7 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="validation-form">
                             <!---->
 
-                            <form action="newrole" method="post">
+                            <form action="assignpermission" method="post">
                                 {{csrf_field()}}
                                 <div class="col-md-12 form-group2 group-mail">
                                     <label class="control-label">Role Name</label>
@@ -248,15 +248,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label for="checkbox" class="col-md-6 control-label"><h5>Select Permisssions</h5></label>
                                     <br/>
-                                    &nbsp;
-                                    &nbsp;
-                                    &nbsp;
-
                                     <div class="col-sm-8">
-                                        <div class="checkbox-inline1"><label><input type="checkbox"> Unchecked</label></div>
-                                        <div class="checkbox-inline1"><label><input type="checkbox" > Checked</label></div>
-                                        <div class="checkbox-inline1"><label><input type="checkbox" > Disabled Unchecked</label></div>
-                                        <div class="checkbox-inline1"><label><input type="checkbox" > Disabled Checked</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissiondashboard" type="checkbox" name="dashboard" value="false"> Dashboard</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionmasterentry" type="checkbox" name="masterentry" value="false" > Master Entry</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionproduct" type="checkbox" name="product" value="false" > Product</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissioninventory" type="checkbox" name="inventory" value="false" > Inventory</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionsale" type="checkbox" name="sale" value="false" > Sales</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissioninvoice" type="checkbox" name="invoice" value="false" > Invoices</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionreport" type="checkbox" name="report" value="false" > Report</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionpromotion" type="checkbox" name="promotion" value="false" > Promotion</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionaudit" type="checkbox" name="audit" value="false" > Audit</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionuser" type="checkbox" name="user" value="false" > User Mgn</label></div>
+
                                     </div>
                                 </div>
 
@@ -335,6 +338,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
+    $('#permissiondashboard,#permissionmasterentry,#permissionproduct,#permissioninventory,#permissionsale,#permissioninvoice,#permissionreport,#permissionpromotion,#permissionaudit,#permissionuser').change(function(){
+        cb = $(this);
+        cb.val(cb.prop('checked'));
+    });
     $(function() {
         $('#productcategory-table').DataTable({
             processing: true,
