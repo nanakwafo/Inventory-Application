@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['checkauth']], function () {
     Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
     Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
+    Route::get('role',['as'=>'role','uses'=>'roleController@index']);
+    Route::get('permission',['as'=>'permission','uses'=>'permissionController@index']);
     Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryController@index']);
     Route::get('customercategory',['as'=>'customercategory','uses'=>'customercategoryController@index']);
     Route::get('user',['as'=>'user','uses'=>'userController@index']);
@@ -59,6 +61,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
     Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allproduct'));
     Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
+    Route::get('allroles',array('as'=>'allroles','uses'=>'roleController@allroles'));
     Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeController@allproductcode'));
     Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
     Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
@@ -140,3 +143,6 @@ Route::post('updatewaste',['as'=>'updatewaste','uses'=>'wasteController@update']
 Route::post('deletewaste',['as'=>'deletewaste','uses'=>'wasteController@delete']);
 
 Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@updateprofile']);
+
+Route::post('newrole',['as'=>'newrole','uses'=>'roleController@newrole']);
+Route::post('deleterole',['as'=>'deleterole','uses'=>'roleController@delete']);
