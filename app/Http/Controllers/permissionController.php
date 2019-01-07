@@ -27,7 +27,7 @@ class permissionController extends Controller
             'user' => is_null($request->user)? false:true,
         ];
         $role->save();
-        Session::flash('success','Permission Updated successfully');
+        Session::flash('success','Permissions Updated successfully');
         return redirect('permission');
     }
 

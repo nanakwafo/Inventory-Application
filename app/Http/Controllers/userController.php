@@ -36,7 +36,7 @@ class userController extends Controller
         return $datatables->make(true);
     }
     public function adduser(Request $request){
-
+      
 
         $credentials = [
             'email'    => $request->email,
@@ -46,8 +46,9 @@ class userController extends Controller
             'last_name' => $request->last_name,
             'sex' => $request->sex,
             'phonenumber' => $request->phonenumber,
+            'permissions'=>Sentinel::findRoleByName($request->role)->permissions
         ];
-//dd($credentials);
+
         $user = Sentinel::registerAndActivate($credentials);
         $role=Sentinel::findRoleBySlug($request->role);
         $role->users()->attach($user);
@@ -74,6 +75,7 @@ class userController extends Controller
             'sex' => $request->sexEdit,
             'phonenumber' => $request->phonenumberEdit,
             'email' => $request->emailEdit,
+            'permissions'=>Sentinel::findRoleByName($request->role)->permissions
         ));
 
         $role_edit=Sentinel::findRoleBySlug($request->roleEdit);

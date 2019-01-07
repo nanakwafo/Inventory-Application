@@ -128,8 +128,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <select name="role">
                                         <option value="">Select</option>
                                         @foreach(\Cartalyst\Sentinel\Roles\EloquentRole::all() as $s)
-                                        <option value="{{$s->id}}">{{$s->name}}</option>
-                                            @endforeach
+                                        <option value="{{$s->name}}">{{$s->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="clearfix"> </div>

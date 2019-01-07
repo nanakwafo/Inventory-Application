@@ -5,11 +5,10 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
-<!DOCTYPE Html>
+<!DOCTYPE HTML>
 <html>
 <head>
-    <title>EYSN</title>
+    <title>ESYN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -20,62 +19,76 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/style.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
     <script src="js/jquery.min.js"> </script>
-    <script src="js/bootstrap.min.js"> </script>
+    <!-- Mainly scripts -->
+    <script src="js/jquery.metisMenu.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/custom.js"></script>
+    <script src="js/screenfull.js"></script>
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+
+
+
+        });
+    </script>
+    {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">--}}
+    <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
+    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+    <!----->
+    <!--skycons-icons-->
+    <script src="js/skycons.js"></script>
+    <!--//skycons-icons-->
 </head>
 <body>
-<div class="login">
-    <h1><a href="login">EYSN</a></h1>
-    <div class="login-bottom">
-        <h2>Login</h2>
-        <form action="login" method="post">
-            {{csrf_field()}}
+<div id="wrapper">
 
-            <div class="col-md-6">
-                <div class="login-mail">
-                    <input type="text" placeholder="username" name="username" required="">
-                    <i class="fa fa-user"></i>
-                </div>
-                <div class="login-mail">
-                    <input type="password" placeholder="Password" name="password" required="">
-                    <i class="fa fa-lock"></i>
-                </div>
-                <a class="news-letter " href="#">
-                    <label class="checkbox1"><input type="checkbox" name="checkbox" ><i> </i>Forget Password</label>
-                </a>
+    @include('partials.navbar')
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="content-main">
+
+            <!--banner-->
+            <!--//banner-->
+            <!--content-->
+            <div class="content-top">
+
 
 
             </div>
-            <div class="col-md-6 login-do">
-                <label class="hvr-shutter-in-horizontal login-sub">
-                    <input type="submit" value="login">
-                </label>
+            <!---->
 
-            </div>
 
-            <div class="clearfix"> </div>
-        </form>
-        @if(session('error'))
-            <div class="alert alert-danger">
-                {{session('error')}}
+            <!---->
+            <div class="copy">
+                <p> &copy; 2018 best inventory. All Rights Reserved | Design by <a href="http://nanakwafomensah.info/" target="_blank">onetech</a> </p>
             </div>
-        @endif
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{session('success')}}
-            </div>
-        @endif
+        </div>
+        <div class="clearfix"> </div>
     </div>
-</div>
-<!---->
-<div class="copy-right">
-    <p> &copy; 2018 best inventory. All Rights Reserved | Design by <a href="http://nanakwafomensah.info/" target="_blank">onetech</a> </p>
 </div>
 <!---->
 <!--scrolling js-->
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!--//scrolling js-->
+<script src="js/bootstrap.min.js"> </script>
+
+<script src="js/jquery.dataTables.min.js"></script>
+<!-- Bootstrap JavaScript -->
+{{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
+
 </body>
 </html>
 

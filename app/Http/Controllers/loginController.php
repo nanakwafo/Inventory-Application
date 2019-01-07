@@ -9,7 +9,7 @@ class loginController extends Controller
 {
     //
     public  function index(){
-        return view('welcome');
+        return view('login');
     }
     public function login(Request $request){
         try{
@@ -17,9 +17,9 @@ class loginController extends Controller
                 'username'    => $request->username,
                 'password' => $request->password,
             ];
-//            dd($credentials);
+
             if(Sentinel::authenticate($credentials)){
-                return redirect('dashboard');
+                return redirect('welcome');
             }else
             {
 

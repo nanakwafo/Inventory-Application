@@ -42,7 +42,7 @@
                     </a>
                     <ul class="dropdown-menu " role="menu">
                         <li><a href="profile"><i class="fa fa-user"></i>Edit Profile</a></li>
-                        {{--<li><a href="task"><i class="fa fa-clipboard"></i>Tasks</a></li>--}}
+
                         <li>
                             &nbsp;
                             <form action="{{route('logout')}}" method="post" id="logout-form">
@@ -63,10 +63,14 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 
-                    <li>
-                        <a href="dashboard" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Dashboards</span> </a>
-                    </li>
 
+                    @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['dasboard']))
+                        <li>
+
+                          <a href="dashboard" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Dashboards</span> </a>
+                        </li>
+                    @endif
+                    @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['masterentry']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cogs nav_icon"></i> <span class="nav-label">Master Entry</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -84,15 +88,17 @@
 
                         </ul>
                     </li>
+                    @endif
 
-                    <li>
+                   @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['product']))
+                        <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Product</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> New Product </a></li>
-
-
                         </ul>
                     </li>
+                    @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['inventory']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Inventory</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -104,7 +110,8 @@
 
                         </ul>
                     </li>
-
+                     @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['sale']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i> <span class="nav-label">Sales</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -113,6 +120,8 @@
                             <li><a href="waste" class=" hvr-bounce-to-right"><i class="fa fa-trash nav_icon"></i>Manage Waste</a></li>
                         </ul>
                     </li>
+                        @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['invoice']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-transgender nav_icon"></i> <span class="nav-label">Invoices</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -121,14 +130,16 @@
 
                         </ul>
                     </li>
-
-
+                       @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['report']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="inventoryonhand" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Inventory On Hand</a></li>
                         </ul>
                     </li>
+                        @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['promotion']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-certificate nav_icon"></i> <span class="nav-label">Promotion</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -136,10 +147,14 @@
                             <li><a href="email" class=" hvr-bounce-to-right"> <i class="fa fa-envelope-o nav_icon"></i>Email</a></li>
                         </ul>
                     </li>
+                        @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['audit']))
                     <li>
                         <a href="audit" class=" hvr-bounce-to-right"><i class="fa fa-file-archive-o nav_icon"></i> <span class="nav-label">Audit Trails</span><span class="fa arrow"></span></a>
 
                     </li>
+                        @endif
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['user']))
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">User Management</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -148,6 +163,7 @@
                             <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
                         </ul>
                     </li>
+                            @endif
                 </ul>
             </div>
         </div>

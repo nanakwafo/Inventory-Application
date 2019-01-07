@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::group(['middleware' => ['checkauth']], function () {
     Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
+    Route::get('welcome',['as'=>'welcome','uses'=>'welcomeController@index']);
     Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
     Route::get('role',['as'=>'role','uses'=>'roleController@index']);
     Route::get('permission',['as'=>'permission','uses'=>'permissionController@index']);
