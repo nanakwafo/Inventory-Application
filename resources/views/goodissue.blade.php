@@ -142,7 +142,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="customer" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>Customer</a></li>
                                 <li><a href="supplier" class=" hvr-bounce-to-right"><i class="fa fa-paper-plane nav_icon"></i> Supplier </a></li>
                                 <li><a href="warehouse" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> Warehouse/Store </a></li>
-                              <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
 
 
                             </ul>
@@ -199,6 +198,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="audit" class=" hvr-bounce-to-right"><i class="fa fa-file-archive-o nav_icon"></i> <span class="nav-label">Audit Trails</span><span class="fa arrow"></span></a>
 
+                        </li>
+                        <li>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">User Management</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="role" class=" hvr-bounce-to-right"> <i class="fa fa-comment nav_icon"></i>Role</a></li>
+                                <li><a href="permission" class=" hvr-bounce-to-right"> <i class="fa fa-envelope-o nav_icon"></i>Permission</a></li>
+                                <li><a href="user" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i>User</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
