@@ -26,24 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/custom.js"></script>
     <script src="js/screenfull.js"></script>
-    <script>
-        $(function () {
-            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-            if (!screenfull.enabled) {
-                return false;
-            }
-
-
-
-            $('#toggle').click(function () {
-                screenfull.toggle($('#container')[0]);
-            });
-
-
-
-        });
-    </script>
     {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
     <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
@@ -60,10 +43,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="content-main">
 
             <!--banner-->
+            {{--<div class="banner">--}}
+
+                {{--<h2>--}}
+                    {{--<a href="dashboard">Home</a>--}}
+                    {{--<i class="fa fa-angle-right"></i>--}}
+                    {{--<span>Welcome</span>--}}
+                {{--</h2>--}}
+            {{--</div>--}}
             <!--//banner-->
-            <!--content-->
-            <div class="content-top">
+            <div class="asked">
 
+
+                <div class="questions">
+                    <center><h5>YOU ARE WELCOME</h5></center>
+                    {{--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>--}}
+                </div>
+                {{--<div class="questions">--}}
+                    {{--<h5>2.What is Lorem Ipsum dummy text ever since the 1500s?</h5>--}}
+                    {{--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>--}}
+                {{--</div>--}}
 
 
             </div>
@@ -71,9 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
             <!---->
-            <div class="copy">
-                <p> &copy; 2018 best inventory. All Rights Reserved | Design by <a href="http://nanakwafomensah.info/" target="_blank">onetech</a> </p>
-            </div>
+            <!---->
+            @include('partials.footer')
         </div>
         <div class="clearfix"> </div>
     </div>

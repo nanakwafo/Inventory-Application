@@ -295,11 +295,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!---->
 
-
             <!---->
-            <div class="copy">
-                <p> &copy; 2018 best inventory. All Rights Reserved | Design by <a href="http://nanakwafomensah.info/" target="_blank">onetech</a> </p>
-            </div>
+            @include('partials.footer')
         </div>
         <div class="clearfix"> </div>
     </div>
