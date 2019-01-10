@@ -8,7 +8,7 @@ class profileController extends Controller
 {
     //
     public function index(){
-        $details = \App\Profile::first();
+        $details = \App\profile::first();
         return view('profile')->with(['details'=>$details]);
     }
     public function updateprofile(Request $request)
@@ -20,7 +20,7 @@ class profileController extends Controller
             $filename=time().'.'.$logo->getClientOriginalExtension();
 
 
-            $profile = \App\Profile::findorfail($request->id);
+            $profile = \App\profile::findorfail($request->id);
             $profile->companyname = $request->companyname;
             $profile->phone = $request->phone;
             $profile->email = $request->email;
@@ -37,7 +37,7 @@ class profileController extends Controller
 
 
         }else{
-        $profile = \App\Profile::findorfail($request->id);
+        $profile = \App\profile::findorfail($request->id);
         $profile->companyname = $request->companyname;
         $profile->phone = $request->phone;
         $profile->email = $request->email;
