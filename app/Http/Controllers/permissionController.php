@@ -27,6 +27,17 @@ class permissionController extends Controller
             'user' => is_null($request->user)? false:true,
         ];
         $role->save();
+
+
+
+        $users = $role->users()->with('roles')->get();
+        foreach($users as $user){
+            Sentinel::update($user, array(
+                'permissions'=>Sentinel::findRoleById($request->roleid)->permissions
+            ));
+
+        }
+
         Session::flash('success','Permissions Updated successfully');
         return redirect('permission');
     }
