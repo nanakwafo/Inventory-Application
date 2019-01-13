@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <table class="table table-bordered " id="inventoryonhand-table">
                         <thead>
                         <tr>
-                            <th style="background-color: white;color: black">Date</th>
+                            {{--<th style="background-color: white;color: black">Date</th>--}}
                             <th style="background-color: white;color: black">Product name</th>
                             <th style="background-color: white;color: black">Product code</th>
                             <th style="background-color: white;color: black">Store</th>
@@ -216,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         },
         columns: [
-            {data: 'date', name: 'date'},
+//            {data: 'date', name: 'date'},
             {data: 'productname', name: 'productname'},
             {data: 'productcode', name: 'productcode'},
             {data: 'store', name: 'store'},

@@ -150,14 +150,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <table class="table table-bordered " id="users-table">
                         <thead>
                         <tr>
-                            <th style="background-color: white;color: black">No</th>
+                            <th style="background-color: white;color: black">No.</th>
                             <th style="background-color: white;color: black">First Name</th>
                             <th style="background-color: white;color: black">Last Name</th>
-                            <th style="background-color: white;color: black">Email</th>
-                            <th style="background-color: white;color: black">Phone number</th>
-                            <th style="background-color: white;color: black;width: 20%">Username</th>
-                            <th style="background-color: white;color: black;width: 20%">Sex</th>
-                            <th style="background-color: white;color: black;width: 20%">Action</th>
+                            <th style="background-color: white;color: black;">Email</th>
+                            <th style="background-color: white;color: black;">Phone number</th>
+                            <th style="background-color: white;color: black;">Username</th>
+                            <th style="background-color: white;color: black;">Sex</th>
+                            <th style="background-color: white;color: black;">Role</th>
+                            <th style="background-color: white;color: black;">Action</th>
                         </tr>
                         </thead>
                     </table>
@@ -227,7 +228,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                            <div class="form-group2 group-mail">
                                                 <label for="field-1" class="control-label">Role</label>
                                                 <select name="roleEdit" id="roleEdit">
                                                     <option value="">Select</option>
@@ -359,6 +360,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 { data: 'phonenumber', name: 'phonenumber' },
                 { data: 'username', name: 'username' },
                 { data: 'sex', name: 'sex' },
+                { data: 'priviledge', name: 'priviledge' },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
 
             ]

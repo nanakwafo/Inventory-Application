@@ -150,17 +150,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="modal-body">
                                     <center><h3><span id="roleheader"></span></h3></center>
                                     <ul class="list-group">
-                                        <li class="list-group-item"><span class="permissionicondashboard"></span></i>Dashboard </li>
-                                        <li class="list-group-item"><span class="permissioniconmasterentry"></span></i>Master Entry </li>
-                                        <li class="list-group-item"><span class="permissioniconproduct"></span></i>Product </li>
-                                        <li class="list-group-item"><span class="permissioniconinventory"></span></i>Inventory </li>
-                                        <li class="list-group-item"><span class="permissioniconsale"></span></i>Sales </li>
-                                        <li class="list-group-item"><span class="permissioniconinvoice"></span></i>Invoices </li>
-                                        <li class="list-group-item"><span class="permissioniconreport"></span></i>Report </li>
-                                        <li class="list-group-item"><span class="permissioniconpromotion"></span></i>Promotion</li>
-                                        <li class="list-group-item"><span class="permissioniconaudit"></span></i>Audit </li>
-                                        <li class="list-group-item"><span class="permissioniconuser"></span></i>User Mgn </li>
-                                        <li class="list-group-item"><span class="permissioniconprofile"></span></i>Profile </li>
+                                        <li class="list-group-item"><span class="permissionicondashboard"></span>Dashboard </li>
+                                        <li class="list-group-item"><span class="permissioniconmasterentry"></span>Master Entry </li>
+                                        <li class="list-group-item"><span class="permissioniconproduct"></span>Product </li>
+                                        <li class="list-group-item"><span class="permissioniconinventory"></span>Inventory </li>
+                                        <li class="list-group-item"><span class="permissioniconsale"></span>Sales </li>
+                                        <li class="list-group-item"><span class="permissioniconinvoice"></span>Invoices </li>
+                                        <li class="list-group-item"><span class="permissioniconreport"></span>Report </li>
+                                        <li class="list-group-item"><span class="permissioniconpromotion"></span>Promotion</li>
+                                        <li class="list-group-item"><span class="permissioniconaudit"></span>Audit </li>
+                                        <li class="list-group-item"><span class="permissioniconuser"></span>User Mgn </li>
+                                        <li class="list-group-item"><span class="permissioniconprofile"></span>Profile </li>
 
                                     </ul>
                                 </div>
@@ -225,37 +225,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 url:"{{url('getpermission')}}/" + roleid,
                 success: function(data) {
 
-                    var dashboard=((data.slice(17, -3).split(",")[0]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var dashboard=((data.slice(17, -3).split(",")[0]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissionicondashboard').html(dashboard);
 
-                    var masterentry=((data.slice(17, -3).split(",")[1]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var masterentry=((data.slice(17, -3).split(",")[1]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconmasterentry').html(masterentry);
 
-                    var product=((data.slice(17, -3).split(",")[2]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var product=((data.slice(17, -3).split(",")[2]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconproduct').html(product);
 
-                    var inventory=((data.slice(17, -3).split(",")[3]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var inventory=((data.slice(17, -3).split(",")[3]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconinventory').html(inventory);
 
-                    var sales=((data.slice(17, -3).split(",")[4]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var sales=((data.slice(17, -3).split(",")[4]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconsale').html(sales);
 
-                    var invoice=((data.slice(17, -3).split(",")[5]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var invoice=((data.slice(17, -3).split(",")[5]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconinvoice').html(invoice);
 
-                    var report=((data.slice(17, -3).split(",")[6]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var report=((data.slice(17, -3).split(",")[6]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconreport').html(report);
 
-                    var promotion=((data.slice(17, -3).split(",")[7]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var promotion=((data.slice(17, -3).split(",")[7]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconpromotion').html(promotion);
 
-                    var audit=((data.slice(17, -3).split(",")[8]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var audit=((data.slice(17, -3).split(",")[8]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconaudit').html(audit);
 
-                    var user=((data.slice(17, -3).split(",")[9]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var user=((data.slice(17, -3).split(",")[9]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconuser').html(user);
 
-                    var profile=((data.slice(17, -3).split(",")[10]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    var profile=((data.slice(17, -3).split(",")[10]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconprofile').html(profile);
 
                 }

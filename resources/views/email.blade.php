@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
     <!--//skycons-icons-->
 </head>
 <body>
@@ -121,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-4 form-group2 group-mail">
                                         <label class="control-label">Customer Category</label>
-                                        <select name="customercat" id="customercat">
+                                        <select name="customercat" id="customercat" class="customercat">
                                             <option value="">Select</option>
                                             @foreach(\App\Customercategory::all() as $s)
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -263,9 +264,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.min.js"> </script>
 
 <script src="js/jquery.dataTables.min.js"></script>
+<script src="js/select2.min.js"></script>
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
+    $(".customercat").select2({
+        theme: "classic",
+        width: 'resolve' // need to override the changed default
+    });
     var table =  $('#contacts-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
         "<'row'<'col-xs-12't>>"+

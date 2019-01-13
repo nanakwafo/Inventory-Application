@@ -17,13 +17,14 @@ class auditController extends Controller
     }
     public function allaudit(){
         
-        $customer =DB::table('audits')->get();
+        $audit =DB::table('audits')->get();
 
-        $datatables =  Datatables::of($customer)
-            ->addColumn('user', function ($customer) {
-                return  EloquentUser::find($customer->id)->first_name;
+        $datatables =  Datatables::of($audit)
+            ->addColumn('user', function ($audit) {
+                return  EloquentUser::find($audit->user_id)->first_name;
 
             });
+
 
         return $datatables->make(true);
     }

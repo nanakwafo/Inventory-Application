@@ -38,7 +38,7 @@ class inventoryonhandController extends Controller
 
         foreach ($productitems as $w) {
             $obj = new \stdClass;
-            $obj->date = $w->date;
+//            $obj->date = $w->date;
             $obj->productname = $w->name;
             $obj->productcode = $w->productcode;
             $obj->store = Warehouse::find($w->store_issue_to)->name;
