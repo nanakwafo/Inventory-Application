@@ -143,22 +143,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <center><h4 class="modal-title">Remove </h4></center>
+                                <center><h4 class="modal-title">Permissions Assign to a Role </h4></center>
                             </div>
-                            <form action="deleterole" method="post">
-                                {{csrf_field()}}
+
+
                                 <div class="modal-body">
-                                    <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
-                                    <input type="hidden" id="idDelete" name="idDelete"/>
+                                    <center><h3><span id="roleheader"></span></h3></center>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span class="permissionicondashboard"></span></i>Dashboard </li>
+                                        <li class="list-group-item"><span class="permissioniconmasterentry"></span></i>Master Entry </li>
+                                        <li class="list-group-item"><span class="permissioniconproduct"></span></i>Product </li>
+                                        <li class="list-group-item"><span class="permissioniconinventory"></span></i>Inventory </li>
+                                        <li class="list-group-item"><span class="permissioniconsale"></span></i>Sales </li>
+                                        <li class="list-group-item"><span class="permissioniconinvoice"></span></i>Invoices </li>
+                                        <li class="list-group-item"><span class="permissioniconreport"></span></i>Report </li>
+                                        <li class="list-group-item"><span class="permissioniconpromotion"></span></i>Promotion</li>
+                                        <li class="list-group-item"><span class="permissioniconaudit"></span></i>Audit </li>
+                                        <li class="list-group-item"><span class="permissioniconuser"></span></i>User Mgn </li>
+                                        <li class="list-group-item"><span class="permissioniconprofile"></span></i>Profile </li>
+
+                                    </ul>
                                 </div>
                                 <div class="modal-footer">
-                                    <div class="col-md-12 form-group">
-                                        <button type="submit" class="btn btn-default">Submit</button>
+                                    {{--<div class="col-md-12 form-group">--}}
+                                        {{--<button type="submit" class="btn btn-default">Submit</button>--}}
 
-                                    </div>
+                                    {{--</div>--}}
                                     <div class="clearfix"> </div>
                                 </div>
-                            </form>
+
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div>
@@ -204,17 +217,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script>
     $(document).on('click','.editbtn',function(){
-        $('#nameEdit').val($(this).data('name'));
-        $('#idEdit').val($(this).data('id'));
-    });
-</script>
-<script>
-    $(document).on('click','.deletebtn',function() {
-        $('#idDelete').val($(this).data('id'));
-        $("#nameDelete").html($(this).data('name'));
+        $('#roleheader').html($(this).data('name'));
+       var roleid = $(this).data('id');
 
+            $.ajax({
+                type:"GET",
+                url:"{{url('getpermission')}}/" + roleid,
+                success: function(data) {
+
+                    var dashboard=((data.slice(17, -3).split(",")[0]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissionicondashboard').html(dashboard);
+
+                    var masterentry=((data.slice(17, -3).split(",")[1]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconmasterentry').html(masterentry);
+
+                    var product=((data.slice(17, -3).split(",")[2]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconproduct').html(product);
+
+                    var inventory=((data.slice(17, -3).split(",")[3]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconinventory').html(inventory);
+
+                    var sales=((data.slice(17, -3).split(",")[4]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconsale').html(sales);
+
+                    var invoice=((data.slice(17, -3).split(",")[5]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconinvoice').html(invoice);
+
+                    var report=((data.slice(17, -3).split(",")[6]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconreport').html(report);
+
+                    var promotion=((data.slice(17, -3).split(",")[7]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconpromotion').html(promotion);
+
+                    var audit=((data.slice(17, -3).split(",")[8]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconaudit').html(audit);
+
+                    var user=((data.slice(17, -3).split(",")[9]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconuser').html(user);
+
+                    var profile=((data.slice(17, -3).split(",")[10]).split(":")[1]='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
+                    $('.permissioniconprofile').html(profile);
+
+                }
+            });
     });
 </script>
+
 
 </body>
 </html>

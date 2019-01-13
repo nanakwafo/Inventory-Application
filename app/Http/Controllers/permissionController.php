@@ -72,14 +72,8 @@ class permissionController extends Controller
 
     public function getpermission($roleid){
 
-        $roles= EloquentRole::where('id',$roleid)->pluck('permissions');
-        $data=null;
-        foreach ($roles as $field => $value){
-            $data= $value;
-        }
-
-
-        return implode($data, ',');
+        $roles= EloquentRole::select('permissions')->where('id',$roleid)->get();
+        return json_encode($roles);
     }
     
   
