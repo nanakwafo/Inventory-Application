@@ -26,6 +26,7 @@ class usertableSeeder extends Seeder
             'promotion' => true,
             'audit' => true,
             'user' => true,
+            'profile' => true,
         ];
         $role->save();
 

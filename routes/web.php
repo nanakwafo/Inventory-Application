@@ -31,6 +31,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
     Route::get('product',['as'=>'product','uses'=>'productController@index']);
     Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'productController@getproductrate']);
+    Route::get('getpermission/{roleid}',['as'=>'getpermission','uses'=>'permissionController@getpermission']);
     Route::get('productselectbox',['as'=>'productselectbox','uses'=>'productController@productselectbox']);
     Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
     Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
@@ -63,6 +64,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allproduct'));
     Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
     Route::get('allroles',array('as'=>'allroles','uses'=>'roleController@allroles'));
+    Route::get('allpermissions',array('as'=>'allpermissions','uses'=>'permissionController@allpermissions'));
     Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeController@allproductcode'));
     Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
     Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));

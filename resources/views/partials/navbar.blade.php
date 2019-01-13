@@ -30,7 +30,7 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret">
-                                @if(Sentinel::check())
+                            @if(Sentinel::check())
                                 {{Sentinel::getUser()->first_name ." ".Sentinel::getUser()->last_name}}
                             @endif
                             <i class="caret"></i></span>
@@ -41,9 +41,10 @@
                             <img src="images/wo.jpg" width="70" height="60">
                         @endif
                     </a>
-                    <ul class="dropdown-menu " role="menu">
+                    <ul class="dropdown-menu" role="menu">
+                        @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['profile']))
                         <li><a href="profile"><i class="fa fa-user"></i>Edit Profile</a></li>
-
+                       @endif
                         <li>
                             &nbsp;
                             <form action="{{route('logout')}}" method="post" id="logout-form">

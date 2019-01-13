@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Cartalyst\Sentinel\Roles\EloquentRole;
 use Illuminate\Http\Request;
 use Sentinel;
 use Session;
+use Yajra\Datatables\Datatables;
+use DB;
+
 class permissionController extends Controller
 {
     //
@@ -25,6 +29,7 @@ class permissionController extends Controller
             'promotion' => is_null($request->promotion)? false:true,
             'audit' => is_null($request->audit)? false:true,
             'user' => is_null($request->user)? false:true,
+            'profile' => is_null($request->profile)? false:true,
         ];
         $role->save();
 
@@ -42,7 +47,40 @@ class permissionController extends Controller
         return redirect('permission');
     }
 
+    public function allpermissions(Request $request){
 
+        DB::statement(DB::raw('set @rownum=0'));
+        $roletype = EloquentRole::select([
+            DB::raw('@rownum  := @rownum  + 1 AS rownum'),
+            'id',
+            'name',
+            'permissions'
+        ]);
+
+        $datatables =  Datatables::of($roletype)
+
+            ->addColumn('action', function ($roletype) {
+//
+                return '
+                <a href="#" class="editbtn" data-id="'.$roletype->id.'" data-name="'.$roletype->name.'"  data-toggle="modal"  data-target="#deletemodal" >view </a> 
+                  ';
+            });
+
+
+        return $datatables->make(true);
+    }
+
+    public function getpermission($roleid){
+
+        $roles= EloquentRole::where('id',$roleid)->pluck('permissions');
+        $data=null;
+        foreach ($roles as $field => $value){
+            $data= $value;
+        }
+
+
+        return implode($data, ',');
+    }
     
   
 }

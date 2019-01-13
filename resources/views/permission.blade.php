@@ -105,6 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="checkbox-inline1"><label><input id="permissionpromotion" type="checkbox" name="promotion" value="false" > Promotion</label></div>
                                         <div class="checkbox-inline1"><label><input id="permissionaudit" type="checkbox" name="audit" value="false" > Audit</label></div>
                                         <div class="checkbox-inline1"><label><input id="permissionuser" type="checkbox" name="user" value="false" > User Mgn</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionprofile" type="checkbox" name="user" value="false" > Profile</label></div>
 
                                     </div>
                                 </div>
@@ -128,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">No.</th>
                             <th style="background-color: white;color: black">Name</th>
 
-                            <th style="background-color: white;color: black;width: 20%">Action</th>
+                            <th style="background-color: white;color: black;width: 20%">Permissions</th>
                         </tr>
                         </thead>
                     </table>
@@ -190,11 +191,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#productcategory-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('allroles') !!}',
+            ajax: '{!! route('allpermissions') !!}',
             columns: [
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
                 { data: 'name', name: 'name' },
-                { data: 'action', name: 'action', orderable: false, searchable: false}
+                { data: 'action', name: 'action' }
+
             ]
         });
     });
