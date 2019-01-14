@@ -14,7 +14,6 @@ class Purchase extends Model implements AuditableContract
         'datereceived',
         'productcode',
         'productcategory_id',
-      
         'unit',
         'unitprice',
         'payamount',
