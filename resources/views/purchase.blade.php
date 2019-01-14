@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Product</span>
+                    <span>Purchase Arrival</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="validation-form">
                             <!---->
 
-                            <form method="post" action="saveproduct">
+                            <form method="post" action="savepurchase">
                                 {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-12 form-group1">
@@ -103,10 +103,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-12 form-group1">
-                                        <label class="control-label">Barcode</label>
-                                        <input type="text" name="barcode" required="">
-                                    </div>
+                                    {{--<div class="col-md-12 form-group1">--}}
+                                        {{--<label class="control-label">Barcode</label>--}}
+                                        {{--<input type="text" name="barcode" required="">--}}
+                                    {{--</div>--}}
                                     <div class="col-md-12 form-group1">
                                         <label class="control-label">Unit</label>
                                         <input type="text" name="unit" required="">
@@ -183,7 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <center><h4 class="modal-title">Edit Details</h4></center>
                             </div>
-                            <form method="post" action="updateproduct">
+                            <form method="post" action="updatepurchase">
                                 {{csrf_field()}}
                             <div class="modal-body">
                                 <div class="validation-system">
@@ -275,7 +275,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <center><h4 class="modal-title">Remove</h4></center>
                             </div>
-                            <form action="deleteproduct" method="post">
+                            <form action="deletepurchase" method="post">
                                 {{csrf_field()}}
                             <div class="modal-body">
 

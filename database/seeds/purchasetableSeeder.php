@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class producttableSeeder extends Seeder
+class purchasetableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class producttableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('products')->delete();
-        factory(App\Product::class, 10)->create();
+        DB::table('purchases')->delete();
+        factory(App\Purchase::class, 10)->create();
     }
 }

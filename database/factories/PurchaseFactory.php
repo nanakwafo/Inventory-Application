@@ -6,13 +6,13 @@
  * Time: 3:11 PM
  */
 
-$factory->define(App\Product::class, function (Faker\Generator $faker) {
+$factory->define(App\Purchase::class, function (Faker\Generator $faker) {
     return [
         'datereceived' => $faker->date('Y-m-d'),
         'productcode'=> \App\Productcode::all()->random()->productcode,
         'productcategory_id'=> \App\Productcategory::all()->random()->id,
         'unit'=> 'unit',
-        'barcode'=> $faker->bankAccountNumber,
+//        'barcode'=> $faker->bankAccountNumber,
         'unitprice'=> '1000',
         'payamount'=> $faker->randomDigit,
         'quantity'=> $faker->randomDigit,

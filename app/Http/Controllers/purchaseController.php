@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\AppHelper;
-use App\Product;
+use App\Purchase;
 use App\Productcategory;
 use App\Storeitem;
 use App\Supplier;
@@ -14,11 +14,11 @@ use DB;
 use Session;
 use App\Productcode;
 use Illuminate\Support\Collection;
-class productController extends Controller
+class purchaseController extends Controller
 {
     //
     public function index(){
-        return view('product');
+        return view('purchase');
     }
   public function getproductrate($product_id,$store_id){
       $rate= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->pluck('rate')->first();
@@ -29,14 +29,14 @@ class productController extends Controller
   }
     public function productselectbox(){
         $output_product='<option value="">Select product</option>';
-        $product_from=Product::select('productcode')->groupBy('productcode')->get();
+        $product_from=Purchase::select('productcode')->groupBy('productcode')->get();
         foreach ($product_from as $p){
             $output_product.='<option value="'.$p->productcode.'">'.Productcode::find($p->productcode)->name.'</option>';
         }
         return Response($output_product);
     }
     public function allproduct(Request $request){
-        $productitems = Product::all();
+        $productitems = Purchase::all();
         $data  = [];
         $rownum=1;
         foreach ($productitems as $w) {
@@ -64,14 +64,14 @@ class productController extends Controller
         return Datatables::of($productitems_sorted)->make(true);
     }
     public function save(Request $request){
-        Product::create($request->all());
-        Session::flash('success','Product record Added successfully');
-        return redirect('product');
+        Purchase::create($request->all());
+        Session::flash('success','Purchase record Added successfully');
+        return redirect('purchase');
     }
     public  function update(Request $request){
 
      
-        $product =Product::find($request->idEdit);
+        $product =Purchase::find($request->idEdit);
         $product->datereceived = $request->datereceivedEdit;
         $product->productcode = $request->productcodeEdit;
         $product->productcategory_id = $request->productcategory_idEdit;
@@ -83,12 +83,12 @@ class productController extends Controller
         $product->remark = $request->remarkEdit;
         $product->reorderlimit = $request->reorderlimitEdit;
         $product->save();
-        Session::flash('success','Product  record updated successfully');
-        return redirect('product');
+        Session::flash('success','Purchase  record updated successfully');
+        return redirect('purchase');
     }
     public function delete(Request $request){
-        Product::find($request->idDelete)->delete();
-        Session::flash('success','Product deleted successfully');
-        return redirect('product');
+        Purchase::find($request->idDelete)->delete();
+        Session::flash('success','Purchase deleted successfully');
+        return redirect('purchase');
     }
 }

@@ -94,15 +94,16 @@
 
                    @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['product']))
                         <li>
-                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Product</span><span class="fa arrow"></span></a>
+                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-money nav_icon"></i> <span class="nav-label">Purchase</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="product" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i> New Product </a></li>
+                            <li><a href="purchaseorder" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>Purchase Order</a></li>
+                            <li><a href="purchase" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>Purchase Arrival</a></li>
                         </ul>
                     </li>
                     @endif
                         @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['inventory']))
                     <li>
-                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-plus-circle nav_icon"></i> <span class="nav-label">Inventory</span><span class="fa arrow"></span></a>
+                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-database nav_icon"></i> <span class="nav-label">Inventory Adjustment</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="goodreceive" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>Goods Receive</a></li>
                             <li><a href="goodissue" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i>Goods Issue</a></li>
@@ -137,7 +138,9 @@
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="inventoryonhand" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Inventory On Hand</a></li>
+                            <li><a href="inventoryonhand" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Store</a></li>
+                            <li><a href="warehousereport" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Warehouse </a></li>
+                            <li><a href="activepurchaseorder" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Active Purchase order</a></li>
                         </ul>
                     </li>
                         @endif

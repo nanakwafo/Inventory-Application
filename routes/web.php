@@ -29,10 +29,10 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('warehouse',['as'=>'warehouse','uses'=>'warehouseController@index']);
     Route::get('customer',['as'=>'customer','uses'=>'customerController@index']);
     Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
-    Route::get('product',['as'=>'product','uses'=>'productController@index']);
-    Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'productController@getproductrate']);
+    Route::get('purchase',['as'=>'purchase','uses'=>'purchaseController@index']);
+    Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'purchaseController@getproductrate']);
     Route::get('getpermission/{roleid}',['as'=>'getpermission','uses'=>'permissionController@getpermission']);
-    Route::get('productselectbox',['as'=>'productselectbox','uses'=>'productController@productselectbox']);
+    Route::get('productselectbox',['as'=>'productselectbox','uses'=>'purchaseController@productselectbox']);
     Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
     Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
     Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);
@@ -61,7 +61,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allcontact',array('as'=>'allcontact','uses'=>'smsController@allcontact'));
     Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
     Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
-    Route::get('allproduct',array('as'=>'allproduct','uses'=>'productController@allproduct'));
+    Route::get('allproduct',array('as'=>'allproduct','uses'=>'purchaseController@allproduct'));
     Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
     Route::get('allroles',array('as'=>'allroles','uses'=>'roleController@allroles'));
     Route::get('allpermissions',array('as'=>'allpermissions','uses'=>'permissionController@allpermissions'));
@@ -122,9 +122,9 @@ Route::post('savewarehouse',['as'=>'savewarehouse','uses'=>'warehouseController@
 Route::post('updatewarehouse',['as'=>'updatewarehouse','uses'=>'warehouseController@update']);
 Route::post('deletewarehouse',['as'=>'deletewarehouse','uses'=>'warehouseController@delete']);
 
-Route::post('saveproduct',['as'=>'saveproduct','uses'=>'productController@save']);
-Route::post('updateproduct',['as'=>'updateproduct','uses'=>'productController@update']);
-Route::post('deleteproduct',['as'=>'deleteproduct','uses'=>'productController@delete']);
+Route::post('savepurchase',['as'=>'savepurchase','uses'=>'purchaseController@save']);
+Route::post('updatepurchase',['as'=>'updatepurchase','uses'=>'purchaseController@update']);
+Route::post('deletepurchase',['as'=>'deletepurchase','uses'=>'purchaseController@delete']);
 
 
 Route::post('savegoodreceive',['as'=>'savegoodreceive','uses'=>'goodreceiveController@save']);
@@ -149,7 +149,5 @@ Route::post('updateprofile',['as'=>'updateprofile','uses'=>'profileController@up
 
 Route::post('newrole',['as'=>'newrole','uses'=>'roleController@newrole']);
 Route::post('deleterole',['as'=>'deleterole','uses'=>'roleController@delete']);
-
-
 
 Route::post('assignpermission',['as'=>'assignpermission','uses'=>'permissionController@assignpermission']);

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Auditable;
 use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class Product extends Model implements AuditableContract
+class Purchase extends Model implements AuditableContract
 {
     //
     use Auditable;
@@ -14,7 +14,7 @@ class Product extends Model implements AuditableContract
         'datereceived',
         'productcode',
         'productcategory_id',
-        'barcode',
+      
         'unit',
         'unitprice',
         'payamount',
