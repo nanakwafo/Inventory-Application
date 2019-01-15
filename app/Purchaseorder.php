@@ -14,7 +14,8 @@ class Purchaseorder extends Model implements AuditableContract
     
     public $incrementing = false;
     
-    protected $fillable=['purchaseordernumber','supplier_id','date','expecteddeliverydate','subtotal','discount'];
+    protected $fillable=['purchaseordernumber','supplier_id','date','expecteddeliverydate',
+        'subamount','vat','subtotal','discount','grandtotal','payamount','dueamount','paymenttype','account'];
 
     public function purchaseorderitems()
     {

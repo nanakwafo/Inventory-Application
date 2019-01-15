@@ -19,6 +19,15 @@ class CreatePurchaseordersTable extends Migration
             $table->string('supplier_id');
             $table->string('date');
             $table->string('expecteddeliverydate');
+            $table->string('subamount');
+            $table->string('vat');
+            $table->string('subtotal');
+            $table->string('discount');
+            $table->string('grandtotal');
+            $table->string('payamount');
+            $table->string('dueamount');
+            $table->string('paymenttype');
+            $table->string('account');
             $table->timestamps();
         });
     }

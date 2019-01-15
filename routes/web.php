@@ -41,6 +41,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);
     Route::get('goodissue',['as'=>'goodissue','uses'=>'goodissueController@index']);
     Route::get('grntype',['as'=>'grntype','uses'=>'grntypeController@index']);
+    Route::get('bankaccount',['as'=>'bankaccount','uses'=>'bankaccountController@index']);
     Route::get('order',['as'=>'order','uses'=>'orderController@index']);
     Route::get('sms',['as'=>'sms','uses'=>'smsController@index']);
     Route::get('email',['as'=>'email','uses'=>'emailController@index']);
@@ -64,6 +65,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
     Route::get('allproduct',array('as'=>'allproduct','uses'=>'purchaseController@allproduct'));
     Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
+    Route::get('allbankaccount',array('as'=>'allbankaccount','uses'=>'bankaccountController@allbankaccount'));
     Route::get('allroles',array('as'=>'allroles','uses'=>'roleController@allroles'));
     Route::get('allpermissions',array('as'=>'allpermissions','uses'=>'permissionController@allpermissions'));
     Route::get('allproductcode',array('as'=>'allproductcode','uses'=>'productcodeController@allproductcode'));
@@ -77,6 +79,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
     Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
     Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
+    Route::get('/purchaseorderreceiptpdf/{purchaseordernumber}',['as'=>'purchaseorderreceiptpdf','uses'=>'pdfController@purchaseorderreceiptpdf']);
     Route::get('/invoicereceiptpdf/{invoicenumber}',['as'=>'invoicereceiptpdf','uses'=>'pdfController@invoicereceiptpdf']);
     Route::get('invoice',['as'=>'invoice','uses'=>'invoiceController@invoice']);
     Route::get('allinvoice',['as'=>'allinvoice','uses'=>'invoiceController@allinvoice']);
@@ -98,6 +101,10 @@ Route::post('deleteuser',['as'=>'deleteuser','uses'=>'userController@deleteuser'
 Route::post('savegrntype',['as'=>'savegrntype','uses'=>'grntypeController@save']);
 Route::post('updategrntype',['as'=>'updategrntype','uses'=>'grntypeController@update']);
 Route::post('deletegrntype',['as'=>'deletegrntype','uses'=>'grntypeController@delete']);
+
+Route::post('savebankaccount',['as'=>'savebankaccount','uses'=>'bankaccountController@save']);
+Route::post('updatebankaccount',['as'=>'updatebankaccount','uses'=>'bankaccountController@update']);
+Route::post('deletebankaccount',['as'=>'deletebankaccount','uses'=>'bankaccountController@delete']);
 
 Route::post('saveproductcode',['as'=>'saveproductcode','uses'=>'productcodeController@save']);
 Route::post('updateproductcode',['as'=>'updateproductcode','uses'=>'productcodeController@update']);
@@ -152,3 +159,5 @@ Route::post('newrole',['as'=>'newrole','uses'=>'roleController@newrole']);
 Route::post('deleterole',['as'=>'deleterole','uses'=>'roleController@delete']);
 
 Route::post('assignpermission',['as'=>'assignpermission','uses'=>'permissionController@assignpermission']);
+
+Route::post('savepurchaseorder',['as'=>'savepurchaseorder','uses'=>'puchaseorderController@save']);

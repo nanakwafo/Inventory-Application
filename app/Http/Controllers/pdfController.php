@@ -102,4 +102,8 @@ class pdfController extends Controller
         $pdf::filename($pdfname.'.pdf');
         return $pdf::load($html)->show();
     }
+
+    public function purchaseorderreceiptpdf($purchaseordernumber){
+
+    }
 }

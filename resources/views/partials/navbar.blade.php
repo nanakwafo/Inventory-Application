@@ -77,6 +77,7 @@
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cogs nav_icon"></i> <span class="nav-label">Master Entry</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="grntype" class=" hvr-bounce-to-right"> <i class="fa fa-angle-double-down nav_icon"></i>Grn Type</a></li>
+                            <li><a href="bankaccount" class=" hvr-bounce-to-right"> <i class="fa fa-angle-double-down nav_icon"></i>Bank Account</a></li>
                             <li><a href="productcode" class=" hvr-bounce-to-right"> <i class="fa fa-dot-circle-o nav_icon"></i>Product Codes</a></li>
 
                             <li><a href="productcategory" class=" hvr-bounce-to-right"> <i class="fa fa-shopping-basket nav_icon"></i>Product Category</a></li>

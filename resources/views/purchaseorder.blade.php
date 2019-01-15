@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-4 form-group2 group-mail">
                                         <label class="control-label">Supplier</label>
-                                        <select id="supplier" name="supplier" class="supplier">
+                                        <select id="supplier_id" name="supplier_id" class="supplier">
                                             <option value="">Select</option>
                                             @foreach(App\Supplier::all() as $s)
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -185,11 +185,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-6 form-group2 group-mail">
                                         <label class="control-label">Account:</label>
-                                        <select id="bankaccount" name="bankaccount">
+                                        <select id="bankaccount" name="bankaccount" class="bankaccount">
+
                                             <option value="">Select</option>
-                                            <option value="000000">000000</option>
-                                            <option value="000000">0000000</option>
-                                            <option value="000000">000000</option>
+                                            @foreach(\App\Bankaccount::all() as $s)
+                                            <option value="{{$s->accountnumber}}">{{$s->name}}</option>
+                                           @endforeach
 
                                         </select>
                                     </div>
@@ -240,7 +241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/select2.min.js"></script>
 <script type="text/javascript">
-    $(".supplier").select2({
+    $(".supplier,.bankaccount").select2({
         theme: "classic",
         width: 'resolve' // need to override the changed default
     });
@@ -269,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('#number_of_items').val(currentItem);
 
             var strToAdd='<tr class="item">' +
-                    '<td><div class="form-group"><select name="product[]" class="form-control product"  >'+product+'</select> </div></td>' +
+                    '<td><div class="form-group"><select name="productid[]" class="form-control product"  >'+product+'</select> </div></td>' +
                     '<td><div class="form-group"><input name="rate[]" class="form-control" type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="quantity[]" class="form-control" onkeyup="getval3(this);"  type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="total[]" class="form-control total"  type="text" readonly /> </div> </td>' +
