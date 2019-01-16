@@ -7,6 +7,8 @@ use App\Order;
 use App\Paymentinvoice;
 use App\Paymentorder;
 use App\profile;
+use App\Purchaseorder;
+use App\Purchaseorderitem;
 use Illuminate\Http\Request;
 use PDF;
 use DB;
@@ -104,6 +106,19 @@ class pdfController extends Controller
     }
 
     public function purchaseorderreceiptpdf($purchaseordernumber){
+        $pdfname='purchaseorder'.date('Y-m-d').$purchaseordernumber;
 
+        $data=Purchaseorderitem::where('purchaseordernumber',$purchaseordernumber)->get();
+        $html=view('pdf.purcahaseorderreceipt')->with([
+            'data'=>$data,
+            'purchaseordernumber'=>$purchaseordernumber,
+            'purchaseorderdate'=>Purchaseorderitem::where('purchaseordernumber',$purchaseordernumber)->first(),
+            'profile'=>profile::first(),
+            'purchaseorder'=>Purchaseorder::where('purchaseordernumber',$purchaseordernumber)->first(),
+        ])->render();
+
+        $pdf= new  PDF();
+        $pdf::filename($pdfname.'.pdf');
+        return $pdf::load($html)->show();
     }
 }

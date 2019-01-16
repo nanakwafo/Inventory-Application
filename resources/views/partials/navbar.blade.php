@@ -95,10 +95,10 @@
 
                    @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['product']))
                         <li>
-                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-money nav_icon"></i> <span class="nav-label">Purchase</span><span class="fa arrow"></span></a>
+                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-money nav_icon"></i> <span class="nav-label">Purchase Order</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="purchaseorder" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>Purchase Order</a></li>
-                            <li><a href="purchase" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>Purchase Arrival</a></li>
+                            <li><a href="purchaseorder" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>New</a></li>
+                            <li><a href="purchase" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>Arrivals</a></li>
                         </ul>
                     </li>
                     @endif
