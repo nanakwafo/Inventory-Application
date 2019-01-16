@@ -248,7 +248,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     Highcharts.chart('container', {
 
         title: {
-            text: 'Sales Projection'
+            text: 'Sales Value'
         },
 
         subtitle: {
