@@ -289,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 500
+                    maxWidth: 50
                 },
                 chartOptions: {
                     legend: {
