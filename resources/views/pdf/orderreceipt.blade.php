@@ -75,7 +75,7 @@
 
         #invoice {
             float: inherit;
-            text-align: left;
+            text-align: right;
         }
 
         #invoice h1 {
