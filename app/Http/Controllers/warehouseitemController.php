@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Goodreceive;
 use App\Helpers\AppHelper;
 use App\Product;
 use App\Productcategory;
@@ -28,6 +29,8 @@ class warehouseitemController extends Controller
         foreach ($warehouseitems as $w) {
             $obj = new \stdClass;
             $obj->id = $w->id;
+            $obj->date = Goodreceive::find($w->goodreceive_grnnumber)->grndate;
+
             $obj->goodreceive_grnnumber = $w->goodreceive_grnnumber;
             $obj->warehousename = Warehouse::find($w->warehouse_id)->name;
             $obj->suppliername = Supplier::find($w->supplier_id)->name;

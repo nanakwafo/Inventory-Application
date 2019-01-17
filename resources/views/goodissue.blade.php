@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Good Issue</span>
+                    <span>To Store</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -149,7 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <thead>
                                         <tr>
                                             <th>Product</th>
-                                            <th>Rate</th>
+                                            <th>Selling Price</th>
                                             <th>quantity</th>
                                             <th>Desciption</th>
                                             <th>Unit</th>
@@ -309,13 +309,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     '<td><button type="button" class="btn btn-default remove" name="remove" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button> </td>'+
                     ' </tr>';
             $('#data').append(strToAdd);
-            alert(currentItem);
+//            alert(currentItem);
         });
         $(document).on('click','.remove',function () {
             currentItem =$('#number_of_items').val() - 1;
             $('#number_of_items').val(currentItem);
             $(this).closest('tr').remove();
-            alert(currentItem);
+//            alert(currentItem);
         })
 
 

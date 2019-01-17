@@ -104,7 +104,7 @@
                     @endif
                         @if(Sentinel::findById(Sentinel::getUser()->id)->hasAccess(['inventory']))
                     <li>
-                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-database nav_icon"></i> <span class="nav-label">Inventory Adjustment</span><span class="fa arrow"></span></a>
+                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-database nav_icon"></i> <span class="nav-label">Item Adjustment</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="goodreceive" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>To warehouse</a></li>
                             <li><a href="goodissue" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i>To Store</a></li>

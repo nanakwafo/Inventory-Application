@@ -77,6 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <thead>
                         <tr>
                             <th style="background-color: white;color: black">No</th>
+                            <th style="background-color: white;color: black">Date</th>
                             <th style="background-color: white;color: black">GRN Number</th>
                             <th style="background-color: white;color: black">Warehouse Name</th>
                             <th style="background-color: white;color: black">Supplier Name</th>
@@ -90,6 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <tfoot>
                         <tr>
                             <td class="non_searchable"></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -133,6 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             ajax: '{!! route('allwarehouseitem') !!}',
             columns: [
                 { data: 'id', name: 'id', orderable: false, searchable: false},
+                { data: 'date', name: 'date' },
                 { data: 'goodreceive_grnnumber', name: 'goodreceive_grnnumber' },
                 { data: 'warehousename', name: 'warehousename' },
                 { data: 'suppliername', name: 'suppliername' },

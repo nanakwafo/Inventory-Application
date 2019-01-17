@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">Warehouse From</th>
                             <th style="background-color: white;color: black">Store To</th>
                             <th style="background-color: white;color: black">Product</th>
-                            <th style="background-color: white;color: black">Rate</th>
+                            <th style="background-color: white;color: black">Selling Price</th>
                             <th style="background-color: white;color: black">Description</th>
                             <th style="background-color: white;color: black">Quantity</th>
 
