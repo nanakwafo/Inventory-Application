@@ -14,7 +14,7 @@ class Productcode extends Model implements AuditableContract
 
     public $incrementing = false;
     
-    protected $fillable =['name','productcode'];
+    protected $fillable =['name','productcode','reorderlimit'];
 
     public function product(){
         return $this->hasOne('App\Product');

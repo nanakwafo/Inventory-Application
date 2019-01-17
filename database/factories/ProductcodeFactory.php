@@ -9,6 +9,7 @@ $factory->define(App\Productcode::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'productcode'=> $faker->unique()->randomElement(['1','2','3','4','5','6','7','8','9','10']),
+        'reorderlimit'=> $faker->unique()->randomElement(['1','2','3','4','5','6','7','8','9','10']),
 
     ];
 });

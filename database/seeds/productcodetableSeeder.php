@@ -13,6 +13,6 @@ class productcodetableSeeder extends Seeder
     {
         //
         DB::table('productcodes')->delete();
-        factory(App\Productcode::class, 10)->create();
+        factory(App\Productcode::class, 5)->create();
     }
 }

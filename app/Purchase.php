@@ -20,7 +20,7 @@ class Purchase extends Model implements AuditableContract
         'quantity',
         'supplier_id',
         'remark',
-        'reorderlimit',
+        'purchaseordernumber',
     ];
     public function productcode(){
         return $this->belongsTo('App\Productcode');

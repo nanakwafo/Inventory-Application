@@ -49,6 +49,7 @@ class productcodeController extends Controller
         $productcode =Productcode::find($request->productcodeEdit);
         $productcode->name = $request->nameEdit;
         $productcode->productcode = $request->productcodeEdit;
+        $productcode->reorderlimit = $request->reorderlimitEdit;
         $productcode->save();
         Session::flash('success','Productcode record updated successfully');
         return redirect('productcode');

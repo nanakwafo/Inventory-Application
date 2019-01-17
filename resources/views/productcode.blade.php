@@ -94,6 +94,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
 
                                     <div class="clearfix"> </div>
+
+                                    <div class="col-md-12 form-group1">
+                                        <label class="control-label">Reoorder Limit:</label>
+                                        <input type="text" name="reorderlimit" required="">
+                                    </div>
+
+                                    <div class="clearfix"> </div>
                                 </div>
 
 
@@ -150,6 +157,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <div class="col-md-12 form-group1">
                                                     <label class="control-label">Productcode</label>
                                                     <input type="text" id="productcodeEdit" name="productcodeEdit" required="">
+                                                </div>
+
+                                                <div class="clearfix"> </div>
+
+                                                <div class="col-md-12 form-group1">
+                                                    <label class="control-label">Reorderlimit</label>
+                                                    <input type="text" id="reorderlimitEdit" name="reorderlimitEdit" required="">
                                                 </div>
 
                                                 <div class="clearfix"> </div>

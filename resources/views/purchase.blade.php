@@ -136,8 +136,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group1">
-                                    <label class="control-label">Re order Limit</label>
-                                    <input type="text" name="reorderlimit" required="">
+                                    <label class="control-label">purchase order number</label>
+                                    <input type="text" name="purchaseordernumber" required="">
                                 </div>
                                 <div class="col-md-12 form-group1 ">
                                     <label class="control-label">Remark</label>
@@ -246,8 +246,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </select>
                                             </div>
                                     <div class="col-md-12 form-group1">
-                                        <label class="control-label">Re order Limit</label>
-                                        <input type="text" name="reorderlimitEdit" id="reorderlimitEdit" required="">
+                                        <label class="control-label">purchase order number</label>
+                                        <input type="text" name="purchaseordernumberEdit" id="purchaseordernumberEdit" required="">
                                     </div>
                                             <div class="col-md-12 form-group1 ">
                                                 <label class="control-label">Remark</label>
@@ -397,7 +397,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#remarkEdit').val($(this).data('remark'));
         $('#unitEdit').val($(this).data('unit'));
         $('#unitpriceEdit').val($(this).data('unitprice'));
-        $('#reorderlimitEdit').val($(this).data('reorderlimit'));
+        $('#purchaseordernumberEdit').val($(this).data('purchaseordernumber'));
         $('#idEdit').val($(this).data('id'));
         $('#productcategory_idEdit').val($(this).data('productcategory_id')).select();
         $('#supplier_idEdit').val($(this).data('supplier_id')).select();

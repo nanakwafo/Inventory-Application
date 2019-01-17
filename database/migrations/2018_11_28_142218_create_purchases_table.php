@@ -24,7 +24,7 @@ class CreatePurchasesTable extends Migration
             $table->string('payamount');
             $table->string('quantity');
             $table->integer('supplier_id');
-            $table->string('reorderlimit');
+            $table->string('purchaseordernumber');
             $table->text('remark');
             $table->timestamps();
         });
