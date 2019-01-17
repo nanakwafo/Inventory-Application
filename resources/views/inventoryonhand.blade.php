@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <label class="control-label">Product</label>
                                         <select name="product" id="productdropdownvalue">
                                             <option value="">Select</option>
-                                            @foreach(\App\Product::select('productcode')->distinct('productcode')->get() as $s)
+                                            @foreach(\App\Purchase::select('productcode')->distinct('productcode')->get() as $s)
                                                 <option value="{{$s->productcode}}">{{\App\Productcode::find($s->productcode)->name}}</option>
                                             @endforeach
                                         </select>
@@ -137,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th style="background-color: white;color: black">Unit</th>
                             <th style="background-color: white;color: black">Cost(GHC)</th>
                             <th style="background-color: white;color: black">Retail price(GHC)</th>
-                            <th style="background-color: white;color: black">Reorder limit</th>
+                            <th style="background-color: white;color: black">Purchase order number</th>
                             <th style="background-color: white;color: black">Starting inventory</th>
                             <th style="background-color: white;color: black">Received</th>
                             <th style="background-color: white;color: black">Usage</th>
@@ -225,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             {data: 'unit', name: 'unit'},
             {data: 'cost', name: 'cost'},
             {data: 'retailprice', name: 'retailprice'},
-            {data: 'reorderlimit', name: 'reorderlimit'},
+            {data: 'purchaseordernumber', name: 'purchaseordernumber'},
             {data: 'startinginventory', name: 'startinginventory'},
             {data: 'received', name: 'received'},
             {data: 'usage', name: 'usage'},

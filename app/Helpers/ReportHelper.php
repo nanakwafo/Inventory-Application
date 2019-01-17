@@ -3,13 +3,14 @@ namespace App\Helpers;
 
 use App\Order;
 use App\Product;
+use App\Purchase;
 use App\Storeitem;
 use App\Waste;
 
 class ReportHelper
 {
     public static function getproductionunitcost($fromdate,$todate,$store,$productcode){
-      $x=  Product::where('productcode',$productcode)->select('unitprice')->first();
+      $x=  Purchase::where('productcode',$productcode)->select('unitprice')->first();
         return $x->unitprice;
     }
     public static function getstartinginventory($fromdate,$todate,$store,$productcode){

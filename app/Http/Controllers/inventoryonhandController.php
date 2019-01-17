@@ -47,7 +47,7 @@ class inventoryonhandController extends Controller
             $obj->unit = $w->unit;
             $obj->cost= ($w->quantity)* ( ReportHelper::getproductionunitcost($fromdate,$todate,$w->store_issue_to,$w->productcode));
             $obj->retailprice = $w->rate;
-            $obj->reorderlimit = $w->reorderlimit;
+            $obj->purchaseordernumber = $w->purchaseordernumber;
             $obj->startinginventory = ReportHelper::getstartinginventory($fromdate,$todate,$w->store_issue_to,$w->productcode);
             $obj->received = ReportHelper::received($fromdate,$todate,$w->store_issue_to,$w->productcode);
             $obj->usage = ReportHelper::usage($fromdate,$todate,$w->store_issue_to,$w->productcode);
