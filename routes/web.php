@@ -34,6 +34,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('getproductrate/{product_id}/{store_id}',['as'=>'getproductrate','uses'=>'purchaseController@getproductrate']);
     Route::get('getpermission/{roleid}',['as'=>'getpermission','uses'=>'permissionController@getpermission']);
     Route::get('productselectbox',['as'=>'productselectbox','uses'=>'purchaseController@productselectbox']);
+    Route::get('productpurchaseorder',['as'=>'productpurchaseorder','uses'=>'purchaseController@productpurchaseorder']);
     Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
     Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
     Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);

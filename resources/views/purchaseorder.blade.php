@@ -255,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         $.ajax({
             type:"GET",
-            url:"{{url('productselectbox')}}",
+            url:"{{url('productpurchaseorder')}}",
             success: function(data) {
                 product=data;
 

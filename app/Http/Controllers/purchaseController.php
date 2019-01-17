@@ -27,6 +27,16 @@ class purchaseController extends Controller
       $quantityleft=$totalquantity - $totalsold;
       return $rate ."|". $quantityleft;
   }
+    public function productpurchaseorder(){
+        $output_product='<option value="">Select product</option>';
+        $product_from=Productcode::all();
+
+
+        foreach ($product_from as $p){
+            $output_product.='<option value="'.$p->productcode.'">'.$p->name.'</option>';
+        }
+        return Response($output_product);
+    }
     public function productselectbox(){
         $output_product='<option value="">Select product</option>';
         $product_from=Purchase::select('productcode')->groupBy('productcode')->get();
