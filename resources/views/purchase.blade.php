@@ -319,8 +319,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <table class="table">
 
             <tr>
-                <td>Reorder limit:</td>
-                <td>{{reorderlimit}}</td>
+                <td>Purchaseorder number:</td>
+                <td>{{purchaseordernumber}}</td>
             </tr>
             <tr>
                 <td>Remark:</td>

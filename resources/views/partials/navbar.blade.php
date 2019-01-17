@@ -97,8 +97,8 @@
                         <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-money nav_icon"></i> <span class="nav-label">Purchase Order</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="purchaseorder" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>New</a></li>
-                            <li><a href="purchase" class=" hvr-bounce-to-right"><i class="fa fa-product-hunt nav_icon"></i>Arrivals</a></li>
+                            <li><a href="purchaseorder" class=" hvr-bounce-to-right"><i class="fa fa-map-o nav_icon"></i>New Purchase</a></li>
+                            <li><a href="purchase" class=" hvr-bounce-to-right"><i class="fa fa-circle-o nav_icon"></i>Purchase Arrivals</a></li>
                         </ul>
                     </li>
                     @endif
@@ -106,8 +106,8 @@
                     <li>
                         <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-database nav_icon"></i> <span class="nav-label">Inventory Adjustment</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="goodreceive" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>Goods Receive</a></li>
-                            <li><a href="goodissue" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i>Goods Issue</a></li>
+                            <li><a href="goodreceive" class=" hvr-bounce-to-right"> <i class="fa fa-credit-card nav_icon"></i>To warehouse</a></li>
+                            <li><a href="goodissue" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i>To Store</a></li>
                             <li><a href="x" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i>Warehouse Items</a></li>
                             <li><a href="storeitems" class=" hvr-bounce-to-right"><i class="fa fa-credit-card nav_icon"></i>Store Items</a></li>
 
