@@ -28,7 +28,7 @@
             color: #555555;
             background: #FFFFFF;
             font-family: Arial, sans-serif;
-            font-size: 14px;
+            font-size: 8px;
             font-family: SourceSansPro;
         }
 
@@ -75,12 +75,12 @@
 
         #invoice {
             float: inherit;
-            text-align: right;
+            text-align: left;
         }
 
         #invoice h1 {
             color: #0087C3;
-            font-size: 2.4em;
+            font-size: 1.0em;
             line-height: 1em;
             font-weight: normal;
             margin: 0  0 10px 0;
@@ -100,10 +100,10 @@
 
         table th,
         table td {
-            padding: 20px;
+            /*padding: 20px;*/
             background: #EEEEEE;
             text-align: center;
-            border-bottom: 1px solid #FFFFFF;
+            border-bottom: 1px solid black;
         }
 
         table th {
@@ -115,12 +115,12 @@
             text-align: right;
         }
 
-        table td h3{
-            color: #57B223;
-            font-size: 1.2em;
-            font-weight: normal;
-            margin: 0 0 0.2em 0;
-        }
+        /*table td h3{*/
+            /*color: #57B223;*/
+            /*font-size: 1.2em;*/
+            /*font-weight: normal;*/
+            /*margin: 0 0 0.2em 0;*/
+        /*}*/
 
         table .no {
             color: #FFFFFF;
@@ -140,8 +140,8 @@
         }
 
         table .total {
-            background: #57B223;
-            color: #FFFFFF;
+            background: #DDDDDD;
+            /*color: #FFFFFF;*/
         }
 
         table td.unit,
@@ -233,8 +233,10 @@
             {{--<div class="email">{{\App\Customer::find($invoicedate->customer)->phonenumber}}</div>--}}
         {{--</div>--}}
         <div id="invoice">
+            <div class="date">VENDOR: {{\App\Supplier::find($vendor->supplier_id)->name}}</div>
             <div class="date">RECEIPT: {{$purchaseordernumber}}</div>
             <div class="date">Date of Purchase Order: {{$purchaseorder->date}}</div>
+            <div class="date">Date of Expected Delivery: {{$purchaseorder->expecteddeliverydate}}</div>
 
         </div>
     </div>

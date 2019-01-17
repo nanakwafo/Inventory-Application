@@ -111,6 +111,7 @@ class pdfController extends Controller
         $data=Purchaseorderitem::where('purchaseordernumber',$purchaseordernumber)->get();
         $html=view('pdf.purcahaseorderreceipt')->with([
             'data'=>$data,
+            'vendor'=>Purchaseorder::where('purchaseordernumber',$purchaseordernumber)->select('supplier_id')->first(),
             'purchaseordernumber'=>$purchaseordernumber,
             'purchaseorderdate'=>Purchaseorderitem::where('purchaseordernumber',$purchaseordernumber)->first(),
             'profile'=>profile::first(),
