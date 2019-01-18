@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="vali-form">
                                     <div class="col-md-4 form-group1">
                                         <label class="control-label">Purchase Order#</label>
-                                        <input type="text" name="purchaseordernumber" required="" readonly value="{{\App\Helpers\AppHelper::get_ordernumber()}}" id="purchaseordernumber">
+                                        <input type="text" name="purchaseordernumber" required="" readonly value="{{\App\Helpers\AppHelper::get_purchaseordernumber()}}" id="purchaseordernumber">
                                     </div>
                                     <div class="col-md-2 form-group1">
                                         <label class="control-label">Date</label>

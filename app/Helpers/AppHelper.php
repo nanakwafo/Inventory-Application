@@ -33,44 +33,54 @@ class AppHelper
         return $allstore;
     }
     public static function get_grnnumber(){
-        $year=date('Y');
         $month=date('m');
         $date=date('d');
         $hour=date('h');
         $min=date('i');
         $sec=date('i');
+        $randnumber=rand(0, 1000);
         $tagname='GRN';
-        return $year.$month.$date.$hour.$min.$sec.$tagname;
+        return $randnumber.$month.$date.$hour.$min.$sec.$tagname;
     }
     public static function get_addnumber(){
-        $year=date('Y');
         $month=date('m');
         $date=date('d');
         $hour=date('h');
         $min=date('i');
         $sec=date('i');
+        $randnumber=rand(0, 1000);
         $tagname='ADD';
-        return $year.$month.$date.$hour.$min.$sec.$tagname;
+        return $randnumber.$month.$date.$hour.$min.$sec.$tagname;
     }
     public static function get_ordernumber(){
-        $year=date('Y');
         $month=date('m');
         $date=date('d');
         $hour=date('h');
-        $min=date('s');
-       
-        $tagname='ORDER';
-        return $tagname.$year.$month.$date.$hour.$min;
+        $min=date('i');
+        $sec=date('i');
+        $randnumber=rand(0, 1000);
+        $tagname='OR';
+        return $randnumber.$month.$date.$hour.$min.$sec.$tagname;
     }
     public static function get_invoicenumber(){
-        $year=date('Y');
         $month=date('m');
         $date=date('d');
         $hour=date('h');
-        $min=date('s');
-
-        $tagname='INVOICE';
-        return $tagname.$year.$month.$date.$hour.$min;
+        $min=date('i');
+        $sec=date('i');
+        $randnumber=rand(0, 1000);
+        $tagname='INV';
+        return $randnumber.$month.$date.$hour.$min.$sec.$tagname;
+    }
+    public static function get_purchaseordernumber(){
+        $month=date('m');
+        $date=date('d');
+        $hour=date('h');
+        $min=date('i');
+        $sec=date('i');
+        $randnumber=rand(0, 1000);
+        $tagname='PO';
+        return $randnumber.$month.$date.$hour.$min.$sec.$tagname;
     }
     public static function get_out_stock_product(){
         $allproduct=Order::all();

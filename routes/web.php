@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['checkauth']], function () {
     Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
+    Route::get('allpurchaseorder',['as'=>'allpurchaseorder','uses'=>'allpurchaseController@index']);
     Route::get('welcome',['as'=>'welcome','uses'=>'welcomeController@index']);
     Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);
     Route::get('purchaseorder',['as'=>'purchaseorder','uses'=>'puchaseorderController@index']);
@@ -74,9 +75,11 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
     Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
     Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
+    Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
+    Route::get('allpurchaseorders',array('as'=>'allpurchaseorders','uses'=>'allpurchaseController@allpurchaseorders'));
+    Route::get('/purchaseorderdetails/{purchaseordernumber}', 'allpurchaseController@getpurchaseorders')->name('purchaseorderdetails');
     Route::get('allaudit',array('as'=>'allaudit','uses'=>'auditController@allaudit'));
     Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste'));
-    Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
     Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
     Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
     Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);

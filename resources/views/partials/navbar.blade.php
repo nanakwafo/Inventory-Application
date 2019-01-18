@@ -142,6 +142,7 @@
                             <li><a href="inventoryonhand" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Store</a></li>
                             <li><a href="warehousereport" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Warehouse </a></li>
                             <li><a href="activepurchaseorder" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>Active Purchase order</a></li>
+                            <li><a href="allpurchaseorder" class=" hvr-bounce-to-right"> <i class="fa fa-list nav_icon"></i>All Purchase order</a></li>
                         </ul>
                     </li>
                         @endif
