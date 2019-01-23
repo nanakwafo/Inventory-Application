@@ -64,6 +64,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allinventoryonhand',array('as'=>'allinventoryonhand','uses'=>'inventoryonhandController@allinventoryonhand'));
     Route::get('allcontact',array('as'=>'allcontact','uses'=>'smsController@allcontact'));
     Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
+    Route::get('allpurchasearrival',array('as'=>'allpurchasearrival','uses'=>'purchaseController@allpurchasearrival'));
     Route::get('allsupplier',array('as'=>'allsupplier','uses'=>'supplierController@allsupplier'));
     Route::get('allproduct',array('as'=>'allproduct','uses'=>'purchaseController@allproduct'));
     Route::get('allgrntype',array('as'=>'allgrntype','uses'=>'grntypeController@allgrntype'));
@@ -74,8 +75,11 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allwarehouseitem',array('as'=>'allwarehouseitem','uses'=>'warehouseitemController@getwarehouseitemData'));
     Route::get('allwarehouseproductstats',array('as'=>'allwarehouseproductstats','uses'=>'warehouseitemController@getwarehouseproductstats'));
     Route::get('allstoreitem',array('as'=>'allstoreitem','uses'=>'storeitemController@getstoreitemData'));
+    
     Route::get('allorders',array('as'=>'allorders','uses'=>'orderController@allorders'));
     Route::get('/paymentorderdetails/{ordernumber}', 'orderController@getorders')->name('paymentorderdetails');
+    
+  
     Route::get('allpurchaseorders',array('as'=>'allpurchaseorders','uses'=>'allpurchaseController@allpurchaseorders'));
     Route::get('/purchaseorderdetails/{purchaseordernumber}', 'allpurchaseController@getpurchaseorders')->name('purchaseorderdetails');
     Route::get('allaudit',array('as'=>'allaudit','uses'=>'auditController@allaudit'));

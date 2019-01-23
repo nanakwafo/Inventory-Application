@@ -185,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col-md-6 form-group2 group-mail">
                                         <label class="control-label">Account:</label>
-                                        <select id="bankaccount" name="bankaccount" class="bankaccount">
+                                        <select id="bankaccount" name="bankaccount" class="bankaccount" required>
 
                                             <option value="">Select</option>
                                             @foreach(\App\Bankaccount::all() as $s)

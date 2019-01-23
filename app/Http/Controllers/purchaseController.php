@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\AppHelper;
 use App\Purchase;
 use App\Productcategory;
+use App\Purchaseorder;
 use App\Storeitem;
 use App\Supplier;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class purchaseController extends Controller
     public function index(){
         return view('purchase');
     }
-  public function getproductrate($product_id,$store_id){
+    public function getproductrate($product_id,$store_id){
       $rate= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->pluck('rate')->first();
       $totalquantity= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->sum('quantity');
       $totalsold=AppHelper::quantityboughtinStore($store_id,$product_id);
@@ -45,34 +46,41 @@ class purchaseController extends Controller
         }
         return Response($output_product);
     }
-    public function allproduct(Request $request){
-        $productitems = Purchase::all();
-        $data  = [];
-        $rownum=1;
-        foreach ($productitems as $w) {
-            $obj = new \stdClass;
-            $obj->id = $w->id;
-            $obj->rownum = $rownum ++;
-            $obj->datereceived = $w->datereceived;
-            $obj->productcode = $w->productcode;
-            $obj->productname = Productcode::find($w->productcode)->name;
-            $obj->productcategory_id = Productcategory::find($w->productcategory_id)->name;
-            $obj->unit = $w->unit;
-            $obj->payamount = $w->payamount;
-            $obj->quantity = $w->quantity;
-            $obj->supplier_id = Supplier::find($w->supplier_id)->name ;
-            $obj->remark = $w->remark;
-            $obj->purchaseordernumber = $w->purchaseordernumber;
-            $obj->action = '
-                  <a href="#" class="editbtn" data-id="'.$w->id.'" data-unitprice="'.$w->unitprice.'" data-reorderlimit="'.$w->reorderlimit.'" data-datereceived="'.$w->datereceived.'" data-productcode="'.$w->productcode.'" data-productcategory_id="'.$w->productcategory_id.'" data-unit="'.$w->unit.'" data-payamount="'.$w->payamount.'" data-quantity="'.$w->quantity.'" data-supplier_id="'.$w->supplier_id.'" data-remark="'.$w->remark.'"  data-purchaseordernumber="'.$w->purchaseordernumber.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="deletebtn" data-id="'.$w->id.'" data-productcode="'.$w->productcode.'"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
-                  ';
-            $data[] = $obj;
-        }
-        $productitems_sorted = new Collection($data);
 
-        return Datatables::of($productitems_sorted)->make(true);
+
+
+    public function allpurchasearrival(){
+        DB::statement(DB::raw('set @rownum=0'));
+        $purchasearrival =Purchase::select([
+            DB::raw('@rownum  := @rownum  + 1 AS rownum'),
+            'id',
+            'datereceived',
+            'productcode',
+            'unit',
+            'unitprice',
+            'payamount',
+            'quantity',
+            'supplier_id',
+            'purchaseordernumber']);
+
+        $datatables =  Datatables::of($purchasearrival)
+
+            ->addColumn('action', function ($purchasearrival) {
+                return '
+                  <a href="#" class="editbtn" data-id="'.$purchasearrival->id.'" data-datereceived="'.$purchasearrival->datereceived.'" data-productcode="'.$purchasearrival->productcode.'" data-unit="'.$purchasearrival->unit.'" data-unitprice="'.$purchasearrival->unitprice.'" data-payamount="'.$purchasearrival->payamount.'" data-quantity="'.$purchasearrival->quantity.'" data-supplier_id="'.$purchasearrival->supplier_id.'"  data-purchaseordernumber="'.$purchasearrival->purchaseordernumber.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-id="'.$purchasearrival->id.'" data-productcode="'.$purchasearrival->productcode.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  ';
+            })
+            ->addColumn('supplier', function ($purchasearrival) {
+                return Supplier::find($purchasearrival->supplier_id)->name;
+
+            });
+
+
+        return $datatables->make(true);
     }
+   
+
     public function save(Request $request){
         Purchase::create($request->all());
         Session::flash('success','Purchase record Added successfully');

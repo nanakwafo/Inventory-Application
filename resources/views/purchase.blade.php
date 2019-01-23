@@ -46,8 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+
     <script src="js/skycons.js"></script>
     <link href="css/select2.min.css" rel="stylesheet" />
 </head>
@@ -71,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="content-top">
 
 
-                <div class="col-md-4 ">
+                <div class="col-md-3 ">
                     @include('partials.messages')
                     <div class="validation-system">
 
@@ -157,19 +156,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </div>
                 </div>
-                <div class="col-md-8 ">
+                <div class="col-md-9 ">
                     <table class="table table-bordered " id="users-table">
                         <thead>
                         <tr>
                             <th style="background-color: white;color: black"></th>
-                            <th style="background-color: white;color: black">No</th>
+                            <th style="background-color: white;color: black">Receive Date</th>
                             <th style="background-color: white;color: black">Product Code</th>
-                            <th style="background-color: white;color: black">Product Name</th>
-                            <th style="background-color: white;color: black">Date Received</th>
+                            <th style="background-color: white;color: black">Unit</th>
+                            <th style="background-color: white;color: black">Unit Price</th>
 
-                            <th style="background-color: white;color: black">Unit price</th>
-                            <th style="background-color: white;color: black">Qty</th>
-                            <th style="background-color: white;color: black;width: 20%">Action</th>
+                            <th style="background-color: white;color: black">Payamount</th>
+                            <th style="background-color: white;color: black">Quantity</th>
+                            <th style="background-color: white;color: black">Supplier</th>
+                            <th style="background-color: white;color: black">Purchase Order</th>
+                            <th style="background-color: white;color: black">Action</th>
+
                         </tr>
                         </thead>
                     </table>
@@ -307,81 +309,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/scripts.js"></script>
 <script src="js/bootstrap.min.js"> </script>
 <!--//scrolling js-->
-<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
-<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
-<script src="https://datatables.yajrabox.com/js/handlebars.js"></script>
+
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
-
 <script src="js/select2.min.js"></script>
-    <script id="details-template" type="text/x-handlebars-template">
-        @verbatim
-        <table class="table">
+<script src="js/jquery.dataTables.min.js"></script>
+<script>
+    $("#productcategory_id,#product,#supplier").select2({
+        theme: "classic",
+        width: 'resolve' // need to override the changed default
+    });
+</script>
 
-            <tr>
-                <td>Purchaseorder number:</td>
-                <td>{{purchaseordernumber}}</td>
-            </tr>
-            <tr>
-                <td>Remark:</td>
-                <td>{{remark}}</td>
-            </tr>
-            <tr>
-                <td>Supplier :</td>
-                <td>{{supplier_id}}</td>
-            </tr>
-
-        </table>
-        @endverbatim
-    </script>
-
-    <script>
-        $("#productcategory_id,#product,#supplier").select2({
-            theme: "classic",
-            width: 'resolve' // need to override the changed default
-        });
-
-        var template = Handlebars.compile($("#details-template").html());
-        var table = $('#users-table').DataTable({
+<script>
+    $(function() {
+        $('#users-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('allproduct') !!}',
+            ajax: '{!! route('allpurchasearrival') !!}',
             columns: [
-                {
-                    "className":      'details-control',
-                    "orderable":      false,
-                    "searchable":     false,
-                    "data":           null,
-                    "defaultContent": ''
-                },
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
-                { data: 'productcode', name: 'productcode' },
-                { data: 'productname', name: 'productname' },
                 { data: 'datereceived', name: 'datereceived' },
+                { data: 'productcode', name: 'productcode' },
                 { data: 'unit', name: 'unit' },
-                { data: 'quantity', name: 'quantity' },
+                { data: 'unitprice', name: 'unitprice' },
+                { data: 'payamount', name: 'payamount' },
+                { data: 'quantity', name: 'quantity'},
+                { data: 'supplier', name: 'supplier'},
+                { data: 'purchaseordernumber', name: 'purchaseordernumber'},
                 { data: 'action', name: 'action', orderable: false, searchable: false}
-            ],
-            order: [[1, 'asc']]
+            ]
         });
-
-        $('#users-table tbody').on('click', 'td.details-control', function () {
-            var tr = $(this).closest('tr');
-            var row = table.row( tr );
-
-            if ( row.child.isShown() ) {
-                // This row is already open - close it
-                row.child.hide();
-                tr.removeClass('shown');
-            }
-            else {
-                // Open this row
-                row.child( template(row.data()) ).show();
-                tr.addClass('shown');
-            }
-        });
-
-    </script>
+    });
+</script>
 
 
 <script>
