@@ -330,7 +330,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             columns: [
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
                 { data: 'datereceived', name: 'datereceived' },
-                { data: 'productcode', name: 'productcode' },
+                { data: 'product', name: 'product' },
                 { data: 'unit', name: 'unit' },
                 { data: 'unitprice', name: 'unitprice' },
                 { data: 'payamount', name: 'payamount' },

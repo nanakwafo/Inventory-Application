@@ -74,7 +74,12 @@ class purchaseController extends Controller
             ->addColumn('supplier', function ($purchasearrival) {
                 return Supplier::find($purchasearrival->supplier_id)->name;
 
-            });
+            })
+            ->addColumn('product', function ($purchasearrival) {
+                return Productcode::find($purchasearrival->productcode)->name;
+
+            })
+        ;
 
 
         return $datatables->make(true);

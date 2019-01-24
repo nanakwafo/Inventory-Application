@@ -46,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+    {{--<link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">--}}
     <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>

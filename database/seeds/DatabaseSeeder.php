@@ -11,19 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(grntypetableSeeder::class);
-        $this->call(productcodetableSeeder::class);
-         $this->call(productcategorytableSeeder::class);
-         $this->call(customercategorytableSeeder::class);
+//        $this->call(grntypetableSeeder::class);
+//        $this->call(productcodetableSeeder::class);
+//         $this->call(productcategorytableSeeder::class);
+//         $this->call(customercategorytableSeeder::class);
          $this->call(roletableSeeder::class);
          $this->call(usertableSeeder::class);
-         $this->call(warehouseSeeder::class);
-         $this->call(customertableSeeder::class);
+//         $this->call(warehouseSeeder::class);
+//         $this->call(customertableSeeder::class);
          $this->call(profiletableSeeder::class);
-         $this->call(suppliertableSeeder::class);
-         $this->call(purchasetableSeeder::class);
-         $this->call(goodreceivetableSeeder::class);
-         $this->call(warehouseitemtableSeeder::class);
+//         $this->call(suppliertableSeeder::class);
+//         $this->call(purchasetableSeeder::class);
+//         $this->call(goodreceivetableSeeder::class);
+//         $this->call(warehouseitemtableSeeder::class);
 
     }
 }
