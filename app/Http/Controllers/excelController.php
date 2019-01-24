@@ -47,7 +47,7 @@ class excelController extends Controller
             $obj->unit = $w->unit;
             $obj->cost= ($w->quantity)* ( ReportHelper::getproductionunitcost($fromdate,$todate,$w->store_issue_to,$w->productcode));
             $obj->retailprice = $w->rate;
-            $obj->reorderlimit = $w->reorderlimit;
+//            $obj->reorderlimit = $w->reorderlimit;
             $obj->startinginventory = ReportHelper::getstartinginventory($fromdate,$todate,$w->store_issue_to,$w->productcode);
             $obj->received = ReportHelper::received($fromdate,$todate,$w->store_issue_to,$w->productcode);
             $obj->usage = ReportHelper::usage($fromdate,$todate,$w->store_issue_to,$w->productcode);
@@ -80,7 +80,7 @@ class excelController extends Controller
                 $sheet->cell('F2', function($cell) {$cell->setValue('Unit');   });
                 $sheet->cell('G2', function($cell) {$cell->setValue('Cost');   });
                 $sheet->cell('H2', function($cell) {$cell->setValue('Retail Price');   });
-                $sheet->cell('I2', function($cell) {$cell->setValue('Reorder Limit');   });
+//                $sheet->cell('I2', function($cell) {$cell->setValue('Reorder Limit');   });
                 $sheet->cell('J2', function($cell) {$cell->setValue('Starting Inventory');   });
                 $sheet->cell('K2', function($cell) {$cell->setValue('Received');   });
                 $sheet->cell('L2', function($cell) {$cell->setValue('Usage');   });
@@ -100,7 +100,7 @@ class excelController extends Controller
                         $sheet->cell('F'.$i, $value->unit);
                         $sheet->cell('G'.$i, $value->cost);
                         $sheet->cell('H'.$i, $value->retailprice);
-                        $sheet->cell('I'.$i, $value->reorderlimit);
+//                        $sheet->cell('I'.$i, $value->reorderlimit);
                         $sheet->cell('J'.$i, $value->startinginventory);
                         $sheet->cell('K'.$i, $value->received);
                         $sheet->cell('L'.$i, $value->usage);

@@ -46,8 +46,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/x.css">
     {{--<link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">--}}
-    <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.css" rel="stylesheet">
+    {{--<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.css" rel="stylesheet">--}}
 
 
     <script src="js/skycons.js"></script>
@@ -188,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 "orderable":      false,
                 "searchable":     false,
                 "data":           null,
-                "defaultContent": ''
+                "defaultContent": '<i style="color: #00dd00" class="fa fa-plus-circle" aria-hidden="true"></i>'
             },
             { data: 'id', name: 'id', orderable: false, searchable: false},
             { data: 'invoicedate', name: 'invoicedate' },

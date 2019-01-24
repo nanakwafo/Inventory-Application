@@ -105,7 +105,7 @@
                 <th >Unit</th>
                 <th >Cost(GHC)</th>
                 <th >Retail price(GHC)</th>
-                <th >Reorder limit</th>
+                {{--<th >Reorder limit</th>--}}
                 <th >Starting inventory</th>
                 <th >Received</th>
                 <th >Usage</th>
@@ -139,7 +139,7 @@
                     <td>{{$d->unit}}</td>
                     <td>{{$d->cost}}</td>
                     <td>{{$d->retailprice}}</td>
-                    <td>{{$d->reorderlimit}}</td>
+{{--                    <td>{{$d->reorderlimit}}</td>--}}
                     <td>{{$d->startinginventory}}</td>
                     <td>{{$d->received}}</td>
                     <td>{{$d->usage}}</td>
@@ -160,7 +160,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                {{--<td></td>--}}
                 <td></td>
                 <td></td>
                 <td></td>
