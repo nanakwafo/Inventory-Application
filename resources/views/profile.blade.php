@@ -45,9 +45,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 
-    <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+    {{--<link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">--}}
+    {{--<link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">--}}
+    {{--<link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">--}}
     <script src="js/skycons.js"></script>
 
 </head>
@@ -169,9 +169,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/scripts.js"></script>
 <script src="js/bootstrap.min.js"> </script>
 <!--//scrolling js-->
-<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
-<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
-<script src="https://datatables.yajrabox.com/js/handlebars.js"></script>
+{{--<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>--}}
+{{--<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>--}}
+{{--<script src="https://datatables.yajrabox.com/js/handlebars.js"></script>--}}
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 
