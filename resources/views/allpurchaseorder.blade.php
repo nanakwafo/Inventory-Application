@@ -46,8 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
-    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/x.css">
     <script src="js/skycons.js"></script>
 
 </head>
@@ -223,10 +222,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/scripts.js"></script>
 <script src="js/bootstrap.min.js"> </script>
 <!--//scrolling js-->
-<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
-<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
-<script src="https://datatables.yajrabox.com/js/handlebars.js"></script>
-
+{{--<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>--}}
+{{--<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>--}}
+{{--<script src="https://datatables.yajrabox.com/js/handlebars.js"></script>--}}
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.js"></script>
+<script src="jajra/handlebars-v4.0.12.js"></script>
 
 <script id="details-template" type="text/x-handlebars-template">
     @verbatim
@@ -259,7 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 "orderable":      false,
                 "searchable":     false,
                 "data":           null,
-                "defaultContent": ''
+                "defaultContent": '<i style="color: #00dd00" class="fa fa-plus-circle" aria-hidden="true"></i>'
             },
             { data: 'id', name: 'id', orderable: false, searchable: false},
             { data: 'orderdate', name: 'orderdate' },
