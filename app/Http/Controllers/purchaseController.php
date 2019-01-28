@@ -56,6 +56,7 @@ class purchaseController extends Controller
             'id',
             'datereceived',
             'productcode',
+            'productcategory_id',
             'unit',
             'unitprice',
             'payamount',
@@ -67,8 +68,8 @@ class purchaseController extends Controller
 
             ->addColumn('action', function ($purchasearrival) {
                 return '
-                  <a href="#" class="editbtn" data-id="'.$purchasearrival->id.'" data-datereceived="'.$purchasearrival->datereceived.'" data-productcode="'.$purchasearrival->productcode.'" data-unit="'.$purchasearrival->unit.'" data-unitprice="'.$purchasearrival->unitprice.'" data-payamount="'.$purchasearrival->payamount.'" data-quantity="'.$purchasearrival->quantity.'" data-supplier_id="'.$purchasearrival->supplier_id.'"  data-purchaseordernumber="'.$purchasearrival->purchaseordernumber.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
-                  <a href="#" class="deletebtn" data-id="'.$purchasearrival->id.'" data-productcode="'.$purchasearrival->productcode.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
+                  <a href="#" class="editbtn" data-id="'.$purchasearrival->id.'" data-datereceived="'.$purchasearrival->datereceived.'" data-productcategory_id="'.$purchasearrival->productcategory_id.'" data-productcode="'.$purchasearrival->productcode.'" data-unit="'.$purchasearrival->unit.'" data-unitprice="'.$purchasearrival->unitprice.'" data-payamount="'.$purchasearrival->payamount.'" data-quantity="'.$purchasearrival->quantity.'" data-supplier_id="'.$purchasearrival->supplier_id.'"  data-purchaseordernumber="'.$purchasearrival->purchaseordernumber.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
+                  <a href="#" class="deletebtn" data-id="'.$purchasearrival->id.'" data-product="'.Productcode::find($purchasearrival->productcode)->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
                   ';
             })
             ->addColumn('supplier', function ($purchasearrival) {
@@ -77,6 +78,10 @@ class purchaseController extends Controller
             })
             ->addColumn('product', function ($purchasearrival) {
                 return Productcode::find($purchasearrival->productcode)->name;
+
+            })
+            ->addColumn('productcategory', function ($purchasearrival) {
+                return Productcategory::find($purchasearrival->productcategory_id)->name;
 
             })
         ;

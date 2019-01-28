@@ -162,10 +162,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <tr>
                             <th style="background-color: white;color: black"></th>
                             <th style="background-color: white;color: black">Receive Date</th>
+                            <th style="background-color: white;color: black">Product Category</th>
                             <th style="background-color: white;color: black">Product Code</th>
                             <th style="background-color: white;color: black">Unit</th>
                             <th style="background-color: white;color: black">Unit Price</th>
-
                             <th style="background-color: white;color: black">Payamount</th>
                             <th style="background-color: white;color: black">Quantity</th>
                             <th style="background-color: white;color: black">Supplier</th>
@@ -192,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-                                            <input id="idEdit" name="idEdit" type="hidden"/>
+                                        <input id="idEdit" name="idEdit" type="hidden"/>
 
                                             <div class="vali-form">
                                                 <div class="col-md-12 form-group1">
@@ -280,7 +280,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <form action="deletepurchase" method="post">
                                 {{csrf_field()}}
                             <div class="modal-body">
-
+                                <p>Do You Want To Delete <span id="nameDelete"></span>  From System?</p>
+                                <input type="hidden" id="idDelete" name="idDelete"/>
                             </div>
                             <div class="modal-footer">
                                 <div class="col-md-12 form-group">
@@ -330,6 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             columns: [
                 { data: 'rownum', name: 'rownum', orderable: false, searchable: false},
                 { data: 'datereceived', name: 'datereceived' },
+                { data: 'productcategory', name: 'productcategory' },
                 { data: 'product', name: 'product' },
                 { data: 'unit', name: 'unit' },
                 { data: 'unitprice', name: 'unitprice' },
@@ -351,6 +353,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('#barcodeEdit').val($(this).data('barcode'));
 
         $('#productcodeEdit').val($(this).data('productcode'));
+        $('#productcategory_idEdit').val($(this).data('productcategory_id'));
         $('#quantityEdit').val($(this).data('quantity'));
         $('#discountEdit').val($(this).data('discount'));
         $('#payamountEdit').val($(this).data('payamount'));
@@ -368,7 +371,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
     $(document).on('click','.deletebtn',function() {
         $('#idDelete').val($(this).data('id'));
-        $("#nameDelete").html($(this).data('name'));
+        $("#nameDelete").html($(this).data('product'));
 
     });
 </script>
