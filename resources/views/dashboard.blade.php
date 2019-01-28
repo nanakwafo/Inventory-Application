@@ -161,9 +161,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h5>Total Revenue Today(GHC)</h5>
                             <label>{{\App\Paymentorder::whereDate('updated_at',date('Y-m-d'))->sum('paidamount')}}</label>
                         </div>
-                        <div class="col-md-6 top-content1">
-                            <div id="demo-pie-1" class="pie-title-center" data-percent="25"> <span class="pie-value"></span> </div>
-                        </div>
+                        {{--<div class="col-md-6 top-content1">--}}
+                            {{--<div id="demo-pie-1" class="pie-title-center" data-percent="25"> <span class="pie-value"></span> </div>--}}
+                        {{--</div>--}}
                         <div class="clearfix"> </div>
                     </div>
                     <div class="content-top-1">
@@ -171,9 +171,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h5>Out of Stock Product</h5>
                             <label>{{is_null(\App\Helpers\AppHelper::get_out_stock_product())? 0 : \App\Helpers\AppHelper::get_out_stock_product()}}</label>
                         </div>
-                        <div class="col-md-6 top-content1">
-                            <div id="demo-pie-2" class="pie-title-center" data-percent="50"> <span class="pie-value"></span> </div>
-                        </div>
+                        {{--<div class="col-md-6 top-content1">--}}
+                            {{--<div id="demo-pie-2" class="pie-title-center" data-percent="50"> <span class="pie-value"></span> </div>--}}
+                        {{--</div>--}}
                         <div class="clearfix"> </div>
                     </div>
                     <div class="content-top-1">
@@ -181,9 +181,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h5>Total Orders Today</h5>
                             <label>{{\App\Order::distinct('ordernumber')->whereDate('orderdate',date('Y-m-d'))->count()}}</label>
                         </div>
-                        <div class="col-md-6 top-content1">
-                            <div id="demo-pie-3" class="pie-title-center" data-percent="75"> <span class="pie-value"></span> </div>
-                        </div>
+                        {{--<div class="col-md-6 top-content1">--}}
+                            {{--<div id="demo-pie-3" class="pie-title-center" data-percent="75"> <span class="pie-value"></span> </div>--}}
+                        {{--</div>--}}
                         <div class="clearfix"> </div>
                     </div>
                 </div>
