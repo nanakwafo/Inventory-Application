@@ -97,8 +97,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-sm-8">
                                         <div class="checkbox-inline1"><label><input id="permissiondashboard" type="checkbox" name="dashboard" value="false"> Dashboard</label></div>
                                         <div class="checkbox-inline1"><label><input id="permissionmasterentry" type="checkbox" name="masterentry" value="false" > Master Entry</label></div>
-                                        <div class="checkbox-inline1"><label><input id="permissionproduct" type="checkbox" name="product" value="false" > Product</label></div>
-                                        <div class="checkbox-inline1"><label><input id="permissioninventory" type="checkbox" name="inventory" value="false" > Inventory</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionpurchaseorder" type="checkbox" name="purchaseorder" value="false" > Purchase Order</label></div>
+                                        <div class="checkbox-inline1"><label><input id="permissionitemadjustment" type="checkbox" name="itemadjustment" value="false" > Item Adjustment</label></div>
                                         <div class="checkbox-inline1"><label><input id="permissionsale" type="checkbox" name="sale" value="false" > Sales</label></div>
                                         <div class="checkbox-inline1"><label><input id="permissioninvoice" type="checkbox" name="invoice" value="false" > Invoices</label></div>
                                         <div class="checkbox-inline1"><label><input id="permissionreport" type="checkbox" name="report" value="false" > Report</label></div>
@@ -152,8 +152,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="list-group">
                                         <li class="list-group-item"><span class="permissionicondashboard"></span>Dashboard </li>
                                         <li class="list-group-item"><span class="permissioniconmasterentry"></span>Master Entry </li>
-                                        <li class="list-group-item"><span class="permissioniconproduct"></span>Product </li>
-                                        <li class="list-group-item"><span class="permissioniconinventory"></span>Inventory </li>
+                                        <li class="list-group-item"><span class="permissioniconpurchaseorder"></span>Purchase Order </li>
+                                        <li class="list-group-item"><span class="permissioniconitemadjustment"></span>Item Adjustment </li>
                                         <li class="list-group-item"><span class="permissioniconsale"></span>Sales </li>
                                         <li class="list-group-item"><span class="permissioniconinvoice"></span>Invoices </li>
                                         <li class="list-group-item"><span class="permissioniconreport"></span>Report </li>
@@ -196,7 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap JavaScript -->
 {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>--}}
 <script>
-    $('#permissiondashboard,#permissionmasterentry,#permissionproduct,#permissioninventory,#permissionsale,#permissioninvoice,#permissionreport,#permissionpromotion,#permissionaudit,#permissionuser').change(function(){
+    $('#permissiondashboard,#permissionmasterentry,#permissionpurchaseorder,#permissionitemadjustment,#permissionsale,#permissioninvoice,#permissionreport,#permissionpromotion,#permissionaudit,#permissionuser').change(function(){
         cb = $(this);
         cb.val(cb.prop('checked'));
     });
@@ -232,10 +232,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $('.permissioniconmasterentry').html(masterentry);
 
                     var product=((data.slice(17, -3).split(",")[2]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
-                    $('.permissioniconproduct').html(product);
+                    $('.permissioniconpurchaseorder').html(product);
 
                     var inventory=((data.slice(17, -3).split(",")[3]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
-                    $('.permissioniconinventory').html(inventory);
+                    $('.permissioniconitemadjustment').html(inventory);
 
                     var sales=((data.slice(17, -3).split(",")[4]).split(":")[1]=='true')? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>':'<i class="fa fa-close" style="color: red" aria-hidden="true"></i>';
                     $('.permissioniconsale').html(sales);

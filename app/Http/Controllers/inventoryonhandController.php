@@ -13,10 +13,10 @@ use Yajra\Datatables\Datatables;
 class inventoryonhandController extends Controller
 {
     //
-    public function inventoryonhand(){
-        return view('inventoryonhand');
+    public function inventoryonhandstore(){
+        return view('inventoryonhandstore');
     }
-    public function allinventoryonhand(Request $request){
+    public function allinventoryonhandstore(Request $request){
 
         if ($request->has('store')) {
             $fromdate=$request->fromdate;
@@ -62,4 +62,7 @@ class inventoryonhandController extends Controller
 
         return Datatables::of($productitems_sorted)->make(true);
     }
+    
+    
+    
 }

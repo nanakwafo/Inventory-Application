@@ -18,8 +18,8 @@ class usertableSeeder extends Seeder
         $role->permissions = [
             'dasboard' => true,
             'masterentry' => true,
-            'product' =>true,
-            'inventory' => true,
+            'purchaseorder' =>true,
+            'itemadjustment' => true,
             'sale' => true,
             'invoice' => true,
             'report' => true,

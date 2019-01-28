@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Inventory On hand Report</span>
+                    <span>Inventory On hand Report &nbsp;<b>STORE</b></span>
                 </h2>
             </div>
             <!--//banner-->
@@ -207,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         processing: true,
         serverSide: true,
         ajax: {
-            url: '{!! route('allinventoryonhand') !!}',
+            url: '{!! route('allinventoryonhandstore') !!}',
             data: function (d) {
                 d.store = $('#storedropdownvalue').val();
                 d.product = $('#productdropdownvalue').val();

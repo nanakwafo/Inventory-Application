@@ -21,8 +21,8 @@ class permissionController extends Controller
         $role->permissions = [
             'dasboard' => is_null($request->dashboard)? false:true,
             'masterentry' => is_null($request->masterentry)? false:true,
-            'product' => is_null($request->product)? false:true,
-            'inventory' => is_null($request->inventory)? false:true,
+            'purchaseorder' => is_null($request->purchaseorder)? false:true,
+            'itemadjustment' => is_null($request->itemadjustment)? false:true,
             'sale' => is_null($request->sale)? false:true,
             'invoice' => is_null($request->invoice)? false:true,
             'report' => is_null($request->report)? false:true,
