@@ -28,6 +28,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('user',['as'=>'user','uses'=>'userController@index']);
     Route::get('waste',['as'=>'waste','uses'=>'wasteController@index']);
     Route::get('inventoryonhandstore',['as'=>'inventoryonhandstore','uses'=>'inventoryonhandController@inventoryonhandstore']);
+    Route::get('inventoryonhandwarehouse',['as'=>'inventoryonhandwarehouse','uses'=>'inventoryonhandController@inventoryonhandwarehouse']);
     Route::get('warehouse',['as'=>'warehouse','uses'=>'warehouseController@index']);
     Route::get('customer',['as'=>'customer','uses'=>'customerController@index']);
     Route::get('supplier',['as'=>'supplier','uses'=>'supplierController@index']);
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allusers',array('as'=>'allusers','uses'=>'userController@allusers'));
     Route::get('allwarehouse',array('as'=>'allwarehouse','uses'=>'warehouseController@allwarehouse'));
     Route::get('allinventoryonhandstore',array('as'=>'allinventoryonhandstore','uses'=>'inventoryonhandController@allinventoryonhandstore'));
+    Route::get('allinventoryonhandwarehouse',array('as'=>'allinventoryonhandwarehouse','uses'=>'inventoryonhandController@allinventoryonhandwarehouse'));
     Route::get('allcontact',array('as'=>'allcontact','uses'=>'smsController@allcontact'));
     Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
     Route::get('allpurchasearrival',array('as'=>'allpurchasearrival','uses'=>'purchaseController@allpurchasearrival'));

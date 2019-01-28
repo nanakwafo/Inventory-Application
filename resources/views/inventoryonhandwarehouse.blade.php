@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/datatable/1.10.7/jquery.dataTables.min.css">
     {{--<link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">--}}
 
-    <!----->
+            <!----->
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
     <link href="css/select2.min.css" rel="stylesheet" />
@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Inventory On hand Report &nbsp;<b>STORE</b></span>
+                    <span>Inventory On hand Report &nbsp;<b>WAREHOUSE</b></span>
                 </h2>
             </div>
             <!--//banner-->
@@ -84,10 +84,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 {{csrf_field()}}
                                 <div class="vali-form">
                                     <div class="col-md-3 form-group2 group-mail">
-                                        <label class="control-label">Store</label>
-                                        <select name="store" id="storedropdownvalue">
+                                        <label class="control-label">Warehouse</label>
+                                        <select name="warehouse" id="warehousedropdownvalue">
                                             <option value="">Select</option>
-                                            @foreach(\App\Warehouse::where('purpose','store')->get() as $s)
+                                            @foreach(\App\Warehouse::where('purpose','warehouse')->get() as $s)
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
                                             @endforeach
                                         </select>
@@ -101,12 +101,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             @endforeach
                                         </select>
                                     </div>
+
                                     <div class="col-md-2 form-group1">
-                                        <label class="control-label">From Date</label>
+                                        <label class="control-label">From Arrival Date</label>
                                         <input type="date" name="fromdate" required="">
                                     </div>
                                     <div class="col-md-2 form-group1">
-                                        <label class="control-label">To Date</label>
+                                        <label class="control-label">To Arrival Date</label>
                                         <input type="date" name="todate" required="">
                                     </div>
 
@@ -125,26 +126,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                     </div>
-                    <table class="table table-bordered " id="inventoryonhand-table">
+                    <table class="table table-bordered " id="inventoryonhandwarehouse-table">
                         <thead>
                         <tr>
 
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Hooray!">Receive Date </a></th>
                             <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Hooray!">Product name</a></th>
-                            <th style="background-color: white;color: black">Product code</th>
-                            <th style="background-color: white;color: black">Store</th>
-                            <th style="background-color: white;color: black">Supplier</th>
-                            <th style="background-color: white;color: black">Product category</th>
-                            <th style="background-color: white;color: black">Unit</th>
-                            <th style="background-color: white;color: black">Cost(GHC)</th>
-                            <th style="background-color: white;color: black">Retail price(GHC)</th>
-                            <th style="background-color: white;color: black">Purchase order number</th>
-                            <th style="background-color: white;color: black">Starting inventory</th>
-                            <th style="background-color: white;color: black">Received</th>
-                            <th style="background-color: white;color: black">Usage</th>
-                            <th style="background-color: white;color: black">Onhand</th>
-                            <th style="background-color: white;color: black">Variance</th>
-                            <th style="background-color: white;color: black">Variance cost(GHC)</th>
-                            <th style="background-color: white;color: black">Value on hand(GHC)</th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">SKU</a></th>
+
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Warehouse</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Quantity In</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Quantity Out</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Quantity Remaining</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Value On Hand</a></th>
+
+
 
                         </tr>
                         </thead>
@@ -154,20 +150,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-                                    <div class="col-md-3 form-group">
-                                        <a href="" id="inventoryonhandpdf" class="btn btn-default">Download PDF</a>
-                                        <a href="" id="inventoryonhandexcel" class="btn btn-default">Download CSV</a>
+                    <div class="col-md-3 form-group">
+                        <a href="" id="inventoryonhandwarehousepdf" class="btn btn-default">Download PDF</a>
+                        <a href="" id="inventoryonhandwarehouseexcel" class="btn btn-default">Download CSV</a>
 
-                                    </div>
+                    </div>
 
 
-                                <div class="clearfix"> </div>
+                    <div class="clearfix"> </div>
 
 
 
                 </div>
                 <div class="clearfix"> </div>
-              </div>
+            </div>
             <!---->
 
 
@@ -190,49 +186,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/select2.min.js"></script>
 <script>
-    var store;
+    var warehouse;
     var fromdate;
     var todate;
     var product;
-    $("#storedropdownvalue,#productdropdownvalue").select2({
+    $("#warehousedropdownvalue,#productdropdownvalue,#purchaseorderdropdown").select2({
         theme: "classic",
         width: 'resolve' // need to override the changed default
     });
 
 
-  var table =  $('#inventoryonhand-table').DataTable({
+    var table =  $('#inventoryonhandwarehouse-table').DataTable({
         dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
         "<'row'<'col-xs-12't>>"+
         "<'row'<'col-xs-12'<'col-xs-6'i><'col-xs-6'p>>>",
         processing: true,
         serverSide: true,
         ajax: {
-            url: '{!! route('allinventoryonhandstore') !!}',
+            url: '{!! route('allinventoryonhandwarehouse') !!}',
             data: function (d) {
-                d.store = $('#storedropdownvalue').val();
+                d.warehouse = $('#warehousedropdownvalue').val();
                 d.product = $('#productdropdownvalue').val();
                 d.fromdate = $('input[name=fromdate]').val();
                 d.todate = $('input[name=todate]').val();
             }
         },
         columns: [
-//            {data: 'date', name: 'date'},
-            {data: 'productname', name: 'productname'},
+
+            {data: 'receivedate', name: 'receivedate'},
+            {data: 'product', name: 'product'},
             {data: 'productcode', name: 'productcode'},
-            {data: 'store', name: 'store'},
-            {data: 'supplier', name: 'supplier'},
-            {data: 'productcategory', name: 'productcategory'},
-            {data: 'unit', name: 'unit'},
-            {data: 'cost', name: 'cost'},
-            {data: 'retailprice', name: 'retailprice'},
-            {data: 'purchaseordernumber', name: 'purchaseordernumber'},
-            {data: 'startinginventory', name: 'startinginventory'},
-            {data: 'received', name: 'received'},
-            {data: 'usage', name: 'usage'},
-            {data: 'onhand', name: 'onhand'},
-            {data: 'variance', name: 'variance'},
-            {data: 'variancecost', name: 'variancecost'},
-            {data: 'onhandvalue', name: 'onhandvalue'},
+            {data: 'warehouse', name: 'warehouse'},
+            {data: 'quantity_in', name: 'supplier'},
+            {data: 'quantity_out', name: 'productcategory'},
+            {data: 'quantity_remaining', name: 'quantity_remaining'},
+            {data: 'value_onhand', name: 'value_onhand'},
 
         ]
     });
@@ -240,53 +228,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $('#search-form').on('submit', function(e) {
         table.draw();
         e.preventDefault();
-        store = $('#storedropdownvalue').val();
+        warehouse = $('#warehousedropdownvalue').val();
         product = $('#productdropdownvalue').val();
         fromdate = $('input[name=fromdate]').val();
         todate = $('input[name=todate]').val();
 
     });
 
-  $('#inventoryonhandpdf').on('click', function(e) {
+    $('#inventoryonhandwarehousepdf').on('click', function(e) {
 
-      e.preventDefault();
+        e.preventDefault();
 
-         store = $('#storedropdownvalue').val();
-         product = $('#productdropdownvalue').val();
-         fromdate = $('input[name=fromdate]').val();
-         todate = $('input[name=todate]').val();
+        warehouse = $('#warehousedropdownvalue').val();
+        product = $('#productdropdownvalue').val();
+        fromdate = $('input[name=fromdate]').val();
+        todate = $('input[name=todate]').val();
 
-          if(store === ''){
-              store = 'all';
-              product = 'all';
-              fromdate = 'all';
-              todate = 'all';
-          }
+        if(store === ''){
+            warehouse = 'all';
+            product = 'all';
+            fromdate = 'all';
+            todate = 'all';
+        }
 
-         var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+        var url='inventoryonhandwarehousepdf/'+ warehouse + '/' + fromdate + '/' + todate + '/' + product;
 
-      document.location.href = url;
+        document.location.href = url;
 
-  });
-  $('#inventoryonhandexcel').on('click', function(e) {
+    });
+    $('#inventoryonhandwarehouseexcel').on('click', function(e) {
 
-      e.preventDefault();
-      store = $('#storedropdownvalue').val();
-      product = $('#productdropdownvalue').val();
-      fromdate = $('input[name=fromdate]').val();
-      todate = $('input[name=todate]').val();
+        e.preventDefault();
+        warehouse = $('#warehousedropdownvalue').val();
+        product = $('#productdropdownvalue').val();
+        fromdate = $('input[name=fromdate]').val();
+        todate = $('input[name=todate]').val();
 
-      if(store === ''){
-          store = 'all';
-          product = 'all';
-          fromdate = 'all';
-          todate = 'all';
-      }
-      var url='inventoryonhandexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+        if(store === ''){
+            store = 'all';
+            product = 'all';
+            fromdate = 'all';
+            todate = 'all';
+        }
+        var url='inventoryonhandwarehouseexcel/'+ warehouse + '/' + fromdate + '/' + todate + '/' + product;
 
-     document.location.href = url;
+        document.location.href = url;
 
-  });
+    });
 </script>
 <script>
     $(document).ready(function(){
