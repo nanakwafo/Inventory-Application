@@ -30,5 +30,6 @@ class CreateInventoryonhandRecordView extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('inventoryonhand');
     }
 }

@@ -23,48 +23,44 @@ class AppHelper
         return (int)$totalfrom_warehouseitem_table - (int)$totalfrom_storeitem_table;
 
     }
-
     public static function get_quantity_in_warehouse($warehouse_id,$productcode){
         $totalfrom_warehouseitem_table=Warehouseitem::where('warehouse_id',$warehouse_id)->where('productcode',$productcode)->sum('quantity');
 
         return (int)$totalfrom_warehouseitem_table;
 
     }
-
     public static function get_quantity_out_warehouse($warehouse_id,$productcode){
 
         $totalfrom_storeitem_table=Storeitem::where('warehouse_issue_from',$warehouse_id)->where('productcode',$productcode)->sum('quantity');
         return (int)$totalfrom_storeitem_table;
 
     }
+   
+   
     public static function get_remaining_product_from_warehouse_between_dates($warehouse_id,$productcode,$fromdate,$todate){
-        $totalfrom_warehouseitem_table=DB::table('warehouseitems')
+        $totalfrom_warehouseitem_table=DB::table('warehousesummary')
 
-            ->join('goodreceives', 'warehouseitems.goodreceive_grnnumber', '=', 'goodreceives.grnnumber')
-            ->select([DB::raw('sum(warehouseitems.quantity)  as quantity')])
-            ->where('warehouseitems.warehouse_id',$warehouse_id)
-            ->where('warehouseitems.productcode',$productcode)
-            ->whereDate('goodreceives.grndate','>=',$fromdate)->whereDate('goodreceives.grndate','<=',$todate)
-            ->get();
+            ->where('warehouse_id',$warehouse_id)
+            ->where('productcode',$productcode)
+            ->whereDate('grndate','>=',$fromdate)->whereDate('grndate','<=',$todate)
+            ->sum('quantity');
 
 
         $totalfrom_storeitem_table=Storeitem::where('warehouse_issue_from',$warehouse_id)->where('productcode',$productcode)
             ->whereDate('date','>=',$fromdate)->whereDate('date','<=',$todate)
             ->sum('quantity');
         
-        return (int)$totalfrom_warehouseitem_table - (int)$totalfrom_storeitem_table;
+        return $totalfrom_warehouseitem_table - $totalfrom_storeitem_table;
 
     }
     public static function get_quantity_in_warehouse_between_date($warehouse_id,$productcode,$fromdate,$todate){
-        $totalfrom_warehouseitem_table=DB::table('warehouseitems')
+        $totalfrom_warehouseitem_table=DB::table('warehousesummary')
 
-            ->join('goodreceives', 'warehouseitems.goodreceive_grnnumber', '=', 'goodreceives.grnnumber')
-            ->select([DB::raw('sum(warehouseitems.quantity)  as quantity')])
-            ->where('warehouseitems.warehouse_id',$warehouse_id)
-            ->where('warehouseitems.productcode',$productcode)
-            ->whereDate('goodreceives.grndate','>=',$fromdate)->whereDate('goodreceives.grndate','<=',$todate)
-            ->get();
-        return (int)$totalfrom_warehouseitem_table;
+            ->where('warehouse_id',$warehouse_id)
+            ->where('productcode',$productcode)
+            ->whereDate('grndate','>=',$fromdate)->whereDate('grndate','<=',$todate)
+            ->sum('quantity');
+        return $totalfrom_warehouseitem_table;
     }
     public static function get_quantity_out_warehouse_between_date($warehouse_id,$productcode,$fromdate,$todate){
         $totalfrom_storeitem_table=Storeitem::where('warehouse_issue_from',$warehouse_id)->where('productcode',$productcode)

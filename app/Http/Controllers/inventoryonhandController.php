@@ -75,20 +75,17 @@ class inventoryonhandController extends Controller
         if ($request->has('warehouse')) {
             $fromdate=$request->fromdate;
             $todate=$request->todate;
-            $productitems = DB::table('warehouseitems')
-
-                ->join('goodreceives', 'warehouseitems.goodreceive_grnnumber', '=', 'goodreceives.grnnumber')
-                ->select('warehouseitems.*')
-                ->where('warehouseitems.warehouse_id',$request->warehouse)
-                ->where('warehouseitems.productcode',$request->product)
-                ->whereDate('goodreceives.grndate','>=',$fromdate)->whereDate('goodreceives.grndate','<=',$todate)
-                ->groupBy('warehouseitems.warehouse_id')
+            $productitems = DB::table('warehousesummary')
+                  ->where('warehouse_id',$request->warehouse)
+                ->where('productcode',$request->product)
+                ->whereDate('grndate','>=',$fromdate)->whereDate('grndate','<=',$todate)
+                ->groupBy('warehouse_id')
                 ->get();
 
         }else{
             $fromdate=date('Y-m-d');
             $todate=date('Y-m-d');
-            $productitems = Warehouseitem::groupBy('warehouse_id')->all();
+            $productitems = DB::table('warehousesummary')->get();
         }
 
 
@@ -96,7 +93,7 @@ class inventoryonhandController extends Controller
         $data  = [];
         foreach ($productitems as $w) {
             $obj = new \stdClass;
-            $obj->receivedate = Goodreceive::find($w->goodreceive_grnnumber)->grndate;
+            $obj->receivedate = $w->grndate;
             $obj->product = Productcode::find($w->productcode)->name;
             $obj->productcode = $w->productcode;
             $obj->warehouse = Warehouse::find($w->warehouse_id)->name;
