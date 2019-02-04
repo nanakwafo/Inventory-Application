@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['checkauth']], function () {
     Route::get('dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
+    Route::get('purchaseorderhistory',['as'=>'purchaseorderhistory','uses'=>'purchaseorderhistoryController@index']);
     Route::get('allpurchaseorder',['as'=>'allpurchaseorder','uses'=>'allpurchaseController@index']);
     Route::get('welcome',['as'=>'welcome','uses'=>'welcomeController@index']);
     Route::get('dash',['as'=>'dash','uses'=>'dashboardController@dash']);

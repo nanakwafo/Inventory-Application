@@ -17,8 +17,7 @@ class CreateInventoryonhandRecordView extends Migration
         \DB::statement("
             CREATE VIEW warehousesummary 
             AS
-   select `warehouseitems`.`goodreceive_grnnumber` AS `goodreceive_grnnumber`,`warehouseitems`.`warehouse_id` AS `warehouse_id`,`warehouseitems`.`supplier_id` AS `supplier_id`,`warehouseitems`.`productcode` AS `productcode`,`warehouseitems`.`description` AS `description`,`warehouseitems`.`unit` AS `unit`,sum(`warehouseitems`.`quantity`) AS `quantity`,`goodreceives`.`grndate` AS `grndate`,`goodreceives`.`grntype` AS `grntype` from (`warehouseitems` join `goodreceives` on((`warehouseitems`.`goodreceive_grnnumber` = `goodreceives`.`grnnumber`))) group by `warehouseitems`.`warehouse_id`,`warehouseitems`.`goodreceive_grnnumber`,`warehouseitems`.`supplier_id`,`warehouseitems`.`productcode`,`warehouseitems`.`description`,`warehouseitems`.`unit`,`goodreceives`.`grndate`,`goodreceives`.`grntype`
-;
+   select `warehouseitems`.`goodreceive_grnnumber` AS `goodreceive_grnnumber`,`warehouseitems`.`warehouse_id` AS `warehouse_id`,`warehouseitems`.`supplier_id` AS `supplier_id`,`warehouseitems`.`productcode` AS `productcode`,`warehouseitems`.`description` AS `description`,`warehouseitems`.`unit` AS `unit`,`warehouseitems`.`quantity` AS `quantity`,`goodreceives`.`grndate` AS `grndate`,`goodreceives`.`grntype` AS `grntype` from (`warehouseitems` join `goodreceives` on((`warehouseitems`.`goodreceive_grnnumber` = `goodreceives`.`grnnumber`))) group by `warehouseitems`.`warehouse_id`,`goodreceives`.`grnnumber`;
         ");
     }
 
