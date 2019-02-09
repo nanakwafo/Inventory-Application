@@ -39,6 +39,7 @@ class puchaseorderController extends Controller
                 $orderitem->quantity=$request->quantity[$i];
                 $orderitem->rate=$request->rate[$i];
                 $orderitem->amount=$request->total[$i];
+                $orderitem->status=$request->status[$i];
                 $orderitem->save();
 
             }

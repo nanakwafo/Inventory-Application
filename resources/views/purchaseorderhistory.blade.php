@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h2>
                     <a href="dashboard">Home</a>
                     <i class="fa fa-angle-right"></i>
-                    <span>Active Purchase Orders</span>
+                    <span>Purchase Order History</span>
                 </h2>
             </div>
             <!--//banner-->
@@ -83,30 +83,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <form id="search-form">
                                 {{csrf_field()}}
                                 <div class="vali-form">
-                                    <div class="col-md-3 form-group2 group-mail">
-                                        <label class="control-label">Warehouse</label>
-                                        <select name="warehouse" id="warehousedropdownvalue">
+
+                                    <div class="col-md-4 form-group2 group-mail">
+                                        <label class="control-label">Status</label>
+                                        <select name="status" id="status">
                                             <option value="">Select</option>
-                                            @foreach(\App\Warehouse::where('purpose','warehouse')->get() as $s)
-                                                <option value="{{$s->id}}">{{$s->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 form-group2 group-mail">
-                                        <label class="control-label">Product</label>
-                                        <select name="product" id="productdropdownvalue">
-                                            <option value="">Select</option>
-                                            @foreach(\App\Purchase::select('productcode')->distinct('productcode')->get() as $s)
-                                                <option value="{{$s->productcode}}">{{\App\Productcode::find($s->productcode)->name}}</option>
-                                            @endforeach
+                                            <option value="Not Delivered">Not Delivered</option>
+                                            <option value="Delivered">Delivered</option>
+
                                         </select>
                                     </div>
 
-                                    <div class="col-md-2 form-group1">
+                                    <div class="col-md-3 form-group1">
                                         <label class="control-label">Created Date</label>
                                         <input type="date" name="fromdate" required="">
                                     </div>
-                                    <div class="col-md-2 form-group1">
+                                    <div class="col-md-3 form-group1">
                                         <label class="control-label">Created Date</label>
                                         <input type="date" name="todate" required="">
                                     </div>
@@ -130,15 +122,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <thead>
                         <tr>
 
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Hooray!">Receive Date </a></th>
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Hooray!">Product name</a></th>
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">SKU</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Date </a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Purchase Order #</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Product</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Vendor</a></th>
 
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Warehouse</a></th>
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Quantity In</a></th>
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Quantity Out</a></th>
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Quantity Remaining</a></th>
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Product identification code">Value On Hand</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Status</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Expected Date</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Quantity Ordered</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Quantity Received</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="">Amount(GHC)</a></th>
 
 
 
@@ -151,8 +144,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                     <div class="col-md-3 form-group">
-                        <a href="" id="inventoryonhandwarehousepdf" class="btn btn-default">Download PDF</a>
-                        <a href="" id="inventoryonhandwarehouseexcel" class="btn btn-default">Download CSV</a>
+                        <a href="" id="purchaseorderhistorypdf" class="btn btn-default">Download PDF</a>
+                        <a href="" id="purchaseorderhistoryexcel" class="btn btn-default">Download CSV</a>
 
                     </div>
 
@@ -186,11 +179,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/select2.min.js"></script>
 <script>
-    var warehouse;
+    var status;
     var fromdate;
     var todate;
-    var product;
-    $("#warehousedropdownvalue,#productdropdownvalue,#purchaseorderdropdown").select2({
+
+    $("#status,#productdropdownvalue,#purchaseorderdropdown").select2({
         theme: "classic",
         width: 'resolve' // need to override the changed default
     });
@@ -203,24 +196,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         processing: true,
         serverSide: true,
         ajax: {
-            url: '{!! route('allinventoryonhandwarehouse') !!}',
+            url: '{!! route('allpurchaseorderhistory') !!}',
             data: function (d) {
-                d.warehouse = $('#warehousedropdownvalue').val();
-                d.product = $('#productdropdownvalue').val();
+                d.status = $('#status').val();
                 d.fromdate = $('input[name=fromdate]').val();
                 d.todate = $('input[name=todate]').val();
             }
         },
         columns: [
 
-            {data: 'receivedate', name: 'receivedate'},
+            {data: 'purchaseorderdate', name: 'purchaseorderdate'},
+            {data: 'purchaseordernumber', name: 'purchaseordernumber'},
             {data: 'product', name: 'product'},
-            {data: 'productcode', name: 'productcode'},
-            {data: 'warehouse', name: 'warehouse'},
-            {data: 'quantity_in', name: 'supplier'},
-            {data: 'quantity_out', name: 'productcategory'},
-            {data: 'quantity_remaining', name: 'quantity_remaining'},
-            {data: 'value_onhand', name: 'value_onhand'},
+            {data: 'vendor', name: 'vendor'},
+            {data: 'status', name: 'status'},
+            {data: 'expecteddeliverydate', name: 'expecteddeliverydate'},
+            {data: 'quantityordered', name: 'quantityordered'},
+            {data: 'quantityreceived', name: 'quantityreceived'},
+            {data: 'amount', name: 'amount'},
 
         ]
     });
@@ -228,49 +221,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $('#search-form').on('submit', function(e) {
         table.draw();
         e.preventDefault();
-        warehouse = $('#warehousedropdownvalue').val();
-        product = $('#productdropdownvalue').val();
+        status = $('#status').val();
         fromdate = $('input[name=fromdate]').val();
         todate = $('input[name=todate]').val();
 
     });
 
-    $('#inventoryonhandwarehousepdf').on('click', function(e) {
+
+
+    $('#purchaseorderhistorypdf').on('click', function(e) {
 
         e.preventDefault();
 
-        warehouse = $('#warehousedropdownvalue').val();
-        product = $('#productdropdownvalue').val();
+        status = $('#status').val();
         fromdate = $('input[name=fromdate]').val();
         todate = $('input[name=todate]').val();
 
-        if(store === ''){
-            warehouse = 'all';
-            product = 'all';
+        if(status === ''){
+            status = 'all';
             fromdate = 'all';
             todate = 'all';
         }
 
-        var url='inventoryonhandwarehousepdf/'+ warehouse + '/' + fromdate + '/' + todate + '/' + product;
+        var url='purchaseorderhistorypdf/'+ status + '/' + fromdate + '/' + todate ;
 
         document.location.href = url;
 
     });
-    $('#inventoryonhandwarehouseexcel').on('click', function(e) {
+    $('#purchaseorderhistoryexcel').on('click', function(e) {
 
         e.preventDefault();
-        warehouse = $('#warehousedropdownvalue').val();
-        product = $('#productdropdownvalue').val();
+        status = $('#status').val();
         fromdate = $('input[name=fromdate]').val();
         todate = $('input[name=todate]').val();
 
-        if(store === ''){
-            store = 'all';
-            product = 'all';
+        if(status === ''){
+
+            status = 'all';
             fromdate = 'all';
             todate = 'all';
         }
-        var url='inventoryonhandwarehouseexcel/'+ warehouse + '/' + fromdate + '/' + todate + '/' + product;
+        var url='purchaseorderhistoryexcel/'+ status + '/' + fromdate + '/' + todate;
 
         document.location.href = url;
 

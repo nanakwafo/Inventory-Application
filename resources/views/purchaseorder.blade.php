@@ -117,6 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <th>Rate </th>
                                             <th>Quantity</th>
                                             <th>Total</th>
+                                            <th>Status</th>
                                             <th> <button type="button" class="btn btn-default " id="addnew" ><i class="fa fa-plus-circle" aria-hidden="true"></i></button></th>
                                         </tr>
                                         </thead>
@@ -274,6 +275,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     '<td><div class="form-group"><input name="rate[]" class="form-control" type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="quantity[]" class="form-control" onkeyup="getval3(this);"  type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="total[]" class="form-control total"  type="text" readonly /> </div> </td>' +
+                    '<td><div class="form-group"> <input name="status[]" class="form-control status"  type="text" value="Not Delivered" readonly /> </div> </td>' +
                     '<td><button type="button" class="btn btn-default remove" name="remove" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button> </td>'+
                     ' </tr>';
             $('#data').append(strToAdd);

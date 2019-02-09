@@ -65,6 +65,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('allwarehouse',array('as'=>'allwarehouse','uses'=>'warehouseController@allwarehouse'));
     Route::get('allinventoryonhandstore',array('as'=>'allinventoryonhandstore','uses'=>'inventoryonhandController@allinventoryonhandstore'));
     Route::get('allinventoryonhandwarehouse',array('as'=>'allinventoryonhandwarehouse','uses'=>'inventoryonhandController@allinventoryonhandwarehouse'));
+    Route::get('allpurchaseorderhistory',array('as'=>'allpurchaseorderhistory','uses'=>'purchaseorderhistoryController@allpurchaseorderhistory'));
     Route::get('allcontact',array('as'=>'allcontact','uses'=>'smsController@allcontact'));
     Route::get('allcustomer',array('as'=>'allcustomer','uses'=>'customerController@allcustomer'));
     Route::get('allpurchasearrival',array('as'=>'allpurchasearrival','uses'=>'purchaseController@allpurchasearrival'));
@@ -87,8 +88,10 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('/purchaseorderdetails/{purchaseordernumber}', 'allpurchaseController@getpurchaseorders')->name('purchaseorderdetails');
     Route::get('allaudit',array('as'=>'allaudit','uses'=>'auditController@allaudit'));
     Route::get('allwaste',array('as'=>'allwaste','uses'=>'wasteController@allwaste'));
-    Route::get('/inventoryonhandpdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandpdf','uses'=>'pdfController@inventoryonhandpdf']);
-    Route::get('/inventoryonhandexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandexcel','uses'=>'excelController@inventoryonhandexcel']);
+    Route::get('/inventoryonhandstorepdf/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandstorepdf','uses'=>'pdfController@inventoryonhandstorepdf']);
+    Route::get('/inventoryonhandstoreexcel/{store}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandstoreexcel','uses'=>'excelController@inventoryonhandstoreexcel']);
+    Route::get('/inventoryonhandwarehousepdf/{warehouse}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandwarehousepdf','uses'=>'pdfController@inventoryonhandwarehousepdf']);
+    Route::get('/inventoryonhandwarehouseexcel/{warehouse}/{fromdate}/{todate}/{product}',['as'=>'inventoryonhandwarehouseexcel','uses'=>'excelController@inventoryonhandwarehouseexcel']);
     Route::get('/orderreceiptpdf/{ordernumber}',['as'=>'orderreceiptpdf','uses'=>'pdfController@orderreceiptpdf']);
     Route::get('/purchaseorderreceiptpdf/{purchaseordernumber}',['as'=>'purchaseorderreceiptpdf','uses'=>'pdfController@purchaseorderreceiptpdf']);
     Route::get('/invoicereceiptpdf/{invoicenumber}',['as'=>'invoicereceiptpdf','uses'=>'pdfController@invoicereceiptpdf']);

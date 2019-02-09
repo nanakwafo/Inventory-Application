@@ -16,7 +16,7 @@ class excelController extends Controller
 {
     //
 
-    public function inventoryonhandexcel($store,$fromdate,$todate,$product){
+    public function inventoryonhandstoreexcel($store,$fromdate,$todate,$product){
        
         $type='csv';
         $title='INVENTORY ON HAND';

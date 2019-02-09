@@ -240,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 url:"{{url('supplierproductselectbox')}}/"+supplier_id,
                 success: function(data) {
                     product=data;
-                    alert(product);
+                   // alert(product);
 
                 }
             });

@@ -129,22 +129,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <thead>
                         <tr>
 
-                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="Hooray!">Product name</a></th>
-                            <th style="background-color: white;color: black">Product code</th>
-                            <th style="background-color: white;color: black">Store</th>
-                            <th style="background-color: white;color: black">Supplier</th>
-                            <th style="background-color: white;color: black">Product category</th>
-                            <th style="background-color: white;color: black">Unit</th>
-                            <th style="background-color: white;color: black">Cost(GHC)</th>
-                            <th style="background-color: white;color: black">Retail price(GHC)</th>
-                            <th style="background-color: white;color: black">Purchase order number</th>
-                            <th style="background-color: white;color: black">Starting inventory</th>
-                            <th style="background-color: white;color: black">Received</th>
-                            <th style="background-color: white;color: black">Usage</th>
-                            <th style="background-color: white;color: black">Onhand</th>
-                            <th style="background-color: white;color: black">Variance</th>
-                            <th style="background-color: white;color: black">Variance cost(GHC)</th>
-                            <th style="background-color: white;color: black">Value on hand(GHC)</th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Name Of the Product">Product name</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Product Identification Code">Product Code</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Store">Store</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Supplier of the Product">Supplier</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Category of the Product">Product Category</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Unit of the Product">Unit</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Cost Of the Product">Cost(GHC)</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Retail Price of the Product">Retail price(GHC)</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Purchase Order Number">Purchase Order Number</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The number of units of a product on hand at the beginning of the
+selected date range.">Starting inventory</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title=" The number of units of a product added in the viewed date range.">Received</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The number of units of the product sold in the viewed date range">Usage</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The current number of units of the product held in inventory at the location.">Onhand</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The number of units of a product not accounted for">Variance</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The total cost of the variance">Variance cost(GHC)</a></th>
+                            <th style="background-color: white;color: black"> <a href="#" style="color:black;text-decoration-line: underline;" data-toggle="tooltip" data-placement="top" title="The Total cost of product available">Value on hand(GHC)</a></th>
+
 
                         </tr>
                         </thead>
@@ -155,8 +157,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                     <div class="col-md-3 form-group">
-                                        <a href="" id="inventoryonhandpdf" class="btn btn-default">Download PDF</a>
-                                        <a href="" id="inventoryonhandexcel" class="btn btn-default">Download CSV</a>
+                                        <a href="" id="inventoryonhandstorepdf" class="btn btn-default">Download PDF</a>
+                                        <a href="" id="inventoryonhandstoreexcel" class="btn btn-default">Download CSV</a>
 
                                     </div>
 
@@ -247,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     });
 
-  $('#inventoryonhandpdf').on('click', function(e) {
+  $('#inventoryonhandstorepdf').on('click', function(e) {
 
       e.preventDefault();
 
@@ -263,12 +265,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               todate = 'all';
           }
 
-         var url='inventoryonhandpdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+         var url='inventoryonhandstorepdf/'+ store + '/' + fromdate + '/' + todate + '/' + product;
 
       document.location.href = url;
 
   });
-  $('#inventoryonhandexcel').on('click', function(e) {
+  $('#inventoryonhandstoreexcel').on('click', function(e) {
 
       e.preventDefault();
       store = $('#storedropdownvalue').val();
@@ -282,7 +284,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           fromdate = 'all';
           todate = 'all';
       }
-      var url='inventoryonhandexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
+      var url='inventoryonhandstoreexcel/'+ store + '/' + fromdate + '/' + todate + '/' + product;
 
      document.location.href = url;
 

@@ -6,6 +6,7 @@ use App\Helpers\AppHelper;
 use App\Purchase;
 use App\Productcategory;
 use App\Purchaseorder;
+use App\Purchaseorderitem;
 use App\Storeitem;
 use App\Supplier;
 use Illuminate\Http\Request;
@@ -92,7 +93,11 @@ class purchaseController extends Controller
    
 
     public function save(Request $request){
-        Purchase::create($request->all());
+        //dd($request->all());
+         Purchase::create($request->all());
+        //update the status of that purchaseordernumber
+        $purchaseordeitem =\App\Purchaseorderitem::where('purchaseordernumber',$request->purchaseordernumber)->where('productid',$request->productcode) ->update(['status' => 'Delivered']);;
+
         Session::flash('success','Purchase record Added successfully');
         return redirect('purchase');
     }

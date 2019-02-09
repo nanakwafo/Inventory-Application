@@ -21,7 +21,7 @@ use Illuminate\Support\Collection;
 class pdfController extends Controller
 {
     //
-    public function inventoryonhandpdf($store,$fromdate,$todate,$product){
+    public function inventoryonhandstorepdf($store,$fromdate,$todate,$product){
         if ($store=="all") {
             $productitems = DB::table('inventoryonhand')->get();
         }else{

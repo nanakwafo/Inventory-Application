@@ -20,6 +20,7 @@ class CreatePurchaseorderitemsTable extends Migration
             $table->string('quantity');
             $table->string('rate');
             $table->string('amount');
+            $table->string('status');
             $table->timestamps();
         });
     }
