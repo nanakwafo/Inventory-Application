@@ -24,6 +24,8 @@ class CreateOrdersTable extends Migration
             $table->string('rate');
             $table->string('quantity');
             $table->string('total');
+            $table->string('deliverystatus');
+            $table->string('userid');
             $table->timestamps();
         });
     }

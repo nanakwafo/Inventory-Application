@@ -23,6 +23,7 @@ class CreatePaymentordersTable extends Migration
             $table->string('dueamount');
             $table->string('paymenttype');
             $table->string('paymentstatus');
+            $table->string('expecteddeliverydate');
             
             $table->timestamps();
         });

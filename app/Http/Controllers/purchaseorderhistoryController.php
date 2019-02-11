@@ -42,7 +42,9 @@ class purchaseorderhistoryController extends Controller
             $obj->status = $w->status;
             $obj->expecteddeliverydate = $w->expecteddeliverydate;
             $obj->quantityordered = $w->quantity;
-            $obj->quantityreceived = Purchase::where('purchaseordernumber',$w->purchaseordernumber)->where('productcode',$w->productid)->first()->pluck('quantity');
+            $purchase= Purchase::select(['quantity'])->where('purchaseordernumber',$w->purchaseordernumber)->where('productcode',$w->productid)->first();
+
+            $obj->quantityreceived =  is_null($purchase)? '0' :$purchase->quantity;
             $obj->amount = $w->quantity * $w->rate;
             $data[] = $obj;
         }

@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 use Yajra\Datatables\Datatables;
 use DB;
 use Session;
+use Sentinel;
 class orderController extends Controller
 {
     //
@@ -84,6 +85,7 @@ class orderController extends Controller
             $payorder->dueamount=$request->dueamount;
             $payorder->paymenttype=$request->paymenttype;
             $payorder->paymentstatus=$request->paymentstatus;
+            $payorder->expecteddeliverydate=$request->expecteddeliverydate;
             $payorder->save();
 
 
@@ -99,6 +101,9 @@ class orderController extends Controller
                 $orderitem->rate=$request->rate[$i];
                 $orderitem->quantity=$request->quantity[$i];
                 $orderitem->Total=$request->total[$i];
+                $orderitem->deliverystatus=$request->deliverystatus[$i];
+                $orderitem->userid=Sentinel::getUser()->id;
+
                 $orderitem->save();
 
             }

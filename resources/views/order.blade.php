@@ -85,15 +85,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                 <div class="vali-form">
-                                    <div class="col-md-4 form-group1">
+                                    <div class="col-md-3 form-group1">
                                         <label class="control-label">Order Number</label>
                                         <input type="text" name="ordernumber" required="" readonly value="{{\App\Helpers\AppHelper::get_ordernumber()}}" id="ordernumber">
                                     </div>
-                                    <div class="col-md-4 form-group1">
+                                    <div class="col-md-3 form-group1">
                                         <label class="control-label">Order Date</label>
                                         <input type="date" name="orderdate" required="" id="orderdate">
                                     </div>
-                                    <div class="col-md-4 form-group2 group-mail">
+                                    <div class="col-md-3 form-group2 group-mail">
                                         <label class="control-label">Customer</label>
                                         <select id="customer" name="customer" class="customer">
                                             <option value="">Select</option>
@@ -101,6 +101,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <option value="{{$s->id}}">{{$s->name}}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="col-md-3 form-group1">
+                                        <label class="control-label">Expected Delivery Date</label>
+                                        <input type="date" name="expecteddeliverydate" required="" id="expecteddeliverydate">
                                     </div>
 
                                     <div class="clearfix"> </div>
@@ -114,6 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <th>Rate </th>
                                             <th>Quantity</th>
                                             <th>Total</th>
+                                            <th>Delievry Status</th>
                                             <th> <button type="button" class="btn btn-default " id="addnew" ><i class="fa fa-plus-circle" aria-hidden="true"></i></button></th>
                                         </tr>
                                         </thead>
@@ -278,6 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     '<td><div class="form-group"><input name="rate[]" class="form-control" type="text" readonly /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="quantity[]" class="form-control" onkeyup="getval3(this);"  type="text" /> </div> </td> ' +
                     '<td><div class="form-group"> <input name="total[]" class="form-control total"  type="text" readonly /> </div> </td>' +
+                    '<td><div class="form-group"> <input name="deliverystatus[]" class="form-control" value="Delivery" type="text" readonly /> </div> </td>' +
                     '<td><button type="button" class="btn btn-default remove" name="remove" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button> </td>'+
                     ' </tr>';
             $('#data').append(strToAdd);
@@ -350,6 +356,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var row = $(sel).closest("tr").index();
         var col = 2;
         var rate =$('#data').find("tr").eq(row).find("td").eq(col).find("input[type='text']").val();
+
         var  quantity =sel.value;
         var rowtotal= rate * quantity;
 

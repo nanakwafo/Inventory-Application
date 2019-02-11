@@ -14,5 +14,5 @@ class Order extends Model implements AuditableContract
 
     public $incrementing = false;
 
-    protected $fillable =['ordernumber','store','orderdate','ordertime','customer','product','rate','quantity','total'];
+    protected $fillable =['ordernumber','store','orderdate','ordertime','customer','product','rate','quantity','total','deliverystatus','userid'];
 }
