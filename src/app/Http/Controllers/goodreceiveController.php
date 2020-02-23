@@ -14,7 +14,9 @@ class goodreceiveController extends Controller
 {
     //
     public function index(){
-        return view('goodreceive');
+        return view('goodreceive',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function  supplierproductselectbox($supplier_id){
         $output_product_for_supplier='<option value="">Select product</option>';

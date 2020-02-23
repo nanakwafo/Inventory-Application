@@ -11,7 +11,9 @@ class wasteController extends Controller
 {
     //
     public function index(){
-        return view('waste');
+        return view('waste',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allwaste(){
         $wastes = Waste::all();

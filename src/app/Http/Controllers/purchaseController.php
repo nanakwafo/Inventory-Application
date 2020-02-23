@@ -20,7 +20,9 @@ class purchaseController extends Controller
 {
     //
     public function index(){
-        return view('purchase');
+        return view('purchase',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function getproductrate($product_id,$store_id){
       $rate= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->pluck('rate')->first();

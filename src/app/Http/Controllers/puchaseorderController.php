@@ -10,7 +10,9 @@ class puchaseorderController extends Controller
 {
     //
     public function index(){
-        return view('purchaseorder');
+        return view('purchaseorder',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
 
     public function save(Request $request){

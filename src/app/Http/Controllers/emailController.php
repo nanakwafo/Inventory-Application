@@ -8,6 +8,8 @@ class emailController extends Controller
 {
     //
     public function index(){
-        return view('email');
+        return view('email',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
 }

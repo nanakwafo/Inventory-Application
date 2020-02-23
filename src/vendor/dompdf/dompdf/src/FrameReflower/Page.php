@@ -86,7 +86,7 @@ class Page extends AbstractFrameReflower
     }
 
     /**
-     * Paged layout:
+     * Paged layouts:
      * http://www.w3.org/TR/CSS21/page.html
      *
      * @param BlockFrameDecorator|null $block

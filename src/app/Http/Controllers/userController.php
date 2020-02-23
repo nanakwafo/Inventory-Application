@@ -12,7 +12,9 @@ class userController extends Controller
 {
     //
     public function index(){
-        return view('user');
+        return view('user',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allusers(){
         DB::statement(DB::raw('set @rownum=0'));

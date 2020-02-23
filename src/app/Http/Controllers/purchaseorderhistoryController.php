@@ -13,7 +13,9 @@ class purchaseorderhistoryController extends Controller
 {
     //
     public function index(){
-        return view('purchaseorderhistory');
+        return view('purchaseorderhistory',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
 
     public function allpurchaseorderhistory(Request $request){

@@ -18,10 +18,14 @@ class inventoryonhandController extends Controller
 {
     //
     public function inventoryonhandstore(){
-        return view('inventoryonhandstore');
+        return view('inventoryonhandstore',[
+            'routeName'=> parent::getRouteName()
+        ]);
     } 
     public function inventoryonhandwarehouse(){
-        return view('inventoryonhandwarehouse');
+        return view('inventoryonhandwarehouse',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allinventoryonhandstore(Request $request){
 

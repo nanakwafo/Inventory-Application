@@ -11,7 +11,9 @@ class supplierController extends Controller
 {
     //
     public function index(){
-        return view('supplier');
+        return view('supplier',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allsupplier(Request $request)
     {

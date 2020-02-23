@@ -11,7 +11,9 @@ class productcodeController extends Controller
 {
     //
     public  function index(){
-        return view('productcode');
+        return view('productcode',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
 
     public function allproductcode(Request $request)

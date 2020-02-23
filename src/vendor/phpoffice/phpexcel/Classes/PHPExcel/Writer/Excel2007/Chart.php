@@ -348,7 +348,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
      * Write Data Labels
      *
      * @param  PHPExcel_Shared_XMLWriter $objWriter XML Writer
-     * @param  PHPExcel_Chart_Layout $chartLayout Chart layout
+     * @param  PHPExcel_Chart_Layout $chartLayout Chart layouts
      *
      * @throws  PHPExcel_Writer_Exception
      */
@@ -1398,7 +1398,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
      */
     private function writeLayout(PHPExcel_Chart_Layout $layout = null, $objWriter)
     {
-        $objWriter->startElement('c:layout');
+        $objWriter->startElement('c:layouts');
 
         if (!is_null($layout)) {
             $objWriter->startElement('c:manualLayout');

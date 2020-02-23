@@ -18,7 +18,9 @@ class orderController extends Controller
     //
     public function index(){
         
-        return view('order');
+        return view('order',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function manageorder(){
         return view('manageorder');

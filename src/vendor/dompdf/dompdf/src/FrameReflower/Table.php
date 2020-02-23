@@ -401,7 +401,7 @@ class Table extends AbstractFrameReflower
 
         $frame->position();
 
-        // Table layout algorithm:
+        // Table layouts algorithm:
         // http://www.w3.org/TR/CSS21/tables.html#auto-table-layout
 
         if (is_null($this->_state)) {

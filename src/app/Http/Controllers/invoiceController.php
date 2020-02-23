@@ -18,10 +18,14 @@ class invoiceController extends Controller
 {
     //
     public function invoice(){
-        return view('invoice');
+        return view('invoice',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allinvoice(){
-        return view('allinvoice');
+        return view('allinvoice',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allinvoicedata(){
         $invoicedata = Paymentinvoice::all();

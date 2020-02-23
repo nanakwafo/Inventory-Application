@@ -199,7 +199,7 @@ abstract class AbstractFrameReflower
     abstract function reflow(Block $block = null);
 
     /**
-     * Required for table layout: Returns an array(0 => min, 1 => max, "min"
+     * Required for table layouts: Returns an array(0 => min, 1 => max, "min"
      * => min, "max" => max) of the minimum and maximum widths of this frame.
      * This provides a basic implementation.  Child classes should override
      * this if necessary.

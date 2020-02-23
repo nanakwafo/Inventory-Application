@@ -14,7 +14,9 @@ use App\Productcategory;
 class storeitemController extends Controller
 {
     public function index(){
-        return view('storeitem');
+        return view('storeitem',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function getstoreitemData()
     {

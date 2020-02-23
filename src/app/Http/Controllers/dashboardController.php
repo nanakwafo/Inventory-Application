@@ -15,7 +15,9 @@ class dashboardController extends Controller
 {
     //
     public function index(){
-        return view('dashboard');
+        return view('dashboard',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public static function get_out_stock_product_all(){
         $allstore=Storeitem::select('store_issue_to')->distinct('store_issue_to')->get();

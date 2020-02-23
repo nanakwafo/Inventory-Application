@@ -116,7 +116,7 @@ class Cellmap
     private $_columns_locked = false;
 
     /**
-     * Tells wether the table has table-layout:fixed
+     * Tells wether the table has table-layouts:fixed
      *
      * @var bool
      */
@@ -354,14 +354,14 @@ class Cellmap
         $row = $this->_frames[$key]["rows"][0];
 
         if (!isset($this->_columns[$col])) {
-            $_dompdf_warnings[] = "Frame not found in columns array.  Check your table layout for missing or extra TDs.";
+            $_dompdf_warnings[] = "Frame not found in columns array.  Check your table layouts for missing or extra TDs.";
             $x = 0;
         } else {
             $x = $this->_columns[$col]["x"];
         }
 
         if (!isset($this->_rows[$row])) {
-            $_dompdf_warnings[] = "Frame not found in row array.  Check your table layout for missing or extra TDs.";
+            $_dompdf_warnings[] = "Frame not found in row array.  Check your table layouts for missing or extra TDs.";
             $y = 0;
         } else {
             $y = $this->_rows[$row]["y"];
@@ -677,7 +677,7 @@ class Cellmap
 
             if ($frame_min > $min) {
                 // The frame needs more space.  Expand each sub-column
-                // FIXME try to avoid putting this dummy value when table-layout:fixed
+                // FIXME try to avoid putting this dummy value when table-layouts:fixed
                 $inc = ($this->is_layout_fixed() ? 10e-10 : ($frame_min - $min) / $colspan);
                 for ($c = 0; $c < $colspan; $c++) {
                     $col =& $this->get_column($this->__col + $c);
@@ -686,7 +686,7 @@ class Cellmap
             }
 
             if ($frame_max > $max) {
-                // FIXME try to avoid putting this dummy value when table-layout:fixed
+                // FIXME try to avoid putting this dummy value when table-layouts:fixed
                 $inc = ($this->is_layout_fixed() ? 10e-10 : ($frame_max - $max) / $colspan);
                 for ($c = 0; $c < $colspan; $c++) {
                     $col =& $this->get_column($this->__col + $c);

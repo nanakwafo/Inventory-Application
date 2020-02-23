@@ -27,7 +27,7 @@ use Dompdf\Css\Stylesheet;
  * name from the new DomDocument PHP5 extension.  Source HTML is first
  * parsed by a DomDocument object.  Dompdf takes the resulting DOM tree and
  * attaches a {@link Frame} object to each node.  {@link Frame} objects store
- * positioning and layout information and each has a reference to a {@link
+ * positioning and layouts information and each has a reference to a {@link
  * Style} object.
  *
  * Style information is loaded and parsed (see {@link Stylesheet}) and is
@@ -40,23 +40,23 @@ use Dompdf\Css\Stylesheet;
  * http://www.w3.org/TR/CSS21/visuren.html#propdef-display}).
  * Frame_Decorators augment the basic {@link Frame} class by adding
  * additional properties and methods specific to the particular type of
- * {@link Frame}.  For example, in the CSS layout model, block frames
+ * {@link Frame}.  For example, in the CSS layouts model, block frames
  * (display: block;) contain line boxes that are usually filled with text or
  * other inline frames.  The Block therefore adds a $lines
  * property as well as methods to add {@link Frame}s to lines and to add
  * additional lines.  {@link Frame}s also are attached to specific
  * AbstractPositioner and {@link AbstractFrameReflower} objects that contain the
- * positioining and layout algorithm for a specific type of frame,
+ * positioining and layouts algorithm for a specific type of frame,
  * respectively.  This is an application of the Strategy pattern.
  *
  * Layout, or reflow, proceeds recursively (post-order) starting at the root
  * of the document.  Space constraints (containing block width & height) are
  * pushed down, and resolved positions and sizes bubble up.  Thus, every
  * {@link Frame} in the document tree is traversed once (except for tables
- * which use a two-pass layout algorithm).  If you are interested in the
+ * which use a two-pass layouts algorithm).  If you are interested in the
  * details, see the reflow() method of the Reflower classes.
  *
- * Rendering is relatively straightforward once layout is complete. {@link
+ * Rendering is relatively straightforward once layouts is complete. {@link
  * Frame}s are rendered using an adapted {@link Cpdf} class, originally
  * written by Wayne Munro, http://www.ros.co.nz/pdf/.  (Some performance
  * related changes have been made to the original {@link Cpdf} class, and

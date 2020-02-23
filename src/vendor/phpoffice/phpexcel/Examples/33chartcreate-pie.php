@@ -94,7 +94,7 @@ $series1 = new PHPExcel_Chart_DataSeries(
 	$dataSeriesValues1										// plotValues
 );
 
-//	Set up a layout object for the Pie chart
+//	Set up a layouts object for the Pie chart
 $layout1 = new PHPExcel_Chart_Layout();
 $layout1->setShowVal(TRUE);
 $layout1->setShowPercent(TRUE);

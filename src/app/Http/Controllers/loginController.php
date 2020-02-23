@@ -9,9 +9,12 @@ class loginController extends Controller
 {
     //
     public  function index(){
-        return view('login');
+        return view('login',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function login(Request $request){
+
         try{
             $credentials = [
                 'username'    => $request->username,

@@ -11,7 +11,9 @@ class customerController extends Controller
 {
     //
     public function index(){
-        return view('customer');
+        return view('customer',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allcustomer(Request $request)
     {

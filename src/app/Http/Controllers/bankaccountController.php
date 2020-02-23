@@ -11,7 +11,9 @@ class bankaccountController extends Controller
 {
     //
     public function index(){
-        return view('bankaccount');
+        return view('bankaccount',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allbankaccount()
     {

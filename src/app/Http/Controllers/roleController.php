@@ -12,7 +12,9 @@ class roleController extends Controller
 {
     //
     public function index(){
-        return view('role');
+        return view('role',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function newrole(Request $request){
 

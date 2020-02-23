@@ -139,7 +139,7 @@
                     <td>{{$d->unit}}</td>
                     <td>{{$d->cost}}</td>
                     <td>{{$d->retailprice}}</td>
-{{--                    <td>{{$d->reorderlimit}}</td>--}}
+
                     <td>{{$d->startinginventory}}</td>
                     <td>{{$d->received}}</td>
                     <td>{{$d->usage}}</td>
@@ -160,7 +160,6 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                {{--<td></td>--}}
                 <td></td>
                 <td></td>
                 <td></td>

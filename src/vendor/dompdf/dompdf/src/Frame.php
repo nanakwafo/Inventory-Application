@@ -107,7 +107,7 @@ class Frame
     protected $_next_sibling;
 
     /**
-     * This frame's containing block (used in layout): array(x, y, w, h)
+     * This frame's containing block (used in layouts): array(x, y, w, h)
      *
      * @var float[]
      */

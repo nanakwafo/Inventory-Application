@@ -12,7 +12,7 @@ use Dompdf\Frame;
 use Dompdf\FrameDecorator\Table as TableFrameDecorator;
 
 /**
- * Decorates Frames for table row layout
+ * Decorates Frames for table row layouts
  *
  * @package dompdf
  */

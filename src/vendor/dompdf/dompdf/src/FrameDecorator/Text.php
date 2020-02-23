@@ -14,7 +14,7 @@ use Dompdf\Frame;
 use Dompdf\Exception;
 
 /**
- * Decorates Frame objects for text layout
+ * Decorates Frame objects for text layouts
  *
  * @access  private
  * @package dompdf

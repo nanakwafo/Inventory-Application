@@ -9,7 +9,10 @@ class profileController extends Controller
     //
     public function index(){
         $details = \App\profile::first();
-        return view('profile')->with(['details'=>$details]);
+        return view('profile',[
+            'routeName'=> parent::getRouteName()
+            ,'details'=>$details
+        ]);
     }
     public function updateprofile(Request $request)
     {

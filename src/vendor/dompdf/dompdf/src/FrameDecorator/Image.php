@@ -13,7 +13,7 @@ use Dompdf\Frame;
 use Dompdf\Image\Cache;
 
 /**
- * Decorates frames for image layout and rendering
+ * Decorates frames for image layouts and rendering
  *
  * @package dompdf
  */

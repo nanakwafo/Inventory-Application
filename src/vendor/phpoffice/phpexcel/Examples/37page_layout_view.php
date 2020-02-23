@@ -61,7 +61,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
 $objPHPExcel->setActiveSheetIndex(0);
 
-// Set the page layout view as page layout
+// Set the page layouts view as page layouts
 $objPHPExcel->getActiveSheet()->getSheetView()->setView(PHPExcel_Worksheet_SheetView::SHEETVIEW_PAGE_LAYOUT);
 
 // Save Excel 2007 file

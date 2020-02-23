@@ -80,7 +80,7 @@ class PHPExcel_Reader_Excel2007_Chart
                                 $plotSeries = $plotAttributes = array();
                                 foreach ($chartDetails as $chartDetailKey => $chartDetail) {
                                     switch ($chartDetailKey) {
-                                        case "layout":
+                                        case "layouts":
                                             $plotAreaLayout = self::chartLayoutDetails($chartDetail, $namespacesChartMeta, 'plotArea');
                                             break;
                                         case "catAx":
@@ -187,7 +187,7 @@ class PHPExcel_Reader_Excel2007_Chart
                                         case "overlay":
                                             $legendOverlay = self::getAttribute($chartDetail, 'val', 'boolean');
                                             break;
-                                        case "layout":
+                                        case "layouts":
                                             $legendLayout = self::chartLayoutDetails($chartDetail, $namespacesChartMeta, 'legend');
                                             break;
                                     }
@@ -219,7 +219,7 @@ class PHPExcel_Reader_Excel2007_Chart
                         }
                     }
                     break;
-                case "layout":
+                case "layouts":
                     $titleLayout = self::chartLayoutDetails($chartDetail, $namespacesChartMeta);
                     break;
             }

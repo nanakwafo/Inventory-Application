@@ -14,7 +14,9 @@ class allpurchaseController extends Controller
 {
     //
     public function index(){
-        return view('allpurchaseorder');
+        return view('allpurchaseorder',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
 
     public function allpurchaseorders(){

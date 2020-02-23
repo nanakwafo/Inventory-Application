@@ -164,7 +164,7 @@ class PHPExcel_Worksheet_SheetView
         if (in_array($pValue, self::$sheetViewTypes)) {
             $this->sheetviewType = $pValue;
         } else {
-            throw new PHPExcel_Exception("Invalid sheetview layout type.");
+            throw new PHPExcel_Exception("Invalid sheetview layouts type.");
         }
 
         return $this;

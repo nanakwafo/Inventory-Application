@@ -12,7 +12,9 @@ class auditController extends Controller
     //
     public function index(){
 
-        return view('audit');
+        return view('audit',[
+            'routeName'=> parent::getRouteName()
+        ]);
 
     }
     public function allaudit(){

@@ -73,7 +73,7 @@ class Uuid implements UuidInterface
     const RESERVED_NCS = 0;
 
     /**
-     * Specifies the UUID layout given in RFC 4122.
+     * Specifies the UUID layouts given in RFC 4122.
      * @link http://tools.ietf.org/html/rfc4122#section-4.1.1
      */
     const RFC_4122 = 2;

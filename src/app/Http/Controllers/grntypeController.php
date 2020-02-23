@@ -11,7 +11,9 @@ class grntypeController extends Controller
 {
     //
     public function index(){
-        return view('grntype');
+        return view('grntype',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allgrntype()
     {

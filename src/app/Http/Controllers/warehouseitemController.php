@@ -19,7 +19,9 @@ class warehouseitemController extends Controller
 {
     //
     public function index(){
-        return view('warehouseitem');
+        return view('warehouseitem',[
+            'routeName'=> parent::getRouteName()
+        ]);
 
     }
     public function getwarehouseitemData()

@@ -13,7 +13,9 @@ class permissionController extends Controller
 {
     //
     public function index(){
-      return view('permission');
+      return view('permission',[
+          'routeName'=> parent::getRouteName()
+      ]);
     }
     public function assignpermission(Request $request){
         

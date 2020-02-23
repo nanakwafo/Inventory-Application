@@ -11,7 +11,9 @@ class warehouseController extends Controller
 {
     //
     public function index(){
-      return view('warehouse');  
+      return view('warehouse',[
+          'routeName'=> parent::getRouteName()
+      ]);  
     }
     public function  storeselectbox(){
         $output_store='<option value="">Select Store</option>';

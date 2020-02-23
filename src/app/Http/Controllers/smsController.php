@@ -13,7 +13,9 @@ class smsController extends Controller
 {
     //
     public function index(){
-        return view('sms');
+        return view('sms',[
+            'routeName'=> parent::getRouteName()
+        ]);
     }
     public function allcontact(Request $request){
 

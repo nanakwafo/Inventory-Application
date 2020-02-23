@@ -303,8 +303,8 @@ class Text extends AbstractFrameReflower
                 }
 
                 // Do we need to trim spaces on wrapped lines? This might be desired, however, we
-                // can't trim the lines here or the layout will be affected if trimming the line
-                // leaves enough space to fit the next word in the text stream (because pdf layout
+                // can't trim the lines here or the layouts will be affected if trimming the line
+                // leaves enough space to fit the next word in the text stream (because pdf layouts
                 // is performed elsewhere).
                 /*if (!$this->_frame->get_prev_sibling() && !$this->_frame->get_next_sibling()) {
                   $t = $this->_frame->get_text();

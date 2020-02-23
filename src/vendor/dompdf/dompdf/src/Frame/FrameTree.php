@@ -23,7 +23,7 @@ use Dompdf\Frame;
  * The FrameTree consists of {@link Frame} objects each tied to specific
  * DOMNode objects in a specific DomDocument.  The FrameTree has the same
  * structure as the DomDocument, but adds additional capabalities for
- * styling and layout.
+ * styling and layouts.
  *
  * @package dompdf
  */
@@ -220,7 +220,7 @@ class FrameTree
      * Recursively adds {@link Frame} objects to the tree
      *
      * Recursively build a tree of Frame objects based on a dom tree.
-     * No layout information is calculated at this time, although the
+     * No layouts information is calculated at this time, although the
      * tree may be adjusted (i.e. nodes and frames for generated content
      * and images may be created).
      *
