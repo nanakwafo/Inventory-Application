@@ -2,89 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c0d7b88-8292-428e-a6e3-544705249370" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/grntypeController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/invoiceController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/manageorderController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/orderController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/permissionController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/productcategoryController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/productcodeController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/profileController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/purchaseController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/purchaseorder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/purchaseorderController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/purchaseorderhistoryController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/roleController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/smsController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/storeitemController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/supplierController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/userController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/warehouseController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/warehouseitemController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/js/controllers/wasteController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/assets/sass/_inventoryonhand.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/activations.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/activations.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/audits.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/audits.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/bankaccounts.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/bankaccounts.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/customercategories.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/customercategories.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/customers.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/customers.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/emailcreators.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/emailcreators.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/goodissues.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/goodissues.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/goodreceives.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/goodreceives.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/grntypes.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/grntypes.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/invoiceitems.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/invoiceitems.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/jobs.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/jobs.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/migrations.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/migrations.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/orders.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/orders.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/paymentinvoices.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/paymentinvoices.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/paymentorders.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/paymentorders.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/persistences.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/persistences.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/productcategories.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/productcategories.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/productcodes.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/productcodes.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/profiles.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/profiles.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/purchaseorderitems.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/purchaseorderitems.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/purchaseorders.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/purchaseorders.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/purchases.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/purchases.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/reminders.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/reminders.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/role_users.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/role_users.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/roles.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/roles.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/smscreators.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/smscreators.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/storeitems.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/storeitems.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/suppliers.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/suppliers.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/throttle.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/throttle.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/users.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/users.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/warehouseitems.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/warehouseitems.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/warehouses.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/warehouses.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/wastes.ibd" afterPath="$PROJECT_DIR$/mysql/homestead/wastes.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/ib_logfile0" afterPath="$PROJECT_DIR$/mysql/ib_logfile0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/ibdata1" afterPath="$PROJECT_DIR$/mysql/ibdata1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/ibtmp1" afterPath="$PROJECT_DIR$/mysql/ibtmp1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/mysql/innodb_index_stats.ibd" afterPath="$PROJECT_DIR$/mysql/mysql/innodb_index_stats.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/mysql/innodb_table_stats.ibd" afterPath="$PROJECT_DIR$/mysql/mysql/innodb_table_stats.ibd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/inventoryonhand.frm" afterPath="$PROJECT_DIR$/mysql/homestead/inventoryonhand.frm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/purchaseorderhistory.frm" afterPath="$PROJECT_DIR$/mysql/homestead/purchaseorderhistory.frm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/homestead/warehousesummary.frm" afterPath="$PROJECT_DIR$/mysql/homestead/warehousesummary.frm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/ib_buffer_pool" afterPath="$PROJECT_DIR$/mysql/ib_buffer_pool" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/src/database/seeds/DatabaseSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/public/css/app.css" afterPath="$PROJECT_DIR$/src/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/public/js/app.js" afterPath="$PROJECT_DIR$/src/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/assets/sass/app.scss" afterPath="$PROJECT_DIR$/src/resources/assets/sass/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/invoice.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/invoice.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/manageorder.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/manageorder.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/order.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/order.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/pdf/inventoryonhand.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/pdf/inventoryonhand.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/permission.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/permission.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/productcategory.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/productcategory.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/productcode.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/productcode.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/profile.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/profile.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/purchase.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/purchase.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/purchaseorder.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/purchaseorder.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/views/purchaseorderhistory.blade.php" afterPath="$PROJECT_DIR$/src/resources/views/purchaseorderhistory.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/web.php" afterPath="$PROJECT_DIR$/src/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webpack.mix.js" afterPath="$PROJECT_DIR$/src/webpack.mix.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="invent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -221,8 +139,8 @@
       <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -716,12 +634,12 @@
       <workItem from="1582060817579" duration="6286000" />
       <workItem from="1582143087008" duration="2503000" />
       <workItem from="1582324532592" duration="4595000" />
-      <workItem from="1582413074410" duration="39645000" />
+      <workItem from="1582413074410" duration="40040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104999000" />
+    <option name="totallyTimeSpent" value="105394000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1257,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding />
         </state>
       </provider>
