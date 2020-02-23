@@ -7,7 +7,7 @@ definer_user=homestead
 definer_host=%
 suid=2
 with_check_option=0
-timestamp=2019-12-31 18:38:51
+timestamp=2020-02-23 18:10:58
 create-version=1
 source=select `warehouseitems`.`goodreceive_grnnumber` AS `goodreceive_grnnumber`,`warehouseitems`.`warehouse_id` AS `warehouse_id`,`warehouseitems`.`supplier_id` AS `supplier_id`,`warehouseitems`.`productcode` AS `productcode`,`warehouseitems`.`description` AS `description`,`warehouseitems`.`unit` AS `unit`,`warehouseitems`.`quantity` AS `quantity`,`goodreceives`.`grndate` AS `grndate`,`goodreceives`.`grntype` AS `grntype` from (`warehouseitems` join `goodreceives` on((`warehouseitems`.`goodreceive_grnnumber` = `goodreceives`.`grnnumber`))) group by `warehouseitems`.`warehouse_id`,`goodreceives`.`grnnumber`
 client_cs_name=utf8mb4

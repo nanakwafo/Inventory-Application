@@ -7,7 +7,7 @@ definer_user=homestead
 definer_host=%
 suid=2
 with_check_option=0
-timestamp=2019-12-31 18:38:51
+timestamp=2020-02-23 18:10:58
 create-version=1
 source=select `storeitems`.`store_issue_to` AS `store_issue_to`,`storeitems`.`productcode` AS `productcode`,`storeitems`.`rate` AS `rate`,`storeitems`.`description` AS `description`,`storeitems`.`unit` AS `unit`,sum(`storeitems`.`quantity`) AS `quantity`,`productcodes`.`name` AS `name`,`purchases`.`productcategory_id` AS `productcategory_id`,`purchases`.`supplier_id` AS `supplier_id`,`purchases`.`purchaseordernumber` AS `purchaseordernumber`,`storeitems`.`id` AS `id`,`storeitems`.`date` AS `date` from ((`storeitems` join `productcodes` on((`productcodes`.`productcode` = `storeitems`.`productcode`))) join `purchases` on((`storeitems`.`productcode` = `purchases`.`productcode`))) group by `storeitems`.`productcode`,`storeitems`.`store_issue_to` order by `storeitems`.`date`
 client_cs_name=utf8mb4

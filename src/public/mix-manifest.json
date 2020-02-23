@@ -1,0 +1,11 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/controllers/grntypeController.js": "/js/controllers/grntypeController.js",
+    "/js/controllers/invoiceController.js": "/js/controllers/invoiceController.js",
+    "/js/controllers/manageorderController.js": "/js/controllers/manageorderController.js",
+    "/js/controllers/userController.js": "/js/controllers/userController.js",
+    "/js/controllers/warehouseController.js": "/js/controllers/warehouseController.js",
+    "/js/controllers/warehouseitemController.js": "/js/controllers/warehouseitemController.js",
+    "/js/controllers/wasteController.js": "/js/controllers/wasteController.js"
+}

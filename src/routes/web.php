@@ -24,9 +24,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('purchaseorder',['as'=>'purchaseorder','uses'=>'puchaseorderController@index']);
     Route::get('role',['as'=>'role','uses'=>'roleController@index']);
     Route::get('permission',['as'=>'permission','uses'=>'permissionController@index']);
-    Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryControlle
-    
-    r@index']);
+    Route::get('productcategory',['as'=>'productcategory','uses'=>'productcategoryController@index']);
     Route::get('customercategory',['as'=>'customercategory','uses'=>'customercategoryController@index']);
     Route::get('user',['as'=>'user','uses'=>'userController@index']);
     Route::get('waste',['as'=>'waste','uses'=>'wasteController@index']);

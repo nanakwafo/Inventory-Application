@@ -1,0 +1,60 @@
+body {
+
+  font-family: Arial, sans-serif;
+
+  font-family: SourceSansPro;
+}
+#datarecord,#brieftable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 8px;
+}
+
+#datarecord td, #datarecord th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#datarecord tr:nth-child(even){background-color: #f2f2f2;}
+
+#datarecord tr:hover {background-color: #ddd;}
+
+#datarecord th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #d95459;
+  color: black;
+  font-size: 8px;
+}
+div.page
+{
+  page-break-after: always;
+  page-break-inside: avoid;
+}
+#brieftable td {
+  border-top: thin solid;
+  border-bottom: thin solid;
+}
+
+#brieftable td:first-child {
+  border-left: thin solid;
+}
+
+#brieftable td:last-child {
+  border-right: thin solid;
+}
+#logo {
+  float: left;
+  margin-top: 8px;
+}
+
+#logo img {
+  height: 70px;
+}
+
+#company {
+  float: inherit;
+  text-align: right;
+}

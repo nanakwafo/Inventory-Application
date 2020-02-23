@@ -7,7 +7,7 @@ definer_user=homestead
 definer_host=%
 suid=2
 with_check_option=0
-timestamp=2019-12-31 18:38:56
+timestamp=2020-02-23 18:11:02
 create-version=1
 source=select `purchaseorderitems`.`id` AS `id`,`purchaseorderitems`.`purchaseordernumber` AS `purchaseordernumber`,`purchaseorderitems`.`productid` AS `productid`,`purchaseorderitems`.`quantity` AS `quantity`,`purchaseorderitems`.`rate` AS `rate`,`purchaseorderitems`.`amount` AS `amount`,`purchaseorderitems`.`status` AS `status`,`purchaseorders`.`date` AS `purchaseorderdate`,`purchaseorders`.`supplier_id` AS `supplier_id`,`purchaseorders`.`expecteddeliverydate` AS `expecteddeliverydate` from (`purchaseorderitems` join `purchaseorders` on((`purchaseorderitems`.`purchaseordernumber` = `purchaseorders`.`purchaseordernumber`))) group by `purchaseorderitems`.`productid`,`purchaseorderitems`.`purchaseordernumber`
 client_cs_name=utf8mb4
