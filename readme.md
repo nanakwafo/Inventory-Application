@@ -1,14 +1,30 @@
+## Application Achitecture:
+![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon3.png "Logo Title Text 1")
 
-## Some Screen shots
+# Project Title
 
-![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon2.png "Logo Title Text 1")
-![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon1.png "Logo Title Text 1")
+An Inventory management  Application
 
+## Getting Started
 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Setup Instruction
+### Prerequisites
 
-1. Install Docker your environment.
+What things you need to install the software and how to install them
+
+```
+1. Install docker on your development machine
+
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
 1. Clone the project files in your working directory
 1. cd into the project such that you are in the root directory of the dockerfile on terminal
 1. execute this on the terminal
@@ -16,3 +32,37 @@
 
 >NB.This will spin up 3 containers
 >USEFUL COMMANDS :`docker-compose down`
+```
+
+
+## Deployment
+
+1. Provision a server on any cloud provider  AWS, Vultr,Digital Ocean
+1. Install docker on server
+
+## Built With
+
+* Mysql
+* html/css/javacript
+* Laravel
+
+
+## Versioning
+
+version 2
+
+## Authors
+
+* **Kwafo Nana Mensah**
+
+## License
+
+This project is licensed under the MIT License
+
+## Some screen shots:
+
+![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon2.png "Logo Title Text 1")
+![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon1.png "Logo Title Text 1")
+
+
+

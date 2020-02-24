@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('title','manageorder')
-
 @section('content')
     <div class="content-main">
 
