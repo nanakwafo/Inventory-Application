@@ -4,9 +4,9 @@ An Inventory management  Application  for a store or warehouse
 
 ## Application Achitecture:
 <p align="center">
-  <img width="460" height="300" src="https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon3.png">
+  <img  src="https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon3.png">
 </p>
-![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon3.png "Logo Title Text 1")
+
 
 ## Getting Started
 
