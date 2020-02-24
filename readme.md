@@ -1,9 +1,9 @@
+# #Project Title
+
+An Inventory management  Application  for a store or warehouse
+
 ## Application Achitecture:
 ![alt text](https://github.com/nanakwafo/Inventory-Application/blob/master/images/icon3.png "Logo Title Text 1")
-
-# Project Title
-
-An Inventory management  Application
 
 ## Getting Started
 
