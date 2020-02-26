@@ -86,14 +86,14 @@ class Page extends AbstractFrameReflower
     }
 
     /**
-     * Paged layouts:
+     * Paged layout:
      * http://www.w3.org/TR/CSS21/page.html
      *
      * @param BlockFrameDecorator|null $block
      */
     function reflow(BlockFrameDecorator $block = null)
     {
-        $fixed_children = array();
+        $fixed_children = [];
         $prev_child = null;
         $child = $this->_frame->get_first_child();
         $current_page = 0;
@@ -186,10 +186,10 @@ class Page extends AbstractFrameReflower
         }
 
         if (is_array($this->_callbacks) && isset($this->_callbacks[$event])) {
-            $info = array(
+            $info = [
                 0 => $this->_canvas, "canvas" => $this->_canvas,
                 1 => $frame,         "frame"  => $frame,
-            );
+            ];
             $fs = $this->_callbacks[$event];
             foreach ($fs as $f) {
                 if (is_callable($f)) {

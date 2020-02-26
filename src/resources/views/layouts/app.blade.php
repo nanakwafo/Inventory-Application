@@ -24,7 +24,7 @@
     @if($routeName == 'manageorder')
 
         <link rel="stylesheet" href="css/x.css">
-        @endif
+    @endif
 </head>
 <body>
 <div id="wrapper">

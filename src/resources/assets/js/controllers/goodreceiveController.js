@@ -10,15 +10,16 @@
 $(document).ready(function() {
     var currentItem = 0;
     var product=null;
+
     $(document).on('change','#supplier_id',function(e) {
         var supplier_id=$(this).val();
 
         $.ajax({
             type:"GET",
-            url:"/supplierproductselectbox'/"+supplier_id,
+            url:"/supplierproductselectbox/"+supplier_id,
             success: function(data) {
                 product=data;
-                // alert(product);
+                //alert(product);
 
             }
         });
@@ -29,7 +30,7 @@ $(document).ready(function() {
         $('#number_of_items').val(currentItem);
 
         var strToAdd='<tr class="item">' +
-            '<td><div class="form-group"><select name="product[]" class="form-control" onchange="getquantity(this);"  >'+product+'</select> </div></td>' +
+            '<td><div class="form-group"><select name="product[]" class="form-control getuantity">'+product+'</select> </div></td>' +
             '<td><div class="form-group"><input name="quantity[]" class="form-control" type="number" /> </div> </td> ' +
             '<td><div class="form-group"> <input name="description[]" class="form-control"  type="text" /> </div> </td> ' +
             '<td><div class="form-group"> <input name="unit[]" class="form-control"  type="text" /> </div> </td>' +
@@ -43,7 +44,9 @@ $(document).ready(function() {
         $(this).closest('tr').remove();
     })
 
-
+    $(document).on('change','.getuantity',function(e) {
+        getquantity(this);
+    });
 
 })
 

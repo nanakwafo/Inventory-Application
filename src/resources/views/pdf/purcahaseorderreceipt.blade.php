@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Example 2</title>
+    <title>Purchase Order</title>
     <style>
         @font-face {
             font-family: SourceSansPro;
@@ -225,13 +225,7 @@
 </header>
 <main>
     <div id="details" class="clearfix">
-        {{--<div id="client">--}}
-            {{--<div class="to">RECEIPT TO:</div>--}}
-            {{--<h2 class="name">{{\App\Customer::find($invoicedate->customer)->name}}</h2>--}}
-            {{--<div class="address">{{\App\Customer::find($invoicedate->customer)->address}}</div>--}}
-            {{--<div class="email">{{\App\Customer::find($invoicedate->customer)->email}}</div>--}}
-            {{--<div class="email">{{\App\Customer::find($invoicedate->customer)->phonenumber}}</div>--}}
-        {{--</div>--}}
+
         <div id="invoice">
             <div class="date">VENDOR: {{\App\Supplier::find($vendor->supplier_id)->name}}</div>
             <div class="date">RECEIPT: {{$purchaseordernumber}}</div>
@@ -287,10 +281,7 @@
         </tfoot>
     </table>
     <div id="thanks">Thank you!</div>
-    {{--<div id="notices">--}}
-    {{--<div>NOTICE:</div>--}}
-    {{--<div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>--}}
-    {{--</div>--}}
+
 </main>
 <footer>
     Invoice was created on a computer and is valid without the signature and seal.

@@ -52,7 +52,7 @@ class LenientParsingTest extends \PHPUnit_Framework_TestCase {
 		$sFile = dirname(__FILE__) . '/../../../files' . DIRECTORY_SEPARATOR . "-end-token-2.css";
 		$oParser = new Parser(file_get_contents($sFile), Settings::create()->withLenientParsing(true));
 		$oResult = $oParser->parse();
-		$this->assertSame('#home .bg-layouts {background-image: url("/bundles/main/img/bg1.png?5");}', $oResult->render());
+		$this->assertSame('#home .bg-layout {background-image: url("/bundles/main/img/bg1.png?5");}', $oResult->render());
 	}
 
 	public function testLocaleTrap() {

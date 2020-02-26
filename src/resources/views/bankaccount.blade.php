@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','goodissue')
+@section('title','bankaccount')
 @section('content')
     <div class="content-main">
 
@@ -137,13 +137,8 @@
                 </div><!-- /.modal-dialog -->
             </div>
         </div>
-        <!---->
 
-
-        <!---->
-        @include('partials.footer')
     </div>
     @endsection
 
-            <!--
 

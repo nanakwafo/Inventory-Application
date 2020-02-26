@@ -39,7 +39,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('productselectbox',['as'=>'productselectbox','uses'=>'purchaseController@productselectbox']);
     Route::get('productpurchaseorder',['as'=>'productpurchaseorder','uses'=>'purchaseController@productpurchaseorder']);
     Route::get('storeselectbox',['as'=>'storeselectbox','uses'=>'warehouseController@storeselectbox']);
-    Route::get('x',['as'=>'x','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
+    Route::get('warehouseitem',['as'=>'warehouseitem','uses'=>'warehouseitemController@index']);//route for warehouseitems datatable list
     Route::get('storeitems',['as'=>'storeitems','uses'=>'storeitemController@index']);
     Route::get('profile',['as'=>'profile','uses'=>'profileController@index']);
     Route::get('goodreceive',['as'=>'goodreceive','uses'=>'goodreceiveController@index']);

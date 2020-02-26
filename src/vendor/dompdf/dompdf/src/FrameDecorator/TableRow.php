@@ -12,7 +12,7 @@ use Dompdf\Frame;
 use Dompdf\FrameDecorator\Table as TableFrameDecorator;
 
 /**
- * Decorates Frames for table row layouts
+ * Decorates Frames for table row layout
  *
  * @package dompdf
  */
@@ -39,7 +39,7 @@ class TableRow extends AbstractFrameDecorator
         // Find our table parent
         $p = TableFrameDecorator::find_parent_table($this);
 
-        $erroneous_frames = array();
+        $erroneous_frames = [];
         foreach ($this->get_children() as $child) {
             $display = $child->get_style()->display;
 

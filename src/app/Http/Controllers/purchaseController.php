@@ -26,6 +26,7 @@ class purchaseController extends Controller
     }
     public function getproductrate($product_id,$store_id){
       $rate= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->pluck('rate')->first();
+  
       $totalquantity= Storeitem::where('productcode',$product_id)->where('store_issue_to',$store_id)->sum('quantity');
       $totalsold=AppHelper::quantityboughtinStore($store_id,$product_id);
       $quantityleft=$totalquantity - $totalsold;
@@ -70,13 +71,16 @@ class purchaseController extends Controller
         $datatables =  Datatables::of($purchasearrival)
 
             ->addColumn('action', function ($purchasearrival) {
-                return '
+                return
+                    '
                   <a href="#" class="editbtn" data-id="'.$purchasearrival->id.'" data-datereceived="'.$purchasearrival->datereceived.'" data-productcategory_id="'.$purchasearrival->productcategory_id.'" data-productcode="'.$purchasearrival->productcode.'" data-unit="'.$purchasearrival->unit.'" data-unitprice="'.$purchasearrival->unitprice.'" data-payamount="'.$purchasearrival->payamount.'" data-quantity="'.$purchasearrival->quantity.'" data-supplier_id="'.$purchasearrival->supplier_id.'"  data-purchaseordernumber="'.$purchasearrival->purchaseordernumber.'" data-toggle="modal" data-target="#editmodal" ><i class="fa fa-pencil fa-2x" style="color:#8080ff" aria-hidden="true"></i> </a> |
                   <a href="#" class="deletebtn" data-id="'.$purchasearrival->id.'" data-product="'.Productcode::find($purchasearrival->productcode)->name.'" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash fa-2x" style="color:#ff8080" aria-hidden="true"></i> </a>
-                  ';
+                  '
+                    ;
             })
             ->addColumn('supplier', function ($purchasearrival) {
-                return Supplier::find($purchasearrival->supplier_id)->name;
+                return
+                    Supplier::find($purchasearrival->supplier_id)->name;
 
             })
             ->addColumn('product', function ($purchasearrival) {
@@ -84,7 +88,8 @@ class purchaseController extends Controller
 
             })
             ->addColumn('productcategory', function ($purchasearrival) {
-                return Productcategory::find($purchasearrival->productcategory_id)->name;
+                return
+                    Productcategory::find($purchasearrival->productcategory_id)->name;
 
             })
         ;
@@ -92,7 +97,7 @@ class purchaseController extends Controller
 
         return $datatables->make(true);
     }
-   
+
 
     public function save(Request $request){
         //dd($request->all());
@@ -105,7 +110,7 @@ class purchaseController extends Controller
     }
     public  function update(Request $request){
 
-     
+
         $product =Purchase::find($request->idEdit);
         $product->datereceived = $request->datereceivedEdit;
         $product->productcode = $request->productcodeEdit;
