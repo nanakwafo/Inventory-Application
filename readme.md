@@ -34,7 +34,9 @@ Say what the step will be
   ` docker-compose build && docker-compose up -d`
 
 >NB.This will spin up 3 containers
->USEFUL COMMANDS :`docker-compose down`
+>USEFUL COMMANDS :
+`docker-compose down`
+docker exec -it paymentmicoservice-php /bin/sh
 ```
 
 
