@@ -31,12 +31,6 @@ To setup the Application using docker
 3. Execute this on the terminal
   ` docker-compose build && docker-compose up -d`
 
->NB.This will spin up 3 containers<br/>
->USEFUL COMMANDS :<br/>
-`docker-compose down`<br/>
-docker exec -it paymentmicoservice-php /bin/sh
-```
-
 
 ## Deployment
 
