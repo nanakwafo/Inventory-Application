@@ -30,7 +30,7 @@ To setup the Application using docker
 2. Go into the project root directory.
 3. Execute this on the terminal
   ` docker-compose build && docker-compose up -d`
-
+```
 
 ## Deployment
 
