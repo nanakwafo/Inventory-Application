@@ -59,7 +59,7 @@ Route::group(['middleware' => ['checkauth']], function () {
     Route::get('productquantityleft/{productcode}/{supplier_id}',['as'=>'productquantityleft','uses'=>'goodreceiveController@productquantityleft']);
     Route::get('productquantityleftwarehouse/{productcode}/{warehouse_from}',['as'=>'productquantityleftwarehouse','uses'=>'goodissueController@productquantityleftwarehouse']);
 
-    Route::get('allproductcategory',array('as'=>'allproductcategory','uses'=>'productcategoryController@allproductcategory'));
+    Route::get('allproductcategory',['as'=>'allproductcategory','uses'=>'productcategoryController@allproductcategory']);
     Route::get('allcustomercategory',array('as'=>'allcustomercategory','uses'=>'customercategoryController@allcustomercategory'));
     Route::get('allusers',array('as'=>'allusers','uses'=>'userController@allusers'));
     Route::get('allwarehouse',array('as'=>'allwarehouse','uses'=>'warehouseController@allwarehouse'));
