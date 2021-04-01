@@ -23,19 +23,17 @@ Install and Setup Docker
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+To setup the Application using docker
 
 ```
 1. Clone the project files in your working directory
-1. cd into the project such that you are in the root directory of the dockerfile on terminal
-1. execute this on the terminal
+2. Go into the project root directory.
+3. Execute this on the terminal
   ` docker-compose build && docker-compose up -d`
 
->NB.This will spin up 3 containers
->USEFUL COMMANDS :
-`docker-compose down`
+>NB.This will spin up 3 containers<br/>
+>USEFUL COMMANDS :<br/>
+`docker-compose down`<br/>
 docker exec -it paymentmicoservice-php /bin/sh
 ```
 
